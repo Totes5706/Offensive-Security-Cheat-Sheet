@@ -20,16 +20,16 @@ Here you will find a useful collection of commands and file resource locations u
 
 <br />
 
+**OVERVIEW**
  
-<u>OVERVIEW</u>
-
-  A network scanning tool that identifies devices, ports, services, and operating systems  
-  
-**DOWNLOAD**
-
- Pre-installed on Kali Linux      
+|   |  	 | 
+| :-----------: | :-----------: |
+| Description | 	  A network scanning tool that identifies devices, ports, services, and operating systems  | 
+| Download | Pre-installed on Kali Linux  |     
 
 **USAGE**
+
+<br />
 
 ```bash
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
@@ -52,6 +52,8 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 | Download | [nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh) |     
 
 **USAGE**
+
+<br />
 
 ```bash
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
