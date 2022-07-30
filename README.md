@@ -4,7 +4,7 @@ Here you will find a useful collection of commands and file resource locations u
 
 # General Enumeration
 
-<br /><br />
+<br />
 
 ## NMAP
 
@@ -19,13 +19,11 @@ Here you will find a useful collection of commands and file resource locations u
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```
 
-<br /><br /><br />
+<br />
 
 ## NMAP Automator
 
-
 **OVERVIEW**
-
 |   |  	 | 
 | :-----------: | :-----------: |
 | Description | 	Useful script that automates multiple enumeration scans in succession  | 
@@ -36,7 +34,7 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```bash
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 ```
-<br /><br /><br />
+<br />
 # Port Enumeration
 
 ## FTP [21]
