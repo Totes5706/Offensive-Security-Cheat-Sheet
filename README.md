@@ -15,10 +15,8 @@ Here you will find a useful collection of commands and file resource locations u
 # General Enumeration
 
 ***
-
-
   
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ## NMAP
+## NMAP
 
 <br />
 
@@ -41,7 +39,7 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 <br />
 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; ## NMAP Automator
+## NMAP Automator
 
 <br />
 
