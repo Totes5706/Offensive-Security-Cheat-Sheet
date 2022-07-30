@@ -300,7 +300,7 @@ john -w=/usr/share/wordlists/rockyou.txt {file.txt}
 
 ***
 
-## 1) Python Server
+## Python Server [1]
 
 <br />
 
@@ -316,7 +316,7 @@ sudo python3 -m http.server {PORT}
 ```
 <br />
 
-## 2) WGET 
+## WGET [2] 
 
 <br />
 
