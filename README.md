@@ -243,8 +243,8 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 # Usage - Crack a zip file {FILE.zip} and output hash into text file {FILE.txt} 
 sudo zip2john {FILE.zip} > {FILE.txt}
 
-# Usage - Crack a rar file {FILE.zip} and output hash into text file {FILE.txt} 
-sudo rar2john {FILE.zip} > {FILE.txt}
+# Usage - Crack a rar file {FILE.rar} and output hash into text file {FILE.txt} 
+sudo rar2john {FILE.rar} > {FILE.txt}
 
 # Usage - Crack a password file {FILE.txt}
 john -w=/usr/share/wordlists/rockyou.txt {FILE.txt}
