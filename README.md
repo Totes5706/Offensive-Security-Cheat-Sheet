@@ -69,20 +69,22 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 # Port Enumeration
 
-
+<br />
 ## FTP [21]
 
-
+<br />
 ## SSH [22] 
 
-
+<br />
 ## DNS [53]
 
-
+<br />
 ## FINGER [79]
 
-
+<br />
 ## Web Server [80, 443]
+
+<br />
 
 ### Gobuster
 
@@ -131,26 +133,36 @@ apache-user-enum-2.0.txt  directory-list-1.0.txt  directory-list-2.3-small.txt  
 
 ## Kerberos [88] 
 
+<br />
 
 ## POP3 [110] 
 
+<br />
 
 ## SNMP [161] 
 
+<br />
 
 ## LDAP [389]
 
+<br />
 
 ## SMB [445]
 
+<br />
 
 ## MSSQL [1433] 
 
+<br />
 
 ## NFS [2049]
 
 
+<br />
+
 ## RDP [3389]
+
+<br />
 
 ## WINRM [5985, 5986] 
 
