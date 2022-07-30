@@ -177,20 +177,11 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
-**OVERVIEW**
-
-|   |  	 | 
-| :-----------: | :-----------: |
-| Description | 	Connect to SMB  | 
-| Download | Pre-installed on Kali Linux |    
-
-<br />
-
-**USAGE**
-
-<br />
-
 ```bash
+# About: Used to connect to SMB 
+# Download: Pre-installed on Kali Linux
+
+# Usage
 # List all SMB Shares
 smbclient -L {TARGET_IP}
 
@@ -200,8 +191,6 @@ smbclient -N \\\\{TARGET_IP}\\{SHARE}
 # Authenticate with Administrator 
 smbclient -N \\\\{TARGET_IP}\\{SHARE} -u Administrator
 ```
-
-<br />
 
 <br />
 
