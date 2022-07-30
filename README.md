@@ -25,45 +25,45 @@ Syntax highlighted code block
 ```
 # Port Enumeration
 
-## [21] FTP
+## FTP [21]
 
 
-## [22] SSH
+## SSH [22] 
 
 
-## [53] DNS
+## DNS [53]
 
 
-## [79] FINGER
+## FINGER [79]
 
 
-## [80, 443] Web Server
+## Web Server [80, 443]
 
 
-## [88] Kerberos
+## Kerberos [88] 
 
 
-## [110] POP3
+## POP3 [110] 
 
 
-## [161] SNMP
+## SNMP [161] 
 
 
-## [389] LDAP
+## LDAP [389]
 
 
-## [445] SMB
+## SMB [445]
 
 
-## [1433] MSSQL
+## MSSQL [1433] 
 
 
-## [2049] NFS
+## NFS [2049]
 
 
-## [3389] RDP
+## RDP [3389]
 
-## [5985, 5986] WINRM
+## WINRM [5985, 5986] 
 
 # Reverse Shell
 
