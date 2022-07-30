@@ -2,11 +2,13 @@
 
 ***
 
+<br />
+
 Here you will find a useful collection of commands and file resource locations used in Pentesting operations. This reference is will go hand in hand with Kali Linux.
 
-***
-
 <br />
+
+***
 
 # General Enumeration
 
