@@ -95,9 +95,10 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```bash
 ftp {ip address}
 
-Download Command: get
-Upload Command: put
-Default Credentials: anonymous
+Default Credentials: `anonymous`
+Directory Command: `dir`
+Download Command: `get`
+Upload Command: `put`
 ```
 
 <br />
