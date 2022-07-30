@@ -20,7 +20,6 @@ Here you will find a useful collection of commands and file resource locations u
 
 <br />
 
-<ul>
  
 **OVERVIEW**
 
@@ -35,8 +34,6 @@ Here you will find a useful collection of commands and file resource locations u
 ```bash
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```
-  
-</ul>
 
 <br />
 
