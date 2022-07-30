@@ -46,7 +46,8 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 ```bash
 # Useful script that automates multiple enumeration scans in succession
-# Download: [nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh)
+# Download: 
+[nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh)
 
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 
