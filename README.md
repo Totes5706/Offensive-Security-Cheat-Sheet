@@ -15,12 +15,12 @@ Here you will find a useful collection of commands and file resource locations u
 # General Enumeration
 
 ***
-<ul> 
-<H2> NMAP
-</ul>
-  
+ 
+## NMAP
+
 <br />
 
+<ul>
 **OVERVIEW**
 
   A network scanning tool that identifies devices, ports, services, and operating systems  
@@ -34,6 +34,8 @@ Here you will find a useful collection of commands and file resource locations u
 ```bash
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```
+  
+</ul>
 
 <br />
 
