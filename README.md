@@ -113,20 +113,6 @@ ftp {IP ADDRESS}
 
 <br />
 
-**OVERVIEW**
- 
-|   |  	 | 
-| :-----------: | :-----------: |
-| Description | 	  Brute Forcing Web Directories| 
-| Notes | Not recursive, only digs one level deep |  
-| Download | Pre-installed on Kali Linux  |   
-
-<br />
-
-**USAGE**
-
-<br />
-
 ```bash
 # About: Used to brute force web directories
 # Download: https://github.com/OJ/gobuster/releases
