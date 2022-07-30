@@ -10,7 +10,6 @@ Here you will find a useful collection of commands and file resource locations u
 
 ***
 <br />
-<br />
 
 # General Enumeration
 
