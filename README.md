@@ -29,6 +29,7 @@ Here you will find a useful collection of commands and file resource locations u
 # Usage
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
+# Flags 
 # -p-: scans ALL ports
 # --min-rate <number>: Send packets no slower than <number> per second
 # -sC: equivalent to --script=default
@@ -46,12 +47,12 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 ```bash
 # Useful script that automates multiple enumeration scans in succession
-# Download: 
-<pre><a href="https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh">nmapAutomator.sh</a></pre>
-[nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh)
+# Download: https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh
 
+# Usage
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 
+# Flags
 # --type Network : Shows all live hosts in the host's network (~15 seconds)
 # --type	Port    : Shows all open ports (~15 seconds)
 # --type	Script  : Runs a script scan on found ports (~5 minutes)
