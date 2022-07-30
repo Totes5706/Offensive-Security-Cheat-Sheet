@@ -39,9 +39,6 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 <br />
 
-
-<br />
-
 ## NMAP Automator
 
 <br />
