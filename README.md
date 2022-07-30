@@ -122,7 +122,7 @@ put
 
 <br />
 
-### Gobuster
+### gobuster
 
 <br />
 
@@ -141,7 +141,7 @@ put
 <br />
 
 ```bash
-gobuster dir -u {IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.3-small.txt
+gobuster dir -u {IP ADDRESS} -w /usr/share/wordlists/dirb/common.txt
 ```
 
 <br />
@@ -152,15 +152,31 @@ gobuster dir -u {IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.
 <br />
 
 ```bash
-
 ┌──(kali㉿kali)-[/usr/share/wordlists/dirb]
-└─$ ls
-big.txt  catala.txt  common.txt  euskera.txt  extensions_common.txt  indexes.txt  mutations_common.txt  others  small.txt  spanish.txt  stress  vulns
+
+big.txt  
+catala.txt  
+common.txt  
+euskera.txt  
+extensions_common.txt  
+indexes.txt  
+mutations_common.txt  
+others  
+small.txt  
+spanish.txt  
+stress  
+vulns
 
 ┌──(kali㉿kali)-[/usr/share/wordlists/dirbuster]
-└─$ ls
-apache-user-enum-1.0.txt  directories.jbrofuzz    directory-list-2.3-medium.txt  directory-list-lowercase-2.3-medium.txt
-apache-user-enum-2.0.txt  directory-list-1.0.txt  directory-list-2.3-small.txt   directory-list-lowercase-2.3-small.txt
+
+apache-user-enum-1.0.txt      
+apache-user-enum-2.0.txt
+directories.jbrofuzz   
+directory-list-1.0.txt  
+directory-list-2.3-small.txt   
+directory-list-lowercase-2.3-small.txt
+directory-list-2.3-medium.txt 
+directory-list-lowercase-2.3-medium.txt
 ```
 
 <br />
@@ -203,7 +219,6 @@ apache-user-enum-2.0.txt  directory-list-1.0.txt  directory-list-2.3-small.txt  
 <br />
 
 ```bash
-
 # List all SMB Shares
 smbclient -L {TARGET_IP}
 
@@ -212,7 +227,6 @@ smbclient -N \\\\{TARGET_IP}\\{SHARE}
 
 # Authenticate with Administrator 
 smbclient -N \\\\{TARGET_IP}\\{SHARE} -u Administrator
-
 ```
 
 <br />
