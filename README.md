@@ -14,8 +14,6 @@ Here you will find a useful collection of commands and file resource locations u
 
 # General Enumeration
 
-<br />
-
 ***
 
 ## NMAP
