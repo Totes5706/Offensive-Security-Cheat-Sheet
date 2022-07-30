@@ -110,6 +110,35 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 ## WINRM [5985, 5986] 
 
+### Linux
+
+<br />
+
+**OVERVIEW**
+ 
+|   |  	 | 
+| :-----------: | :-----------: |
+| Description | 	  A tool used to hack WINRM from a linux console | 
+| Download | Pre-installed on Kali Linux  |   
+
+<br />
+
+**USAGE**
+
+<br />
+
+```bash
+evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
+```
+
+<br />
+
+
+<br />
+
+
+### Windows
+
 # Reverse Shell
 
 ## Linux
