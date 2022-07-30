@@ -24,8 +24,8 @@ Here you will find a useful collection of commands and file resource locations u
 <br />
 
 ```bash
-# A network scanning tool that identifies devices, ports, services, and operating systems 
-# Download:  Pre-installed on Kali Linux 
+# About: A network scanning tool that identifies devices, ports, services, and operating systems 
+# Download: Pre-installed on Kali Linux 
 
 # Usage
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
@@ -44,7 +44,7 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 <br />
 
 ```bash
-# Useful script that automates multiple enumeration scans in succession
+# About: Useful script that automates multiple enumeration scans in succession
 # Download: https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh
 
 # Usage
