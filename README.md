@@ -12,8 +12,9 @@ Useful script that automates multiple enumeration scans in succession.
 
 Download: [nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh)
 
+
+```shell
 USAGE:
-```markdown
 
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 
