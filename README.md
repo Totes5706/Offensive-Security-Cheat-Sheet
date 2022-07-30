@@ -34,7 +34,16 @@ Here you will find a useful collection of commands and file resource locations u
 <br />
 
 ```bash
+# A network scanning tool that identifies devices, ports, services, and operating systems 
+# Download:  Pre-installed on Kali Linux 
+
+#command to run
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
+
+-p-: scans ALL ports
+--min-rate <number>: Send packets no slower than <number> per second
+-sC: equivalent to --script=default
+-sV: Probe open ports to determine service/version info
 ```
 
 <br />
