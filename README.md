@@ -10,6 +10,8 @@ Here you will find a useful collection of commands and file resource locations u
 
 ***
 
+<br />
+
 # General Enumeration
 
 <br />
@@ -20,10 +22,11 @@ Here you will find a useful collection of commands and file resource locations u
 
 **OVERVIEW**
 
-|  | 	 | 
-| :-----------: | :-----------: |
-| Description | 	A network scanning tool that identifies devices, ports, services, and operating systems | 
-| Download | Pre-installed on Kali Linux |     
+  A network scanning tool that identifies devices, ports, services, and operating systems  
+  
+**DOWNLOAD**
+
+ Pre-installed on Kali Linux      
 
 **USAGE**
 
