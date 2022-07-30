@@ -6,6 +6,8 @@ Here you will find a useful collection of commands and file resource locations u
 
 ***
 
+<br />
+
 ## NMAP
 
 **OVERVIEW**
@@ -24,6 +26,8 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 <br />
 
 ***
+
+<br />
 
 ## NMAP Automator
 
