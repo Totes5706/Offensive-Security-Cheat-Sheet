@@ -95,10 +95,15 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```bash
 ftp {IP ADDRESS}
 
-Default Credentials: anonymous
-Directory Command:   dir
-Download Command:    get
-Upload Command:      put
+# Default Credentials
+anonymous
+
+# Directory Command   
+dir
+# Download Command    
+get
+# Upload Command      
+put
 ```
 
 <br />
@@ -179,6 +184,38 @@ apache-user-enum-2.0.txt  directory-list-1.0.txt  directory-list-2.3-small.txt  
 <br />
 
 ## SMB [445]
+
+### smbclient
+
+<br />
+
+**OVERVIEW**
+
+|   |  	 | 
+| :-----------: | :-----------: |
+| Description | 	Connect to SMB  | 
+| Download | Pre-installed on Kali Linux |    
+
+<br />
+
+**USAGE**
+
+<br />
+
+```bash
+
+# List all SMB Shares
+smbclient -L {TARGET_IP}
+
+# Authenticate with local credentials
+smbclient -N \\\\{TARGET_IP}\\{SHARE} 
+
+# Authenticate with Administrator 
+smbclient -N \\\\{TARGET_IP}\\{SHARE} -u Administrator
+
+```
+
+<br />
 
 <br />
 
