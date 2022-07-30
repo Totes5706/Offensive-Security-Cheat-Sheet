@@ -6,6 +6,17 @@ Here you will find a useful collection of commands and file resource locations u
 
 ## NMAP
 
+| # | Overview	 | 
+| :-----------: | :-----------: |
+| Description | 	A network scanning tool that identifies devices, ports, services, and operating systems | 
+| Download | Pre-installed on Kali Linux |     
+
+**USAGE**
+
+```bash
+nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
+```
+
 ## NMAP Automator
 
 
@@ -20,24 +31,6 @@ Here you will find a useful collection of commands and file resource locations u
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 ```
 
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
 # Port Enumeration
 
 ## FTP [21]
