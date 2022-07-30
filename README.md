@@ -93,12 +93,12 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 <br />
 
 ```bash
-ftp {ip address}
+ftp {IP ADDRESS}
 
-Default Credentials: `anonymous`
-Directory Command: `dir`
-Download Command: `get`
-Upload Command: `put`
+Default Credentials: anonymous
+Directory Command:   dir
+Download Command:    get
+Upload Command:      put
 ```
 
 <br />
