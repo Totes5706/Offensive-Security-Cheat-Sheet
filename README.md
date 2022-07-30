@@ -21,9 +21,9 @@ Here you will find a useful collection of commands and file resource locations u
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```
 
-***
-
 <br />
+
+***
 
 ## NMAP Automator
 
@@ -40,9 +40,10 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 ```
 
+<br />
+
 ***
 
-<br />
 # Port Enumeration
 
 
