@@ -4,6 +4,8 @@ Here you will find a useful collection of commands and file resource locations u
 
 # General Enumeration
 
+***
+
 <br />
 
 ## NMAP
@@ -24,6 +26,7 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ## NMAP Automator
 
 **OVERVIEW**
+
 |   |  	 | 
 | :-----------: | :-----------: |
 | Description | 	Useful script that automates multiple enumeration scans in succession  | 
