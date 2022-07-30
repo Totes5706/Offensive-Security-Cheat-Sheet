@@ -24,8 +24,7 @@ Here you will find a useful collection of commands and file resource locations u
  
 |   |  	 | 
 | :-----------: | :-----------: |
-| Description | 	  A network scanning tool that identifies devices, ports, services, and operating systems  | 
-| Notes | Not recursive, only digs one level deep |   
+| Description | 	  A network scanning tool that identifies devices, ports, services, and operating systems  |  
 | Download | Pre-installed on Kali Linux  |   
 
 <br />
@@ -94,6 +93,7 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 |   |  	 | 
 | :-----------: | :-----------: |
 | Description | 	  Brute Forcing Web Directories| 
+| Notes | Not recursive, only digs one level deep |  
 | Download | Pre-installed on Kali Linux  |   
 
 <br />
