@@ -169,6 +169,3 @@ john -w=/usr/share/wordlists/rockyou.txt {file.txt}
 
 <br />
 
-
-
-john -w=/usr/share/wordlists/rockyou.txt hash.txt
