@@ -309,9 +309,13 @@ john -w=/usr/share/wordlists/rockyou.txt {file.txt}
 <br />
 
 ```bash
-# Host a personal server on a specific port
+# Host a personal server on client machine
 sudo python3 -m http.server {PORT}
+
+# {PORT}: Port to open for transfer
 ```
+<br />
+
 ## 2) WGET 
 
 <br />
