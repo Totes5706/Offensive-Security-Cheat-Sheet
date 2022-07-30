@@ -14,13 +14,12 @@ Here you will find a useful collection of commands and file resource locations u
 | Description | 	Useful script that automates multiple enumeration scans in succession  | 
 | Download | [nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh) |     
 
+**USAGE**
 
-```BASH
-USAGE
-
+```bash
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 ```
-|
+
 
 ```markdown
 Syntax highlighted code block
