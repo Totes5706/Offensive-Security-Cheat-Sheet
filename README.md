@@ -66,6 +66,8 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 # Port Enumeration
 
+***
+
 <br />
 
 ## FTP [21]
@@ -76,31 +78,17 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 <br />
 
-**OVERVIEW**
-
-|   |  	 | 
-| :-----------: | :-----------: |
-| Description | 	Connect to FTP server  | 
-| Download | Pre-installed on Kali Linux |    
-
-<br />
-
-**USAGE**
-
-<br />
-
 ```bash
+# 	Connect to FTP server
+# Download: Pre-installed on Kali Linux
+
+# Usage
 ftp {IP ADDRESS}
 
-# Default Credentials
-anonymous
-
-# Directory Command   
-dir
-# Download Command    
-get
-# Upload Command      
-put
+# Default Credentials: anonymous
+# Directory Command:   dir
+# Download Command:    get
+# Upload Command:      put
 ```
 
 <br />
