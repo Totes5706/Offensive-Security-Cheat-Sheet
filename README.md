@@ -298,7 +298,7 @@ john -w=/usr/share/wordlists/rockyou.txt {file.txt}
 
 # Payload File Transfer
 
-...
+***
 
 ## 1) Python Server
 
