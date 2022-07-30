@@ -237,7 +237,7 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 <br />
 
 ```bash
-# About: A tool used to crack passwords and hashes 
+# About: A tool used to crack passwords, hashes, and zip files 
 # Download: Pre-installed on Kali Linux
 
 # Usage - Crack a zip file {FILE.zip} and output hash into text file {FILE.txt} 
