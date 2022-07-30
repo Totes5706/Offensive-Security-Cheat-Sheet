@@ -15,6 +15,8 @@ Here you will find a useful collection of commands and file resource locations u
 # General Enumeration
 
 ***
+
+<br />
  
 ## NMAP
 
@@ -27,10 +29,10 @@ Here you will find a useful collection of commands and file resource locations u
 # Usage
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
--p-: scans ALL ports
---min-rate <number>: Send packets no slower than <number> per second
--sC: equivalent to --script=default
--sV: Probe open ports to determine service/version info
+# -p-: scans ALL ports
+# --min-rate <number>: Send packets no slower than <number> per second
+# -sC: equivalent to --script=default
+# -sV: Probe open ports to determine service/version info
 ```
 
 <br />
@@ -48,14 +50,14 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 
---type Network : Shows all live hosts in the host's network (~15 seconds)
---type	Port    : Shows all open ports (~15 seconds)
---type	Script  : Runs a script scan on found ports (~5 minutes)
---type	Full    : Runs a full range port scan, then runs a thorough scan on new ports (~5-10 minutes)
---type	UDP     : Runs a UDP scan "requires sudo" (~5 minutes)
---type	Vulns   : Runs CVE scan and nmap Vulns scan on all found ports (~5-15 minutes)
---type	Recon   : Suggests recon commands, then prompts to automatically run them
---type	All     : Runs all the scans (~20-30 minutes)
+# --type Network : Shows all live hosts in the host's network (~15 seconds)
+# --type	Port    : Shows all open ports (~15 seconds)
+# --type	Script  : Runs a script scan on found ports (~5 minutes)
+# --type	Full    : Runs a full range port scan, then runs a thorough scan on new ports (~5-10 minutes)
+# --type	UDP     : Runs a UDP scan "requires sudo" (~5 minutes)
+# --type	Vulns   : Runs CVE scan and nmap Vulns scan on all found ports (~5-15 minutes)
+# --type	Recon   : Suggests recon commands, then prompts to automatically run them
+# --type	All     : Runs all the scans (~20-30 minutes)
 ```
 
 <br />
