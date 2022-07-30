@@ -25,7 +25,9 @@ Here you will find a useful collection of commands and file resource locations u
 |   |  	 | 
 | :-----------: | :-----------: |
 | Description | 	  A network scanning tool that identifies devices, ports, services, and operating systems  | 
-| Download | Pre-installed on Kali Linux  |     
+| Download | Pre-installed on Kali Linux  |   
+
+<br />
 
 **USAGE**
 
@@ -49,7 +51,9 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 |   |  	 | 
 | :-----------: | :-----------: |
 | Description | 	Useful script that automates multiple enumeration scans in succession  | 
-| Download | [nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh) |     
+| Download | [nmapAutomator.sh](https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh) |    
+
+<br />
 
 **USAGE**
 
