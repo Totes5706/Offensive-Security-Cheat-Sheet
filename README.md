@@ -110,8 +110,6 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
 ## WINRM [5985, 5986] 
 
-### Linux
-
 <br />
 
 **OVERVIEW**
@@ -134,11 +132,6 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 <br />
 
 
-<br />
-
-
-### Windows
-
 # Reverse Shell
 
 ## Linux
@@ -152,3 +145,30 @@ evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 ## Windows
 
 # Password Cracking
+
+## John The Ripper
+
+<br />
+
+**OVERVIEW**
+ 
+|   |  	 | 
+| :-----------: | :-----------: |
+| Description | 	  Password/hash cracking tool | 
+| Download | Pre-installed on Kali Linux  |   
+
+<br />
+
+**USAGE**
+
+<br />
+
+```bash
+john -w=/usr/share/wordlists/rockyou.txt {file.txt}
+```
+
+<br />
+
+
+
+john -w=/usr/share/wordlists/rockyou.txt hash.txt
