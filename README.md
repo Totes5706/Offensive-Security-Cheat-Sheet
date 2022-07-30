@@ -1,10 +1,10 @@
-# Offensive Security Cheat Sheet
+# Offensive Security Reference
 
 Here you will find a useful collection of commands and file resource locations used in Pentesting operations. This reference is will go hand in hand with Kali Linux.
 
-## General Enumeration
+# General Enumeration
 
-### NMAP
+## NMAP
 
 ```markdown
 Syntax highlighted code block
@@ -23,58 +23,58 @@ Syntax highlighted code block
 
 [Link](url) and ![Image](src)
 ```
-## Port Enumeration
+# Port Enumeration
 
-### [21] FTP
-
-
-### [22] SSH
+## [21] FTP
 
 
-### [53] DNS
+## [22] SSH
 
 
-### [79] FINGER
+## [53] DNS
 
 
-### [80, 443] Web Server
+## [79] FINGER
 
 
-### [88] Kerberos
+## [80, 443] Web Server
 
 
-### [110] POP3
+## [88] Kerberos
 
 
-### [161] SNMP
+## [110] POP3
 
 
-### [389] LDAP
+## [161] SNMP
 
 
-### [445] SMB
+## [389] LDAP
 
 
-### [1433] MSSQL
+## [445] SMB
 
 
-### [2049] NFS
+## [1433] MSSQL
 
 
-### [3389] RDP
+## [2049] NFS
 
-### [5985, 5986] WINRM
 
-## Reverse Shell
+## [3389] RDP
 
-### Linux
+## [5985, 5986] WINRM
 
-### Windows
+# Reverse Shell
 
-## Privilege Escalation
+## Linux
 
-### Linux
+## Windows
 
-### Windows
+# Privilege Escalation
 
-## Password Cracking
+## Linux
+
+## Windows
+
+# Password Cracking
