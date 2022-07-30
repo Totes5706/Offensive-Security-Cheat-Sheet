@@ -80,12 +80,13 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 <br />
 
 ```bash
-# 	Connect to FTP server
+# About: Connect to FTP server
 # Download: Pre-installed on Kali Linux
 
 # Usage
 ftp {IP ADDRESS}
 
+# Additional Information
 # Default Credentials: anonymous
 # Directory Command:   dir
 # Download Command:    get
@@ -127,17 +128,16 @@ ftp {IP ADDRESS}
 <br />
 
 ```bash
+# About: Used to brute force web directories
+# Download: https://github.com/OJ/gobuster/releases
+
+# Usage
 gobuster dir -u {IP ADDRESS} -w /usr/share/wordlists/dirb/common.txt
-```
 
-<br />
+# Notes: Not recursive, only digs one level deep
 
-**ALTERNATIVE WORD LISTS**
+# Alternative word lists & locations
 
-
-<br />
-
-```bash
 ┌──(kali㉿kali)-[/usr/share/wordlists/dirb]
 
 big.txt  
