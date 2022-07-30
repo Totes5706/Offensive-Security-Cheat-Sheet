@@ -8,8 +8,6 @@ Here you will find a useful collection of commands and file resource locations u
 
 ## NMAP
 
-***
-
 **OVERVIEW**
 
 |  | 	 | 
@@ -28,8 +26,6 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 <br />
 ## NMAP Automator
 
-***
-
 **OVERVIEW**
 
 |   |  	 | 
@@ -42,12 +38,12 @@ nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 ```bash
 ./nmapAutomator.sh --host {IP ADDRESS} --type All
 ```
+
 ***
 
 <br />
 # Port Enumeration
 
-***
 
 ## FTP [21]
 
