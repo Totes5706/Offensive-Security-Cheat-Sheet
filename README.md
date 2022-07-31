@@ -330,12 +330,16 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 # Privilege Escalation
 
+[https://gtfobins.github.io/](https://gtfobins.github.io/)
+
 ## Linux
 
 ## Windows
 
 
 # Reverse Shell
+
+[https://www.revshells.com/](https://www.revshells.com/)
 
 ## Linux
 
