@@ -32,11 +32,15 @@ This is intended to be viewed in the blog found here: [Offensive Security Cheat 
 # Usage
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
+# UDP Scan
+sudo nmap -sU  {IP ADDRESS}
+
 # Flags 
 # -p-: scans ALL ports
 # --min-rate <number>: Send packets no slower than <number> per second
 # -sC: equivalent to --script=default
 # -sV: Probe open ports to determine service/version info
+# -sU: UDP port scan
 ```
 
 <br />
@@ -102,6 +106,21 @@ ftp {IP ADDRESS}
 
 <br />
 ## DNS [53]
+
+<br />
+## TFTP [69]
+
+```bash
+# About: Connect to TFTP server
+# Download: Pre-installed on Kali Linux
+
+# Usage
+tftp {IP ADDRESS}
+
+# Additional Information
+# Only detectable via UDP scan
+# No authentication required
+```
 
 <br />
 ## FINGER [79]
