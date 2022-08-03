@@ -186,7 +186,7 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
-### XXE - XML External Entity
+### XXE - XML
 
 <br />
 
