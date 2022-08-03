@@ -341,6 +341,25 @@ dummy, crypt
 
 <br />
 
+## Flyff
+
+<br />
+
+```bash
+# About: A tool used to brute force web credentials
+# Download: Pre-installed on Kali Linux
+
+# Usage - One variable FUZZ
+ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords/probable-v2-top1575.txt -fr "{FILTER}"
+
+
+# EXAMPLE {FILE}
+username=admin$password=FUZZ
+
+```
+
+<br />
+
 # Payload File Transfer
 
 ***
