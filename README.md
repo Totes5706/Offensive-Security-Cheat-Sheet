@@ -102,13 +102,23 @@ ftp {IP ADDRESS}
 <br />
 
 <br />
+
 ## SSH [22] 
 
 <br />
+
 ## DNS [53]
 
 <br />
+
 ## TFTP [69]
+
+<br />
+
+### tftp
+
+
+<br />
 
 ```bash
 # About: Connect to TFTP server
@@ -123,9 +133,11 @@ tftp {IP ADDRESS}
 ```
 
 <br />
+
 ## FINGER [79]
 
 <br />
+
 ## Web Server [80, 443]
 
 <br />
