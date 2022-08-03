@@ -397,7 +397,23 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 # Privilege Escalation
 
-[https://gtfobins.github.io/](https://gtfobins.github.io/)
+<br />
+
+## Windows - Winpeas
+
+<br />
+
+[Winpeas](https://github.com/carlospolop/PEASS-ng/releases)
+
+<br />
+
+## Linux - Linpeas
+
+<br />
+
+[Linpeas](https://github.com/carlospolop/PEASS-ng/releases)
+
+[GTFOBINS](https://gtfobins.github.io/)
 
 <br />
 
