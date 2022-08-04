@@ -414,6 +414,13 @@ Get-WmiObject -Class Win32_UserAccount
 Get-LocalUser | ft Name,Enabled,LastLogon
 Get-ChildItem C:\Users -Force | select Name
 Get-LocalGroupMember Administrators | ft Name, PrincipalSource
+
+# List All Users in a Domain
+Import-Module ActiveDirectory; Get-ADUser -Identity <username> - properties *
+
+# List All Users in a Group
+▪ Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | select Administrator
+
 ```
 <br />
 
@@ -435,6 +442,15 @@ sudo -l
 
  #Find all SUID binaries
 find / -perm -4000 2>/dev/null
+
+# List All Users on a System
+cat /etc/passwd
+
+# List All Users on a System
+awk –F’:‘ ’{ print $1}’ /etc/passwd
+
+# List All Logged in Users
+who | awk ‘{print $1}’ | sort | uniq | tr ‘\n’ ‘ ’
 
 # Web files
 ls -alhR /var/www/ 2>/dev/null
