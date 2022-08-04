@@ -81,7 +81,7 @@ sudo nmap -sU  {IP ADDRESS}
 
 <br />
 
-### ftp
+**ftp**
 
 <br />
 
@@ -115,7 +115,7 @@ ftp {IP ADDRESS}
 
 <br />
 
-### tftp
+**tftp**
 
 
 <br />
@@ -142,7 +142,7 @@ tftp {IP ADDRESS}
 
 <br />
 
-### gobuster
+**gobuster**
 
 <br />
 
@@ -186,7 +186,7 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
-### XXE - XML
+**XXE - XML**
 
 <br />
 
@@ -223,7 +223,7 @@ directory-list-lowercase-2.3-medium.txt
 
 ## SMB [445]
 
-### smbclient
+**smbclient**
 
 <br />
 
@@ -341,7 +341,7 @@ dummy, crypt
 
 <br />
 
-## Flyff
+## Ffuf
 
 <br />
 
