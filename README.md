@@ -446,7 +446,7 @@ find / -perm -4000 2>/dev/null
 # List All Users on a System
 cat /etc/passwd
 
-# List All Users on a System
+# List All Users on a System (cleaner, only users)
 awk –F’:‘ ’{ print $1}’ /etc/passwd
 
 # List All Logged in Users
