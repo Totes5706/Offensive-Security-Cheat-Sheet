@@ -239,7 +239,7 @@ smbclient -L {TARGET_IP}
 smbclient -N \\\\{TARGET_IP}\\{SHARE} 
 
 # Authenticate with Administrator 
-smbclient -N \\\\{TARGET_IP}\\{SHARE} -u Administrator
+smbclient -N \\\\{TARGET_IP}\\{SHARE} -U Administrator
 ```
 
 <br />
