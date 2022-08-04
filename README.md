@@ -335,6 +335,7 @@ dummy, crypt
 <br />
 
 ```bash
+# FFUF
 # About: A tool used to brute force web credentials
 # Download: Pre-installed on Kali Linux
 
@@ -358,6 +359,7 @@ username=admin$password=FUZZ
 <br />
 
 ```bash
+# Python Server
 # About: A python command used to open a server on the client machine
 # Download: Pre-installed on Kali Linux
 
@@ -373,6 +375,7 @@ sudo python3 -m http.server {PORT}
 <br />
 
 ```bash
+# WGET
 # About: A command used to download files on the current machine
 # Download: Pre-installed on Kali Linux
 
@@ -397,7 +400,7 @@ wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 <br />
 
 ```bash
-# Enumeration
+# Windows Enumeration Commands
 
 # CMD
 net users %username% #Me
@@ -425,6 +428,7 @@ Get-LocalGroupMember Administrators | ft Name, PrincipalSource
 <br />
 
 ```bash
+# Linux Enumeration Commands
 
 #Check commands you can execute with sudo
 sudo -l 
