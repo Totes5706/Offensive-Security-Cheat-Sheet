@@ -26,6 +26,7 @@ This is intended to be viewed in the blog found here: [Offensive Security Cheat 
 <br />
 
 ```bash
+# NMAP
 # About: A network scanning tool that identifies devices, ports, services, and operating systems 
 # Download: Pre-installed on Kali Linux 
 
@@ -50,6 +51,7 @@ sudo nmap -sU  {IP ADDRESS}
 <br />
 
 ```bash
+# NMAP Automator
 # About: Useful script that automates multiple enumeration scans in succession
 # Download: https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh
 
@@ -79,13 +81,11 @@ sudo nmap -sU  {IP ADDRESS}
 
 ## FTP [21]
 
-<br />
-
-**ftp**
 
 <br />
 
 ```bash
+# FTP
 # About: Connect to FTP server
 # Download: Pre-installed on Kali Linux
 
@@ -115,12 +115,8 @@ ftp {IP ADDRESS}
 
 <br />
 
-**tftp**
-
-
-<br />
-
 ```bash
+# TFTP
 # About: Connect to TFTP server
 # Download: Pre-installed on Kali Linux
 
@@ -142,11 +138,8 @@ tftp {IP ADDRESS}
 
 <br />
 
-**gobuster**
-
-<br />
-
 ```bash
+# Gobuster
 # About: Used to brute force web directories
 # Download: https://github.com/OJ/gobuster/releases
 
@@ -186,11 +179,9 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
-**XXE - XML**
-
-<br />
 
 ```bash
+# XXE - External XML Entity
 # About: Try against weak XML parsers
 
 
@@ -223,11 +214,8 @@ directory-list-lowercase-2.3-medium.txt
 
 ## SMB [445]
 
-**smbclient**
-
-<br />
-
 ```bash
+# SMBCLIENT
 # About: Used to connect to SMB 
 # Download: Pre-installed on Kali Linux
 
@@ -262,6 +250,7 @@ smbclient -N \\\\{TARGET_IP}\\{SHARE} -U Administrator
 <br />
 
 ```bash
+# EVIL WINRM
 # About: A tool used to hack WINRM from a linux console
 # Download: Pre-installed on Kali Linux
 
