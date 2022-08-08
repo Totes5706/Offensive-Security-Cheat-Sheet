@@ -287,6 +287,7 @@ sudo rar2john {FILE.rar} > {FILE.txt}
 john -w=/usr/share/wordlists/rockyou.txt {FILE.txt}
 
 # --format={HASH}: Specifiy a hash type to crack (see below)
+john --format=Raw-MD5 {FILE.txt}
 
 :' 
 descrypt, bsdicrypt, md5crypt, md5crypt-long, bcrypt, scrypt, LM, AFS, 
