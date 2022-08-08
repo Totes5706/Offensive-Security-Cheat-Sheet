@@ -466,6 +466,31 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 ```
 <br />
 
+# Impacket Tools
+
+
+## lookupsid.py
+
+<br />
+
+```bash
+# About: Given a valid Windows username and password, find other users on the system
+# Download: Pre-installed on Kali Linux
+
+# Usage
+/usr/share/doc/python3-impacket/examples/lookupsid.py {USERNAME}:{PASSWORD}@{IP ADDRESS}
+
+# {USERNAME}: Valid Windows username
+# {PASSWORD}: Valid Windows password
+# {IP ADDRESS}: Server IP address
+
+
+
+
+```
+
+<br />
+
 # Reverse Shell
 
 ## NC Listen - Client [STEP 1]
