@@ -238,6 +238,36 @@ crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt}
 # {PASSWORD.txt}: Password list to be brute forced
 ```
 
+### Impacket SMB
+
+<br />
+
+```bash
+# smbclient. py : There are moments where we needed to perform multiple actions between the attacker machine and the target machine. It can be listing shares and files, renaming some file, uploading the binaries or downloading files from the target machine. There are some situations where we even need to create a folder or two on the target machine. Performing such actions can get tricky while working with a shell that can be detected or can close at any time. The smbclient.py script helps us in these situations. It can connect to the Target Machine with the help of a bunch of attributes.
+
+# lookupsid.py : A Security Identifier (SID) is a unique value of variable length that is used to identify a user account. Through a SID User Enumeration, we can extract the information about what users exist and their data. Lookupsid script can enumerate both local and domain users. There is a Metasploit module too for this attack. If you are planning on injecting a target server with a golden or a silver ticket then one of the things that are required is the SID of the 500 user. Lookupsid.py can be used in that scenario. 
+
+# reg.py : This Impacket script is ripped straight out of the reg.exe of the Windows OS. Reg.exe is an executable service that can read, modify and delete registry values when used with eh combination of the query, add, delete keywords respectively. We can even begin to express the importance of access to the registry. Registry controls each and every aspect of the system. It can be used to gain information about the various policies, software and also alter some of those policies.
+
+# rpcdump.py : RPC or Remote Procedure Call is when a computer program causes a procedure to execute in different address space which is coded as a normal procedure call. This script can enumerate those endpoints for us. It also matches them to some of the well-known endpoints in order to identify them.
+
+# samrdump.py : Samrdump is an application that retrieves sensitive information about the specified target machine using the Security Account Manager (SAM). It is a remote interface that is accessible under the Distributed Computing Environment / Remote Procedure Calls (DCE/RPC) service. It lists out all the system shares, user accounts, and other useful information about the target’s presence in the local network. The image clearly shows us all the user accounts that are held by the remote machine. Inspecting all the available shares for sensitive data and accessing other user accounts can further reveal valuable information.
+
+# services.py : The services script of the Impacket communicates with Windows services with the help of MSRPC Interface. It can start, stop, delete, read status, config, list, create and change any service. While working on Red Teaming assignments there were so many tasks that could have been simplified if only, we have access to the services of the Target machine. This makes it all a simple task.
+
+# ifmap.py : Ifmap scripts initially bind to the MGMT interface of the Target machine. Then it fetches a list of interface IDs. Then it adds those IDs to another large list of UUIDs it already has in its database. Then it tries to bind each of the interfaces and reports the status of the interface. The status can be listed or listening. Its ability to gather information is unmatched. There is a Metasploit Module that works quite similar to this script is “auxiliary/scanner/dcerpc/endpoint_mapper” The list of UUIDs (Universal Unique Identifier) which are running endpoint-mapper mapped to the unique services. After getting these services, an attacker can search on the internet to find if any of these services are vulnerable to Overflow over RPC.
+
+# getArch.py : All PDUs (Protocol Data Unit) encoded with the NDR64 transfer syntax must use a value of 0x10 for the data representation format label. This value is used only in the transfers of the x64 bit systems. This scripts when provided with a target tried to communicate with the target system and collects the value of the data representation format label. Then it matches it to the NDR64 syntax stored in its code. Then it can provide the information to the attacker if the Operating System is a 64 bit or 32-bit system. We can also provide a list of targets and it can work simultaneously on all the targets.
+
+# netview.py : It is an enumeration tool. It requires the domain name to enumerate hosts. It can also be provided with a list of hosts or targets
+
+# Usage
+/usr/share/doc/python3-impacket/examples/{IMPACKET.py} {USERNAME}:{PASSWORD}@{IP ADDRESS}
+
+# {USERNAME}: Valid Windows username
+# {PASSWORD}: Valid Windows password
+# {IP ADDRESS}: Server IP address
+```
 <br />
 
 ## MSSQL [1433] 
@@ -481,25 +511,6 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 # Impacket Tools
 
 
-## lookupsid.py
-
-<br />
-
-```bash
-# About: Given a valid Windows username and password, find other users on the system
-# Download: Pre-installed on Kali Linux
-
-# Usage
-/usr/share/doc/python3-impacket/examples/lookupsid.py {USERNAME}:{PASSWORD}@{IP ADDRESS}
-
-# {USERNAME}: Valid Windows username
-# {PASSWORD}: Valid Windows password
-# {IP ADDRESS}: Server IP address
-
-
-
-
-```
 
 <br />
 
