@@ -238,7 +238,7 @@ crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt}
 # {PASSWORD.txt}: Password list to be brute forced
 ```
 
-### Impacket SMB
+#### Impacket SMB
 
 <br />
 
