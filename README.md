@@ -221,13 +221,21 @@ directory-list-lowercase-2.3-medium.txt
 
 # Usage
 # List all SMB Shares
-smbclient -L {TARGET_IP}
+smbclient -L {IP ADDRESS}
 
 # Authenticate with local credentials
-smbclient -N \\\\{TARGET_IP}\\{SHARE} 
+smbclient -N \\\\{IP ADDRESS}\\{SHARE} 
 
 # Authenticate with Administrator 
-smbclient -N \\\\{TARGET_IP}\\{SHARE} -U Administrator
+smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
+
+# Brute force SMB user and password list
+crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt}
+
+# {IP ADDRESS}:   IP Address of the Server
+# {SHARE}:        Share name to connect
+# {USER.txt}:     User list to be brute forced
+# {PASSWORD.txt}: Password list to be brute forced
 ```
 
 <br />
