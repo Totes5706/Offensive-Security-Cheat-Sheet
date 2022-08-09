@@ -257,10 +257,14 @@ smbclient -N \\\\{TARGET_IP}\\{SHARE} -U Administrator
 # Usage
 evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 
+# Upload a File from client => server in current directory
+upload {FILE.exe}
+
 # Note: Requires credentials
 # {IP ADDRESS}: IP Address of the Server
 # {USERNAME}:   User Authentication
 # {PASSWORD}:   Password Authentication
+# {FILE.exe}:   File to be uploaded from client machine
 ```
 
 <br />
