@@ -233,7 +233,7 @@ smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares
 
 # Mount SMB Drive
-sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/user/
+sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
 
 # {IP ADDRESS}:   IP Address of the Server
 # {SHARE}:        Share name to connect
