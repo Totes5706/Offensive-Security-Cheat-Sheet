@@ -237,6 +237,12 @@ sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
 sudo mount -t cifs -o 'username={USERNAME},password={PASSWORD}' //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
 sudo umount {SHARE}
 
+# Get all files
+mask ""
+recurse ON
+prompt OFF
+mget *
+
 
 # {IP ADDRESS}:   IP Address of the Server
 # {SHARE}:        Share name to connect
