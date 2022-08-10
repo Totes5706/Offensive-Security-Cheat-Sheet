@@ -235,6 +235,8 @@ crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --contin
 # Mount SMB Drive
 sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
 sudo mount -t cifs -o 'username={USERNAME},password={PASSWORD}' //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
+sudo umount {SHARE}
+
 
 # {IP ADDRESS}:   IP Address of the Server
 # {SHARE}:        Share name to connect
