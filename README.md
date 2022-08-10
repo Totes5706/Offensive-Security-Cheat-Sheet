@@ -230,7 +230,7 @@ smbclient -N \\\\{IP ADDRESS}\\{SHARE}
 smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
 
 # Brute force SMB user and password list
-crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares
+crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
 
 # Mount SMB Drive
 sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
