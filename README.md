@@ -147,7 +147,7 @@ tftp {IP ADDRESS}
 sudo gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://{IP ADDRESS}
 
 # Search File Extensions
-sudo gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://{IP ADDRESS} -x php,html,htm,sh
+sudo gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://{IP ADDRESS} -x php,cgi,pl,sh
 
 # Notes: Not recursive, only digs one level deep
 
