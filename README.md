@@ -631,7 +631,8 @@ python3 -c 'import pty;pty.spawn("/bin/bash")'
 python -c 'import pty;pty.spawn("/bin/bash")'
 
 # Additional Functionality
-CTRL&Z
-stty raw -echo; fg;
-export TERM=xterm
+CTRL + Z
+stty raw -echo; fg
+enter
+export TERM=xterm-256color
 ```
