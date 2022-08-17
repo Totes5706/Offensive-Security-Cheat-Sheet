@@ -503,8 +503,17 @@ Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | selec
 #Check commands you can execute with sudo
 sudo -l 
 
+#Check Group id
+id
+
+#Check folder permissions
+ls -la
+
  #Find all SUID binaries
 find / -perm -4000 2>/dev/null
+find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
+find / -user root -perm -4000 -print 2>/dev/null
+find / -perm -u=s -type f 2>/dev/null
 
 # List All Users on a System
 cat /etc/passwd
