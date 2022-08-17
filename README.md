@@ -147,10 +147,10 @@ tftp {IP ADDRESS}
 # Download: https://github.com/OJ/gobuster/releases
 
 # Usage
-sudo gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://{IP ADDRESS}
+gobuster dir -u http://{IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
 
 # Search File Extensions
-sudo gobuster dir -w /usr/share/wordlists/dirb/big.txt -u http://{IP ADDRESS} -x php,cgi,pl,sh
+gobuster dir -u http://{IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,cgi,pl,sh
 
 # Notes: Not recursive, only digs one level deep
 
