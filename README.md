@@ -30,6 +30,9 @@ This is intended to be viewed in the blog found here: [Offensive Security Cheat 
 # About: A network scanning tool that identifies devices, ports, services, and operating systems 
 # Download: Pre-installed on Kali Linux 
 
+# Fast scan of top 100 ports
+nmap -F {IP ADDRESS}
+
 # Usage
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
