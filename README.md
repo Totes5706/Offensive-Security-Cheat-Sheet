@@ -210,6 +210,28 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
+```bash
+# telnet
+# About: Used to connect to POP email
+# Download: Pre-installed on Kali Linux
+
+# Usage
+telnet {IP ADDRESS} 110
+
+# Input User
+USER {Mail Username}
+
+# Input Password
+PASS {Mail Password}
+
+# List Emails
+LIST
+
+# Show email by list number
+RETR {List #}
+
+```
+
 ## SNMP [161] 
 
 <br />
