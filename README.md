@@ -114,6 +114,17 @@ ftp {IP ADDRESS}
 
 <br />
 
+```bash
+# axfr
+# About: DNS zone transfer
+# Download: Pre-installed on Kali Linux
+
+# DNS Zone Transfer using dig
+dig axfr @{IP ADDRESS} {Domain Name}
+
+
+```
+
 ## TFTP [69]
 
 <br />
