@@ -110,6 +110,22 @@ ftp {IP ADDRESS}
 
 <br />
 
+```bash
+# ssh
+# About: terminal remote login
+# Download: Pre-installed on Kali Linux
+
+# Usage
+ssh {USER}@{IP ADDRESS}
+
+# With Private Key
+ssh {USER}@{IP ADDRESS} -i {PKEY.ssh}
+
+# Crackmap brute force
+crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
+
+```
+
 ## DNS [53]
 
 <br />
