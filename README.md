@@ -121,6 +121,9 @@ ssh {USER}@{IP ADDRESS}
 # With Private Key
 ssh {USER}@{IP ADDRESS} -i {PKEY.ssh}
 
+# Remote file copy
+scp {USER}@{IP ADDRESS}:{FILE.ext} .
+
 # Crackmap brute force
 crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 
