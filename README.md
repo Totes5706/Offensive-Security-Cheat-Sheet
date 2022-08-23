@@ -564,7 +564,13 @@ id
 #Check folder permissions
 ls -la
 
- #Find all SUID binaries
+#Search write-able services
+ls -la $(find . -type s -writable 2>/dev/null) 
+
+#Search write-able files
+ls -la $(find . -type f -writable 2>/dev/null) 
+
+#Find all SUID binaries
 find / -perm -4000 2>/dev/null
 find / -user root -perm -4000 -exec ls -ldb {} \; 2>/dev/null
 find / -user root -perm -4000 -print 2>/dev/null
