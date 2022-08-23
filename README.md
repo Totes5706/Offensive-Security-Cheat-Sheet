@@ -564,6 +564,9 @@ id
 #Check folder permissions
 ls -la
 
+#Check root process
+ps -ef | grep root
+
 #Search write-able services
 ls -la $(find . -type s -writable 2>/dev/null) 
 
