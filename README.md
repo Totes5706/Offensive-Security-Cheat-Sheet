@@ -124,6 +124,9 @@ ssh {USER}@{IP ADDRESS} -i {PKEY.ssh}
 # Crackmap brute force
 crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 
+# sign_and_send_pubkey: no mutual signature supported
+-o PubkeyAcceptedKeyTypes=+ssh-rsa
+
 ```
 
 ## DNS [53]
