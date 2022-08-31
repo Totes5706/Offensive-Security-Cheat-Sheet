@@ -370,6 +370,26 @@ recurse ON
 prompt OFF
 mget *
 
+# List Vuln Scripts
+ls -1 /usr/share/nmap/scripts/smb*
+
+/usr/share/nmap/scripts/smb2-capabilities.nse
+/usr/share/nmap/scripts/smb2-security-mode.nse
+/usr/share/nmap/scripts/smb2-time.nse
+/usr/share/nmap/scripts/smb2-vuln-uptime.nse
+/usr/share/nmap/scripts/smb-brute.nse
+/usr/share/nmap/scripts/smb-double-pulsar-backdoor.nse
+/usr/share/nmap/scripts/smb-enum-domains.nse
+/usr/share/nmap/scripts/smb-enum-groups.nse
+/usr/share/nmap/scripts/smb-enum-processes.nse
+/usr/share/nmap/scripts/smb-enum-sessions.nse
+/usr/share/nmap/scripts/smb-enum-shares.nse
+/usr/share/nmap/scripts/smb-enum-users.nse
+/usr/share/nmap/scripts/smb-os-discovery.nse
+
+# Example Vuln script
+nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
+
 
 # {IP ADDRESS}:   IP Address of the Server
 # {SHARE}:        Share name to connect
