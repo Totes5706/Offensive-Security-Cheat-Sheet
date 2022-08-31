@@ -15,6 +15,47 @@ This is intended to be viewed in the blog found here: [Offensive Security Cheat 
 
 ***
 
+# OSINT
+
+<br />
+
+```bash
+https://osintframework.com/
+
+# Google hacking
+https://www.exploit-db.com/google-hacking-database
+
+#  NetCraft
+https://www.netcraft.com/
+
+# Recon-ng
+
+# Github Search
+filename:users
+
+# Qualys SSL lab
+https://www.ssllabs.com/ssltest/
+
+# Shodan
+https://www.shodan.io/
+
+# Security Header Scanner
+https://securityheaders.com/
+
+# Pastebin
+https://pastebin.com/
+
+# theHarvestor
+theharvester -d {SITE} -b google
+
+# Social Searcher
+https://www.social-searcher.com/
+
+```
+
+
+***
+
 # General Enumeration
 
 ***
