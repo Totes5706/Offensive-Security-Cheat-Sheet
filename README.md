@@ -384,6 +384,27 @@ sudo sed -i -e 's/{CURRENT UUID}/{NEW UUID}/g' /etc/passwd
 
 <br />
 
+```bash
+# Scan SNMP Port
+sudo nmap -sU --open -p 161 {IP ADDRESS} -oG open-snmp.txt
+
+# Enumerate MIB Tree
+snmpwalk -c public -v1 -t 10 {IP ADDRESS}
+
+# Enumerate Windows Users
+snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.4.1.77.1.2.25
+
+# Enumerate Running Windows Processes
+snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.4.2.1.2
+
+# Enumerate Open TCP ports
+snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.6.13.1.3
+
+# Enumerate Installed Software
+snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.6.3.1.2
+```
+
+
 ## LDAP [389]
 
 <br />
