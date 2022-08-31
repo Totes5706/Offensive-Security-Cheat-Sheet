@@ -161,6 +161,25 @@ ftp {IP ADDRESS}
 
 <br />
 
+## SMTP [25]
+
+
+<br />
+
+```bash
+#VRFY: asks the server to verify an email address
+#EXPN: asks the server for the membership of a mailing list
+
+# Connect to mail server
+ nc -nv {IP ADDRESS} 25
+
+# VRFY Usage
+VRFY root
+
+```
+
+<br />
+
 <br />
 
 ## SSH [22] 
