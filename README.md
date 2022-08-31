@@ -118,6 +118,19 @@ sudo nmap -sU  {IP ADDRESS}
 
 <br />
 
+## MASSCAN
+
+<br />
+
+```bash
+
+# Fast web scan 
+sudo masscan -p80 {IP ADDRESS}/24 --rate=1000 -e tap0 --router-ip {GATEWAY IP}
+
+```
+
+<br />
+
 ***
 
 # Port Enumeration
