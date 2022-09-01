@@ -542,6 +542,8 @@ upload {FILE.exe}
 ***
 <br />
 
+## Stack Based
+
 https://github.com/Tib3rius/Pentest-Cheatsheets/blob/master/exploits/buffer-overflows.rst
 
 https://tryhackme.com/room/bufferoverflowprep
@@ -595,6 +597,7 @@ padding = "\x90" * 16
 # Start NC on msfvenom IP and Port and exploit
 sudo nc -lnvp {PORT}
 python3 exploit.py
+```
 
 <br />
 
