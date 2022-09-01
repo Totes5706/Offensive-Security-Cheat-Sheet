@@ -430,6 +430,9 @@ smbclient -N \\\\{IP ADDRESS}\\{SHARE}
 # Authenticate with Administrator 
 smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
 
+# Recursively show all readable files and shares
+smbmap -H {IP ADDRESS} -u anonymous -R
+
 # Brute force SMB user and password list
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
 
