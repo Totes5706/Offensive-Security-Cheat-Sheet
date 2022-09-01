@@ -691,7 +691,7 @@ username=admin$password=FUZZ
 
 ***
 
-## Python Server [STEP 1]
+####  [STEP 1] Python Server on Client
 
 <br />
 
@@ -707,7 +707,7 @@ sudo python3 -m http.server {PORT}
 ```
 <br />
 
-## WGET [STEP 2] 
+#### [STEP 2] Download Command on Server 
 
 <br />
 
