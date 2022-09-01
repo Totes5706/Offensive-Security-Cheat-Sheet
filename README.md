@@ -551,6 +551,10 @@ https://tryhackme.com/room/bufferoverflowprep
 # Setup Mona config in debugger and run application
 !mona config -set workingfolder c:\mona\%p
 
+# Update IP Address and Port in fuzzing.py and exploit.py
+ip = {IP ADDRESS TARGET}
+port = {PORT TARGET}
+
 # Fuzz application using a script
 python3 fuzzing.py
 
