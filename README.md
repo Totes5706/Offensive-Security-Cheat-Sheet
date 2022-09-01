@@ -510,6 +510,21 @@ nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
 
 <br />
 
+```bash
+
+
+# Impacket-mssqlclient
+impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} -windows-auth
+
+# Note: Requires credentials
+# {IP ADDRESS}: IP Address of the Server
+# {USERNAME}:   User Authentication
+# {PASSWORD}:   Password Authentication
+```
+
+
+<br />
+
 ## NFS [2049]
 
 
