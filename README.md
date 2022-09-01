@@ -270,6 +270,10 @@ gobuster dir -u http://{IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-
 # Search File Extensions
 gobuster dir -u http://{IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,cgi,pl,sh
 
+# Throttle gobuster for bug bounties
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -u {URL} -b "403,404,415,429,500" t 1 --delay 5s
+
+
 # Notes: Not recursive, only digs one level deep
 
 # Alternative word lists & locations
