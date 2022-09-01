@@ -575,7 +575,7 @@ python3 exploit.py
 
 # Update offset in exploit.py for EIP and ESP registers
 offset = {OFFSET}
-retn = "{(ESP OFFSET - EIP OFFSET) * B}"
+retn = "BBBB"
 
 # Generate bad char bytearray in Mona starting with 00
 !mona bytearray -b "\x00"
