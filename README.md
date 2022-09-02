@@ -576,7 +576,7 @@ upload {FILE.exe}
 
 ## Enumeration
 
-https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png
+![Active Directory](https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png)
 
 <br />
 
