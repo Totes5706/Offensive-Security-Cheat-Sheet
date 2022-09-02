@@ -650,13 +650,16 @@ python3 exploit.py
 
 ## Windows 
 
+
+![Windows Priv Esc](https://miro.medium.com/max/700/0*Ci4dBt9PLYe3xzt0)
+
 <br />
+
+#### RESOURCES
 
 [Winpeas](https://github.com/carlospolop/PEASS-ng/releases)
 
 <br />
-
-![Windows Priv Esc](https://miro.medium.com/max/700/0*Ci4dBt9PLYe3xzt0)
 
 ```bash
 # Windows Enumeration Commands
@@ -696,13 +699,16 @@ Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | selec
 
 <br />
 
+![Linux Priv Esc](https://miro.medium.com/max/700/0*xTF6sGyU9Hrq6SAI)
+
+#### RESOURCES
+
 [Linpeas](https://github.com/carlospolop/PEASS-ng/releases)
 
 [GTFOBINS](https://gtfobins.github.io/)
 
 <br />
 
-![Linux Priv Esc](https://miro.medium.com/max/700/0*xTF6sGyU9Hrq6SAI)
 
 ```bash
 # Linux Enumeration Commands
