@@ -574,6 +574,8 @@ upload {FILE.exe}
 ***
 <br />
 
+## Enumeration
+
 https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png
 
 <br />
@@ -820,7 +822,7 @@ dummy, crypt
 
 <br />
 
-### FFUF
+#### FFUF
 
 <br />
 
