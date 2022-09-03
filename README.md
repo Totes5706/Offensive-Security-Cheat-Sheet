@@ -665,7 +665,6 @@ python3 exploit.py
 
 #### Credential Access
 
-***
 
 <details>
   <summary>1] Credentials from registry [↓]</summary>
@@ -680,7 +679,6 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-***
 
 #### Exploits
 <details>
@@ -688,15 +686,13 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-***
 
 #### Misconfiguration
 
-***
+
 
 ##### Services
 
-***
 
 <details>
   <summary>1] Insecure Service Properties  [↓]</summary>
@@ -719,7 +715,6 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-***
 
 ##### Always Install Elevated
 <details>
