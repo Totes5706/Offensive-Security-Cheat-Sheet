@@ -666,20 +666,11 @@ python3 exploit.py
 
 #### Credential Access
 <details>
-  <summary>[↓] Credentials from registry</summary>
+  <summary>1. Credentials from registry [↓]</summary>
   
-  ##### ✓ Enumerated
+  [✓] Enumerated
 </details>
 
-<details>
-  <summary>Click me</summary>
-  
-  ### Heading
-  1. Foo
-  2. Bar
-     * Baz
-     * Qux
-</details>
 
 #### Credential Access
 
