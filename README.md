@@ -686,18 +686,7 @@ python3 exploit.py
 
 <br />
 
-#### Exploits
-<details>
-  <summary>1] Kernel Exploit [↓]</summary>
-  [✓] Enumerated
-</details>
-
-<br />
-
 #### Misconfiguration
-
-##### Services
-
 
 <details>
   <summary>1] Insecure Service Properties  [↓]</summary>
@@ -719,25 +708,28 @@ python3 exploit.py
   <summary>5] DLL Hijacking [↓]</summary>
   [✓] Enumerated
 </details>
-
-
-
-
-##### Always Install Elevated
 <details>
-  <summary>1. AutoRuns  [↓]</summary>
+  <summary>6] AutoRuns  [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>2. Always Install Elevated [↓]</summary>
+  <summary>7] Always Install Elevated [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>8] Scheduled Tasks  [↓]</summary>
   [✓] Enumerated
 </details>
 
-##### Scheduled Tasks
+<br />
+
+#### Exploits
 <details>
-  <summary>1. Scheduled Tasks  [↓]</summary>
+  <summary>1] Kernel Exploit [↓]</summary>
   [✓] Enumerated
 </details>
+
+<br />
 ***
 #### Initial Enumeration
 
