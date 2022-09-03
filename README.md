@@ -666,13 +666,11 @@ python3 exploit.py
 
 
 <details>
-  <summary>Click me</summary>
+  <summary>Credentials from Registry</summary>
   
   ### Heading
-  1. Foo
-  2. Bar
-     * Baz
-     * Qux
+  - [x] Credentials from Registry
+ 
 
   ### Some Code
   ```js
@@ -682,14 +680,6 @@ python3 exploit.py
   ```
 </details>
 
-<div>
-  <input type="checkbox" name="uchk">
-  <label for="uchk">Unchecked.</label>
-</div>
-<div>
-  <input type="checkbox" name="chk" checked>
-  <label for="chk">Checked.</label>
-</div>
 
 #### Credential Access
 
