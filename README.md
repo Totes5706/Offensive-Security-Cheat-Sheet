@@ -679,9 +679,6 @@ python3 exploit.py
   
   ### Heading
   - [x] Credentials from Registry
-  2. Bar
-     * Baz
-     * Qux
 </details>
 
 #### Credential Access
