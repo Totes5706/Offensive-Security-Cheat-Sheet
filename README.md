@@ -684,7 +684,7 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-
+<br />
 
 #### Exploits
 <details>
@@ -692,11 +692,9 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-
+<br />
 
 #### Misconfiguration
-
-
 
 ##### Services
 
@@ -735,11 +733,15 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+##### Scheduled Tasks
+<details>
+  <summary>1. Scheduled Tasks  [↓]</summary>
+  [✓] Enumerated
+</details>
 ***
 #### Initial Enumeration
 
 ```ps1
-
 # Check user and groups
 whoami
 net user {USERNAME}
@@ -747,8 +749,6 @@ net user {USERNAME}
 # Use WinPeas Enumeration
 
 # Run Seatbelt
-
-
 ```
 
 #### Credential Access
