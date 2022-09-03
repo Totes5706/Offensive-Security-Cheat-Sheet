@@ -680,7 +680,7 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 <details>
-  <summary>3] Credentials from SAM[↓]</summary>
+  <summary>4] Credentials from SAM[↓]</summary>
   [✓] Enumerated
 </details>
 
