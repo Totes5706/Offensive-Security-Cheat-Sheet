@@ -661,16 +661,62 @@ python3 exploit.py
 
 <br />
 
-#### PRIV ESCALTION CHECKLIST
+#### Privilege Escalation Checklist
 
 
 #### Credential Access
 <details>
   <summary>1. Credentials from registry [↓]</summary>
-  
+  [✓] Enumerated
+</details>
+<details>
+  <summary>1. Credentials from cmdkey [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>1. Credentials from configuration files [↓]</summary>
   [✓] Enumerated
 </details>
 
+
+#### Exploits
+<details>
+  <summary>1. Kernel Exploit [↓]</summary>
+  [✓] Enumerated
+</details>
+
+#### Misconfiguration
+##### Services
+<details>
+  <summary>1. Insecure Service Properties  [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>2. Unquoted Service Path [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>3. Weak Registry Permissions [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>4. Insecure Service Executables [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>5. DLL Hijacking [↓]</summary>
+  [✓] Enumerated
+</details>
+
+##### Always Install Elevated
+<details>
+  <summary>1. AutoRuns  [↓]</summary>
+  [✓] Enumerated
+</details>
+<details>
+  <summary>2. Always Install Elevated [↓]</summary>
+  [✓] Enumerated
+</details>
 
 #### Credential Access
 
