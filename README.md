@@ -661,7 +661,7 @@ python3 exploit.py
 
 <br />
 
-### Credential Access
+#### Credential Access
 
 ```ps1
 #######################################################################
@@ -705,7 +705,7 @@ runas /savecred /user:admin C:\PrivEsc\reverse.exe
 ```
 <br />
 
-### Exploits
+#### Exploits
 
 <br />
 
@@ -723,11 +723,11 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 ```
 <br />
 
-### Misconfiguration
+#### Misconfiguration
 
 <br />
 
-#### Services
+##### Services
 
 ```ps1
 # Enumeration
@@ -847,7 +847,7 @@ net start dllsvc
 
 <br />
 
-#### Registry Exploits
+##### Always Install Elevated
 
 ```ps1
 
