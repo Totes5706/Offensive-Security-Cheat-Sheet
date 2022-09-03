@@ -660,7 +660,6 @@ python3 exploit.py
 [Winpeas](https://github.com/carlospolop/PEASS-ng/releases)
 
 #### Privilege Escalation Checklist
-<br />
 
 #### Credential Access
 <details>
@@ -675,8 +674,6 @@ python3 exploit.py
   <summary>3] Credentials from configuration files [↓]</summary>
   [✓] Enumerated
 </details>
-
-<br />
 
 #### Exploits
 <details>
