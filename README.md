@@ -664,22 +664,15 @@ python3 exploit.py
 #### PRIV ESCALTION CHECKLIST
 
 
-
+#### Credential Access
 <details>
   <summary>Credentials from Registry</summary>
-  
-  ### Heading
   - [x] Credentials from Registry
- 
-
-  ### Some Code
-  ```js
-  function logSomething(something) {
-    console.log('Something', something);
-  }
-  ```
 </details>
-
+<details>
+  <summary>Credentials from cmdkey</summary>
+  - [x] Credentials from Registry
+</details>
 
 #### Credential Access
 
