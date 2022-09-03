@@ -678,7 +678,7 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 
 #### Service Exploits
 
-```bash
+```
 # Enumeration
 .\winPEASany.exe quiet servicesinfo
 
