@@ -661,8 +661,6 @@ python3 exploit.py
 
 #### Privilege Escalation Checklist
 
-***
-
 #### Credential Access
 
 
@@ -679,6 +677,7 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+***
 
 #### Exploits
 <details>
@@ -686,6 +685,8 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+
+***
 
 #### Misconfiguration
 
@@ -715,6 +716,8 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+
+***
 
 ##### Always Install Elevated
 <details>
