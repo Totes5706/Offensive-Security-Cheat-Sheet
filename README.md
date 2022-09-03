@@ -677,7 +677,7 @@ python3 exploit.py
 <details>
   <summary>Click me</summary>
   
-  ### Heading
+
   - [x] Credentials from Registry
 </details>
 
@@ -790,8 +790,6 @@ copy reverse.exe {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\Commo
 
 # Start a service:
 net start {SERVICE}
-
-
 
 #########################################################################
 #### 3. Weak Registry Permissions #######################################
