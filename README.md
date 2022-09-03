@@ -659,10 +659,8 @@ python3 exploit.py
 
 [Winpeas](https://github.com/carlospolop/PEASS-ng/releases)
 
-<br />
-
 #### Privilege Escalation Checklist
-
+<br />
 
 #### Credential Access
 <details>
@@ -678,6 +676,7 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+<br />
 
 #### Exploits
 <details>
@@ -685,7 +684,9 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+<br />
 #### Misconfiguration
+<br />
 ##### Services
 <details>
   <summary>1. Insecure Service Properties  [↓]</summary>
@@ -708,6 +709,7 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+<br />
 ##### Always Install Elevated
 <details>
   <summary>1. AutoRuns  [↓]</summary>
@@ -717,6 +719,8 @@ python3 exploit.py
   <summary>2. Always Install Elevated [↓]</summary>
   [✓] Enumerated
 </details>
+
+<br />
 
 #### Credential Access
 
