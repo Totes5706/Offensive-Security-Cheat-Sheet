@@ -675,10 +675,8 @@ python3 exploit.py
 </details>
 
 <details>
-  <summary>Click me</summary>
-  
-
-  - [x] Credentials from Registry
+  <summary>Credentials from Registry</summary>
+  #### Enumerated
 </details>
 
 #### Credential Access
