@@ -661,6 +661,15 @@ python3 exploit.py
 
 <br />
 
+#### PRIV ESCALTION CHECKLIST
+
+- [ ] Mercury
+- [ ] Mercury
+- [ ] Mercury
+- [ ] Mercury
+- [ ] Mercury
+- [ ] Mercury
+
 #### Credential Access
 
 ```ps1
