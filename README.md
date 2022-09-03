@@ -152,6 +152,9 @@ sudo masscan -p80 {IP ADDRESS}/24 --rate=1000 -e tap0 --router-ip {GATEWAY IP}
 # Usage
 ftp {IP ADDRESS}
 
+# Recursively download ftp directory
+wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
+
 # Additional Information
 # Default Credentials: anonymous
 # Directory Command:   dir
