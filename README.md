@@ -661,7 +661,12 @@ python3 exploit.py
 
 #### Privilege Escalation Checklist
 
+***
+
 #### Credential Access
+
+***
+
 <details>
   <summary>1] Credentials from registry [↓]</summary>
   [✓] Enumerated
@@ -675,16 +680,24 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
+***
+
 #### Exploits
 <details>
   <summary>1] Kernel Exploit [↓]</summary>
   [✓] Enumerated
 </details>
 
-<br />
+***
+
 #### Misconfiguration
-<br />
+
+***
+
 ##### Services
+
+***
+
 <details>
   <summary>1] Insecure Service Properties  [↓]</summary>
   [✓] Enumerated
@@ -706,7 +719,8 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-<br />
+***
+
 ##### Always Install Elevated
 <details>
   <summary>1. AutoRuns  [↓]</summary>
@@ -717,7 +731,7 @@ python3 exploit.py
   [✓] Enumerated
 </details>
 
-<br />
+***
 
 #### Credential Access
 
