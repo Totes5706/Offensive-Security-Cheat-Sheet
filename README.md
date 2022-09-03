@@ -666,7 +666,7 @@ python3 exploit.py
 
 #### Credential Access
 <details>
-  <summary>→ Credentials from registry</summary>
+  <summary>[&rarr;]Credentials from registry</summary>
   
   **✓ Enumerated**
 </details>
