@@ -670,6 +670,15 @@ python3 exploit.py
 - [ ] Mercury
 - [ ] Mercury
 
+<div>
+  <input type="checkbox" name="uchk">
+  <label for="uchk">Unchecked.</label>
+</div>
+<div>
+  <input type="checkbox" name="chk" checked>
+  <label for="chk">Checked.</label>
+</div>
+
 #### Credential Access
 
 ```ps1
