@@ -674,6 +674,23 @@ python3 exploit.py
   - [x] Credentials from Registry
 </details>
 
+<details>
+  <summary>Click me</summary>
+  
+  ### Heading
+  - [x] Credentials from Registry
+  2. Bar
+     * Baz
+     * Qux
+
+  ### Some Code
+  ```js
+  function logSomething(something) {
+    console.log('Something', something);
+  }
+  ```
+</details>
+
 #### Credential Access
 
 ```ps1
