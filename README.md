@@ -664,15 +664,15 @@ python3 exploit.py
 
 #### Credential Access
 <details>
-  <summary>1. Credentials from registry [↓]</summary>
+  <summary>1] Credentials from registry [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>1. Credentials from cmdkey [↓]</summary>
+  <summary>2] Credentials from cmdkey [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>1. Credentials from configuration files [↓]</summary>
+  <summary>3] Credentials from configuration files [↓]</summary>
   [✓] Enumerated
 </details>
 
@@ -680,7 +680,7 @@ python3 exploit.py
 
 #### Exploits
 <details>
-  <summary>1. Kernel Exploit [↓]</summary>
+  <summary>1] Kernel Exploit [↓]</summary>
   [✓] Enumerated
 </details>
 
@@ -689,23 +689,23 @@ python3 exploit.py
 <br />
 ##### Services
 <details>
-  <summary>1. Insecure Service Properties  [↓]</summary>
+  <summary>1] Insecure Service Properties  [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>2. Unquoted Service Path [↓]</summary>
+  <summary>2] Unquoted Service Path [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>3. Weak Registry Permissions [↓]</summary>
+  <summary>3] Weak Registry Permissions [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>4. Insecure Service Executables [↓]</summary>
+  <summary>4] Insecure Service Executables [↓]</summary>
   [✓] Enumerated
 </details>
 <details>
-  <summary>5. DLL Hijacking [↓]</summary>
+  <summary>5] DLL Hijacking [↓]</summary>
   [✓] Enumerated
 </details>
 
