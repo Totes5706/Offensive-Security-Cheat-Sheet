@@ -730,17 +730,15 @@ python3 exploit.py
 </details>
 
 <br />
+
 ***
+
 #### Initial Enumeration
 
 ```ps1
 # Check user and groups
 whoami
 net user {USERNAME}
-
-# Use WinPeas Enumeration
-
-# Run Seatbelt
 ```
 
 #### Credential Access
