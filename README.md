@@ -421,7 +421,7 @@ snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.6.3.1.2
 # Enumforlinux
 enum4linux -U {IP ADDRESS}
 
-# ldap search
+# ldap search for DC name
 ldapsearch -H ldap://{IP ADDRESS} -x -s base 
 
 # ldap DC enumeration
@@ -432,7 +432,7 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Pers
 ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=User)'
 
 # ldap account name list
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=User)' sAMAccountName |grep sAMAccountName
+ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)' sAMAccountName |grep sAMAccountName | awk '{print $2}'
 ```
 
 ## SMB [445]
@@ -463,6 +463,7 @@ crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --contin
 
 # Null authentication attempt
 crackmapexec smb {IP ADDRESS} --pass-pol
+crackmapexec smb {IP ADDRESS} --pass-pol -u '' -p ''
 
 # Mount SMB Drive
 sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
