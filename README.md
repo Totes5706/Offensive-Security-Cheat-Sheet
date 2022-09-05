@@ -416,6 +416,13 @@ snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.6.3.1.2
 
 <br />
 
+```bash
+# ldap search
+
+ldapsearch -H ldap://{IP ADDRESS} -x -s base 
+
+```
+
 ## SMB [445]
 
 ```bash
