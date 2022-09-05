@@ -423,6 +423,13 @@ ldapsearch -H ldap://{IP ADDRESS} -x -s base
 
 # ldap DC enumeration
 ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}"
+
+# ldap DC people dump
+ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)'
+ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=user)'
+
+# ldap account name list
+ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=user)' sAMAccountName |grep sAMAccountName
 ```
 
 ## SMB [445]
