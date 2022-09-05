@@ -461,7 +461,7 @@ smbmap -H {IP ADDRESS} -u anonymous -R
 # Brute force SMB user and password list
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
 
-# Null authentication attempt
+# Null authentication - password policy
 crackmapexec smb {IP ADDRESS} --pass-pol
 crackmapexec smb {IP ADDRESS} --pass-pol -u '' -p ''
 
