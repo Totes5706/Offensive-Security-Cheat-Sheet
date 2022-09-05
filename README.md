@@ -387,6 +387,45 @@ sudo sed -i -e 's/{CURRENT UUID}/{NEW UUID}/g' /etc/passwd
 ```
 <br />
 
+
+## RPC [135] 
+
+<br />
+
+```bash
+# Enumerate RPC client (no password)
+rpcclient -U "" -N {IP ADDRESS}
+
+# Get information about the DC
+srvinfo
+
+# Get information about objects such as groups or users
+enumdomusers
+enumdomains
+enumdomgroups
+enumalsgroups builtin
+
+# Try to get domain password policy
+getdompwinfo
+
+# Try to enumerate different trusted domains
+dsr_enumtrustdom
+
+# Get username for a defined user 
+getusername
+
+# Query user, group etc informations
+queryuser RID
+querygroupmem519
+queryaliasmem builtin 0x220
+
+# Query info policy
+lsaquery
+
+# Convert SID to names
+lookupsids SID
+```
+
 ## SNMP [161] 
 
 <br />
