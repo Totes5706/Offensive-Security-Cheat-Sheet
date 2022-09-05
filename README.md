@@ -418,6 +418,9 @@ snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.6.3.1.2
 
 ```bash
 
+# Enumforlinux
+enum4linux -U {IP ADDRESS}
+
 # ldap search
 ldapsearch -H ldap://{IP ADDRESS} -x -s base 
 
@@ -426,10 +429,10 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}"
 
 # ldap DC people dump
 ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)'
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=user)'
+ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=User)'
 
 # ldap account name list
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=user)' sAMAccountName |grep sAMAccountName
+ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=User)' sAMAccountName |grep sAMAccountName
 ```
 
 ## SMB [445]
@@ -446,17 +449,20 @@ smbclient -L {IP ADDRESS}
 # Authenticate with local credentials
 smbclient -N \\\\{IP ADDRESS}\\{SHARE} 
 
-# Recursively show sub directories of share
-smbclient \\\\{IP ADDRESS}\\{SHARE} -c 'recurse;ls'
-
 # Authenticate with Administrator 
 smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
+
+# Recursively show sub directories of share
+smbclient \\\\{IP ADDRESS}\\{SHARE} -c 'recurse;ls'
 
 # Recursively show all readable files and shares
 smbmap -H {IP ADDRESS} -u anonymous -R
 
 # Brute force SMB user and password list
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
+
+# Null authentication attempt
+crackmapexec smb {IP ADDRESS} --pass-pol
 
 # Mount SMB Drive
 sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
