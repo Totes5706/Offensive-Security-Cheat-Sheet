@@ -485,7 +485,9 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Pers
 # Detect Share Permissions
 smbmap -H {IP ADDRESS}  
 
-# Usage
+# Recursively show all readable files and shares
+smbmap -H {IP ADDRESS} -R
+
 # List all SMB Shares
 smbclient -L {IP ADDRESS}
 
@@ -497,9 +499,6 @@ smbclient \\\\{IP ADDRESS}\\{SHARE} -U {USERNAME}%{PASSWORD}
 
 # Recursively show sub directories of share
 smbclient \\\\{IP ADDRESS}\\{SHARE} -c 'recurse;ls'
-
-# Recursively show all readable files and shares
-smbmap -H {IP ADDRESS} -u anonymous -R
 
 # Brute force SMB user and password list
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
