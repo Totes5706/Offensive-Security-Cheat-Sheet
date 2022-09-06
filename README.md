@@ -658,6 +658,10 @@ sudo neo4j console                          # LHOST
 SharpHound.exe -c all                       # RHOST
 /opt/bloodhound/BloodHound  --no-sandbox    # LHOST
 
+# Bloodhound python remote access
+sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USERNAME}' -p '{PASSWORD}' -ns {IP ADDRESS} -d {DOMAIN} -c all
+
+
 # Add user
 net user {USERNAME} {PASSWORD} /add /domain
 
