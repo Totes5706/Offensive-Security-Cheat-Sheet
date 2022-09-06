@@ -386,6 +386,8 @@ sudo sed -i -e 's/{CURRENT UUID}/{NEW UUID}/g' /etc/passwd
 
 <br />
 
+https://www.hackingarticles.in/active-directory-enumeration-rpcclient/
+
 ```bash
 # Enumerate RPC client 
 rpcclient -U "" -N {IP ADDRESS}
