@@ -393,8 +393,9 @@ sudo sed -i -e 's/{CURRENT UUID}/{NEW UUID}/g' /etc/passwd
 <br />
 
 ```bash
-# Enumerate RPC client (no password)
+# Enumerate RPC client 
 rpcclient -U "" -N {IP ADDRESS}
+rpcclient -U '{USERNAME}'%'{PASSWORD}' {IP ADDRESS}
 
 # Get information about the DC
 srvinfo
