@@ -486,7 +486,10 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Pers
 smbmap -H {IP ADDRESS}  
 
 # Recursively show all readable files and shares
-smbmap -H {IP ADDRESS} -R
+smbmap -R {SHARE} -H {IP ADDRESS} 
+
+# Download a file with smbmap
+smbmap -R {SHARE} -H {IP ADDRESS} -A {FILE} -q 
 
 # List all SMB Shares
 smbclient -L {IP ADDRESS}
