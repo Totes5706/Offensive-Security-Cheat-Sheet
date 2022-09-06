@@ -482,6 +482,9 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Pers
 # About: Used to connect to SMB 
 # Download: Pre-installed on Kali Linux
 
+# Detect Share Permissions
+smbmap -H {IP ADDRESS}  
+
 # Usage
 # List all SMB Shares
 smbclient -L {IP ADDRESS}
