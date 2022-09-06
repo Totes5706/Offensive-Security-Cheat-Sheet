@@ -408,6 +408,9 @@ enumalsgroups builtin
 # Try to get domain password policy
 getdompwinfo
 
+# Change user password
+setuserinfo2 {USERNAME} 23 '{PASSWORD}'
+
 # Try to enumerate different trusted domains
 dsr_enumtrustdom
 
