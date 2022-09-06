@@ -628,7 +628,9 @@ net user {USERNAME} /domain
 net group /domain
 
 # Kerbrute
+sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS}  {user.txt}  
 sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {IP ADDRESS}  {user.txt} {passwords.txt}
+
 
 # Get active directory users
 python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
