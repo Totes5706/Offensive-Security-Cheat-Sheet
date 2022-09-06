@@ -254,9 +254,6 @@ tftp {IP ADDRESS}
 
 <br />
 
-## FINGER [79]
-
-<br />
 
 ## Web Server [80, 443]
 
@@ -327,9 +324,6 @@ directory-list-lowercase-2.3-medium.txt
 
 <br />
 
-## Kerberos [88] 
-
-<br />
 
 ## POP3 [110] 
 
@@ -582,14 +576,6 @@ sql> xp_dirtree "\\{IP ADDRESS}\test"
 
 <br />
 
-## NFS [2049]
-
-
-<br />
-
-## RDP [3389]
-
-<br />
 
 ## WINRM [5985, 5986] 
 
