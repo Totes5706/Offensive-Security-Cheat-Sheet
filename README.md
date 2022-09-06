@@ -485,6 +485,9 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Pers
 # Detect Share Permissions
 smbmap -H {IP ADDRESS}  
 
+# smbmap authentication
+smbmap -u '' -p '' -H {IP ADDRESS}  
+
 # Recursively show all readable files and shares
 smbmap -R {SHARE} -H {IP ADDRESS} --depth 10
 
