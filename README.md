@@ -489,8 +489,8 @@ smbclient -L {IP ADDRESS}
 # Authenticate with local credentials
 smbclient -N \\\\{IP ADDRESS}\\{SHARE} 
 
-# Authenticate with Administrator 
-smbclient -N \\\\{IP ADDRESS}\\{SHARE} -U Administrator
+# Authenticate with user/password 
+smbclient \\\\{IP ADDRESS}\\{SHARE} -U {USERNAME}%{PASSWORD}
 
 # Recursively show sub directories of share
 smbclient \\\\{IP ADDRESS}\\{SHARE} -c 'recurse;ls'
