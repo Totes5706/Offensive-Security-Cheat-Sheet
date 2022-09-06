@@ -1264,6 +1264,18 @@ hashcat -m {HASH NUMBER} {HASH} /usr/share/wordlists/rockyou.txt -O --force
 
 ```
 
+<br />
+
+#### Group Policy XML files
+
+<br />
+
+```bash
+# Crack XML cpassword string
+gpp-decrypt {HASH}
+```
+<br />
+
 #### John The Ripper
 
 <br />
