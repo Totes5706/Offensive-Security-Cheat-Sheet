@@ -627,6 +627,9 @@ net user {USERNAME} /domain
 # Enumerate all groups in domain
 net group /domain
 
+# Kerbrute
+sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {IP ADDRESS}  {user.txt} {passwords.txt}
+
 # Get active directory users
 python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
 
