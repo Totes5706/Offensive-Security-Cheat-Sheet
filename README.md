@@ -1238,9 +1238,8 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 
 ```bash
 
-# Search hash numbers
-hashcat --example-hashes | less
-/hash
+# Search for correct hashcat number
+hashcat --example-hashes | grep -B5 {HASH IDENTIFIER}
 
 # Crack Hash
 hashcat -m {HASH NUMBER} {HASH} /usr/share/wordlists/rockyou.txt -O --force
