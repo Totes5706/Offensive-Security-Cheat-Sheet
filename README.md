@@ -179,6 +179,10 @@ wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
 # VRFY Usage
 VRFY root
 
+# Check email
+HELO {USER.com}
+MAIL FROM: <{SENDER@EMAIL.COM}>
+RCPT TO: <{TARGET@EMAIL.COM}>
 ```
 
 <br />
