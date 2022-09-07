@@ -393,14 +393,14 @@ https://www.hackingarticles.in/active-directory-enumeration-rpcclient/
 rpcclient -U "" -N {IP ADDRESS}
 rpcclient -U '{USERNAME}'%'{PASSWORD}' {IP ADDRESS}
 
-# Get information about the DC
-srvinfo
-
 # Get information about objects such as groups or users
 enumdomusers
 enumdomains
 enumdomgroups
-enumalsgroups builtin
+querydispinfo
+
+# Get information about the DC
+srvinfo
 
 # Try to get domain password policy
 getdompwinfo
