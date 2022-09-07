@@ -658,7 +658,7 @@ python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME}:{
 
 # Bloodhound
 sudo neo4j console                          # LHOST
-SharpHound.exe -c all                       # RHOST
+./SharpHound.exe -c all                     # RHOST
 /opt/bloodhound/BloodHound  --no-sandbox    # LHOST
 
 # Bloodhound python remote access
