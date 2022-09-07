@@ -510,6 +510,9 @@ smbclient \\\\{IP ADDRESS}\\{SHARE} -U {USERNAME}%{PASSWORD}
 # Recursively show sub directories of share
 smbclient \\\\{IP ADDRESS}\\{SHARE} -c 'recurse;ls'
 
+# Check Drive Permissions
+smbcacls -N '//{IP ADDRESS}/{SHARE}' {SUBFOLDER} 
+
 # Brute force SMB user and password list
 crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
 
