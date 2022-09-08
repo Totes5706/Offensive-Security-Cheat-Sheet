@@ -401,7 +401,11 @@ rpcclient -U '{USERNAME}'%'{PASSWORD}' {IP ADDRESS}
 enumdomusers
 enumdomains
 enumdomgroups
+enumprivs
+
 querydispinfo
+queryuser {USER}
+
 
 # Get information about the DC
 srvinfo
@@ -420,7 +424,6 @@ getusername
 
 # Query user, group etc informations
 querydominfo
-queryuser RID
 querygroupmem519
 queryaliasmem builtin 0x220
 
