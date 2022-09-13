@@ -1362,7 +1362,7 @@ dummy, crypt
 # Download: Pre-installed on Kali Linux
 
 # Usage - One variable FUZZ
-ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords/probable-v2-top1575.txt -fr "{FILTER}"
+ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords/probable-v2-top1575.txt -fs {SIZE}
 
 
 # EXAMPLE {FILE}
