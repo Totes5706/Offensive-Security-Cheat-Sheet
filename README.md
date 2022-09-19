@@ -175,6 +175,10 @@ wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
 
 # Connect to mail server
  nc -nv {IP ADDRESS} 25
+ 
+# Connect to Windows mail server
+ nc -nv -C {IP ADDRESS} 25
+
 
 # VRFY Usage
 VRFY root
