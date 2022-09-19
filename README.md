@@ -187,6 +187,12 @@ VRFY root
 HELO {USER.com}
 MAIL FROM: <{SENDER@EMAIL.COM}>
 RCPT TO: <{TARGET@EMAIL.COM}>
+DATA
+SUBJECT: Test message
+{Enter Twice}
+Test Body
+.
+Quit
 ```
 
 <br />
@@ -1390,6 +1396,9 @@ username=admin$password=FUZZ
 
 # Python Server
 sudo python3 -m http.server {PORT}
+
+# Apache2 Server: var/www/html
+sudo systemctl start apache2
 
 # SMB SHARE
 sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./   
