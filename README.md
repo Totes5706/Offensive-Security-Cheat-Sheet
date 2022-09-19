@@ -1400,6 +1400,9 @@ sudo python3 -m http.server {PORT}
 # Apache2 Server: var/www/html
 sudo systemctl start apache2
 
+# FTP Server: /ftphome/
+sudo service pure-ftpd
+
 # SMB SHARE
 sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./   
 
