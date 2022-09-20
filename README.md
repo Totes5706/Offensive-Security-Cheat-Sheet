@@ -1380,9 +1380,13 @@ dummy, crypt
 # Usage - One variable FUZZ
 ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords/probable-v2-top1575.txt -fs {SIZE}
 
+# Two Variable FUZZ
+ffuf -c -request {FILE.req} -request-proto http -mode clusterbomb -w {user.txt}:HFUZZ -w /usr/share/seclists/Passwords/probable-v2-top1575.txt:WFUZZ -fs {SIZE}
+
 
 # EXAMPLE {FILE}
 username=admin$password=FUZZ
+username=WFUZZ$password=HFUZZ
 
 # Medusa
 medusa -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/{DIR}
