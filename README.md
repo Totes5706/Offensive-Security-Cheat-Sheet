@@ -1285,11 +1285,9 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 
 ```bash
 
-# Search for correct hashcat number
-hashcat --example-hashes | grep -B5 {HASH IDENTIFIER}
+sudo ssh -N -L 0.0.0.0:445:192.168.1.110:445 
 
-# Crack Hash
-hashcat -m {HASH NUMBER} {HASH} /usr/share/wordlists/rockyou.txt -O --force
+smbclient -L 127.0.0.1 -U Administrator
 
 ```
 
