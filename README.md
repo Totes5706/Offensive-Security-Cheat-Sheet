@@ -1384,6 +1384,9 @@ ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords
 # EXAMPLE {FILE}
 username=admin$password=FUZZ
 
+# Medusa
+medusa -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/{DIR}
+
 ```
 <br />
 
