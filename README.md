@@ -1285,7 +1285,11 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 
 ```bash
 
+# Local
 sudo ssh -N -L 80:127.0.0.1:80 {USER}@{IP ADDRESS} -p {PORT}
+
+# Remote
+ssh -N -R {LHOST}:{LPORT}:127.0.0.1:{RPORT} kali@{LHOST}
 
 ```
 
