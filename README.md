@@ -1285,9 +1285,7 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 
 ```bash
 
-sudo ssh -N -L 0.0.0.0:445:192.168.1.110:445 
-
-smbclient -L 127.0.0.1 -U Administrator
+sudo ssh -N -L 80:127.0.0.1:80 {USER}@{IP ADDRESS} -p {PORT}
 
 ```
 
