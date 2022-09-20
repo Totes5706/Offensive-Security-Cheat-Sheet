@@ -155,6 +155,9 @@ ftp {IP ADDRESS}
 # Recursively download ftp directory
 wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
 
+# Brute force FTP
+medusa -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
+
 # Additional Information
 # Default Credentials: anonymous
 # Directory Command:   dir
