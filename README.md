@@ -1275,6 +1275,25 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 ```
 <br />
 
+# Port Forwarding and Tunneling
+
+***
+
+#### SSH Tunneling
+
+<br />
+
+```bash
+
+# Search for correct hashcat number
+hashcat --example-hashes | grep -B5 {HASH IDENTIFIER}
+
+# Crack Hash
+hashcat -m {HASH NUMBER} {HASH} /usr/share/wordlists/rockyou.txt -O --force
+
+```
+
+<br />
 
 # Password Cracking
 
