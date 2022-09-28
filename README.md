@@ -816,6 +816,8 @@ python3 exploit.py
 
 #### RESOURCES
 
+[Reference](https://guif.re/windowseop)
+
 [Winpeas](https://github.com/carlospolop/PEASS-ng/releases)
 
 
@@ -1262,6 +1264,8 @@ Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | selec
 ![Linux Priv Esc](https://miro.medium.com/max/700/0*xTF6sGyU9Hrq6SAI)
 
 #### RESOURCES
+
+[Reference](https://guif.re/linuxeop)
 
 [Linpeas](https://github.com/carlospolop/PEASS-ng/releases)
 
