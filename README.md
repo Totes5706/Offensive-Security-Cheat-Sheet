@@ -899,6 +899,7 @@ python3 exploit.py
 ```ps1
 # Check user and groups
 whoami
+whoami /all
 net user {USERNAME}
 
 # Check UAC level
