@@ -1726,4 +1726,13 @@ CTRL + Z
 stty raw -echo; fg
 enter
 export TERM=xterm-256color
+
+# Run older python/python2 scripts in virtual environment:
+cd /opt/impacket
+sudo virtualenv impacket-venv -p $(which python2)
+source impacket-venv/bin/activate
+
+# Exit virtual environment
+deactivate
+
 ```
