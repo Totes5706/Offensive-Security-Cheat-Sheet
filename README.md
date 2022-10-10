@@ -664,7 +664,7 @@ download {FILE.exe}
 <br />
 
 #### MYSQL/MSSQL:
-
+[https://perspectiverisk.com/mssql-practical-injection-cheat-sheet/](https://perspectiverisk.com/mssql-practical-injection-cheat-sheet/)
 [https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation](https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation)
 
 convert(int,@@version)
