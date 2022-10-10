@@ -667,6 +667,8 @@ download {FILE.exe}
 
 [https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation](https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation)
 
+convert(int,@@version)
+
 #### ORACLE:
 
 [https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html](https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html)
