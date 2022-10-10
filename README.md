@@ -592,7 +592,6 @@ nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
 <br />
 
 [https://www.tutorialspoint.com/sql/sql-select-database.htm](https://www.tutorialspoint.com/sql/sql-select-database.htm)
-[https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation](https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation)
 
 ```bash
 
@@ -657,6 +656,20 @@ download {FILE.exe}
 # {FILE.exe}:   File to be uploaded from client machine
 ```
 
+
+<br />
+
+# SQL Injection
+
+<br />
+
+#### MYSQL/MSSQL:
+
+[https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation](https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation)
+
+#### ORACLE:
+
+[https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html](https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html)
 
 <br />
 
