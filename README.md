@@ -669,8 +669,8 @@ download {FILE.exe}
 
 convert(int,@@version)
 
-```sql
---Auth Bypass
+```
+Auth Bypass
 
 '-'
 ' '
