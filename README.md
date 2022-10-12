@@ -1426,7 +1426,7 @@ find / -perm -u=s -type f 2>/dev/null
 cat /etc/passwd
 
 # Search Passwords
-grep -irE '(password|pwd|pass)[[:space:]]*=[[:space:]]*[[:alpha:]]+' *
+grep -irE '(password|pwd|pass)[[:space:]]*=[[:space:]]*[[:alpha:]]+' * 2>/dev/null
 
 # List All Users on a System (cleaner, only users)
 awk –F’:‘ ’{ print $1}’ /etc/passwd
@@ -1443,7 +1443,7 @@ find . -mmin -5
 find / -mmin -5
 
 # Find files within date range
-find / -newermt 2022-09-15 ! -newermt 2022-09-19 -type f 2>/def/null 
+find / -newermt 2022-09-15 ! -newermt 2022-09-19 -type f 2>/dev/null 
 
 # Web files
 ls -alhR /var/www/ 2>/dev/null
