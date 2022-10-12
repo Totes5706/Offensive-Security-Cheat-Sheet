@@ -231,6 +231,8 @@ crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 
 # sign_and_send_pubkey: no mutual signature supported
 -o PubkeyAcceptedKeyTypes=+ssh-rsa
+-oKexAlgorithms=+diffie-hellman-group-exchange-sha1
+
 
 ```
 
