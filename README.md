@@ -1425,6 +1425,9 @@ find / -perm -u=s -type f 2>/dev/null
 # List All Users on a System
 cat /etc/passwd
 
+# Search Passwords
+grep -irE '(password|pwd|pass)[[:space:]]*=[[:space:]]*[[:alpha:]]+' *
+
 # List All Users on a System (cleaner, only users)
 awk –F’:‘ ’{ print $1}’ /etc/passwd
 
