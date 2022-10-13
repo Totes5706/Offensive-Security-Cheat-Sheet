@@ -222,6 +222,10 @@ ssh {USER}@{IP ADDRESS} -i {PKEY.ssh}
 
 # Remote file copy
 scp {USER}@{IP ADDRESS}:{FILE.ext} .
+scp /path/to/source/file.ext username@{RHOST}:/path/to/destination
+
+# Directory
+scp -r /path/to/source/dir username@{RHOST}:/path/to/destination
 
 # Hydra brute force
 hydra -l {USER} -P /usr/share/wordlists/rockyou.txt ssh://{IP ADDRESS}
