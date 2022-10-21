@@ -158,6 +158,9 @@ ftp-upload -h {RHOST} -u 'anonymous' --password '' -d '/' {file.exe}
 # Recursively download ftp directory
 wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
 
+ncftp -u <user> -p <pass> <server>
+ncftp> mget directory
+
 # Note - If FTP is hung up on viewing directory, ex.: ftp>dir 229 Entering Extended Passive Mode (|||52924|)
 ftp> passive
 ftp> espv
