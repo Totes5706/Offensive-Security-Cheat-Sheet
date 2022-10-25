@@ -521,6 +521,9 @@ ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=User
 
 # ldap account name list
 ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)' sAMAccountName |grep sAMAccountName | awk '{print $2}'
+
+# Authentication Flags
+-D {USER}@{DOMAIN} -w {PASSWORD}
 ```
 
 ## SMB [445]
