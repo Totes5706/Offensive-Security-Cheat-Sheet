@@ -72,16 +72,16 @@ https://www.social-searcher.com/
 # Download: Pre-installed on Kali Linux 
 
 # Fast scan of top 100 ports
-nmap -F {IP ADDRESS}
+nmap -F {RHOST}
 
 # Ping sweep subnet
-nmap -sP {IP ADDRESS}/24
+nmap -sP {RHOST}/24
 
 # Usage
-nmap -p- --min-rate 5000 -sC -sV {IP ADDRESS}
+nmap -p- --min-rate 5000 -sC -sV {RHOST}
 
 # UDP Scan
-sudo nmap -sU  {IP ADDRESS}
+sudo nmap -sU {RHOST}
 
 # Flags 
 # -p-: scans ALL ports
@@ -103,7 +103,7 @@ sudo nmap -sU  {IP ADDRESS}
 # Download: https://github.com/21y4d/nmapAutomator/blob/master/nmapAutomator.sh
 
 # Usage
-./nmapAutomator.sh --host {IP ADDRESS} --type All
+./nmapAutomator.sh --host {RHOST} --type All
 
 # Flags
 # --type Network : Shows all live hosts in the host's network (~15 seconds)
