@@ -598,6 +598,29 @@ sql> xp_dirtree "\\{IP ADDRESS}\test"
 
 ```
 
+## MYSQL [3306] 
+
+<br />
+
+```bash
+# MYSQL Remote Connect
+mysql -h {RHOST} -u {root}
+
+# Commands
+sql> show databases;
+sql> use {DATABASE};
+sql> show tables;
+sql> describe {TABLE};
+sql> show columns from {TABLE};
+
+sql> select version();
+sql> select @@version(); 
+sql> select user(); 
+sql> select database();
+
+#Get a shell with the mysql client user
+\! sh
+```
 
 <br />
 
