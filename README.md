@@ -185,15 +185,11 @@ medusa -h {RHOST} -u {user} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
 <br />
 
 ```bash
-#VRFY: asks the server to verify an email address
-#EXPN: asks the server for the membership of a mailing list
-
 # Connect to mail server
- nc -nv {IP ADDRESS} 25
+ nc -nv {RHOST} 25
  
 # Connect to Windows mail server
- nc -nv -C {IP ADDRESS} 25
-
+ nc -nv -C {RHOST} 25
 
 # VRFY Usage
 VRFY root
@@ -208,6 +204,9 @@ SUBJECT: Test message
 Test Body
 .
 Quit
+
+#VRFY: asks the server to verify an email address
+#EXPN: asks the server for the membership of a mailing list
 ```
 
 <br />
@@ -219,35 +218,28 @@ Quit
 <br />
 
 ```bash
-# ssh
-# About: terminal remote login
-# Download: Pre-installed on Kali Linux
-
-# Usage
-ssh {USER}@{IP ADDRESS}
+# SSH Connect
+ssh {USER}@{RHOST}
 
 # With Private Key
-ssh {USER}@{IP ADDRESS} -i {PKEY.ssh}
+ssh {USER}@{RHOST} -i {PKEY.ssh}
 
 # Remote file copy
-scp {USER}@{IP ADDRESS}:{FILE.ext} .
-scp /path/to/source/file.ext username@{RHOST}:/path/to/destination
+scp {USER}@{RHOST}:{file.ext} .
+scp {/path/to/source/file.ext} {USER}@{RHOST}:{/path/to/destination}
 
 # Directory
-scp -r /path/to/source/dir username@{RHOST}:/path/to/destination
+scp -r {/path/to/source/dir} {USER}@{RHOST}:{/path/to/destination}
 
-# Hydra brute force
-hydra -f -l {USER} -P /usr/share/wordlists/rockyou.txt ssh://{IP ADDRESS}
+# SSH Brute Force
+hydra -f -l {USER} -P {pass.txt} ssh://{RHOST}
 hydra -f -t 16 -L {user.txt} -P {pass.txt} ssh://{RHOST}
 
-# Crackmap brute force
-crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
+crackmapexec ssh {RHOST} -u {user.txt} -p {pass.txt}
 
 # sign_and_send_pubkey: no mutual signature supported
 -oPubkeyAcceptedKeyTypes=+ssh-rsa
 -oKexAlgorithms=+diffie-hellman-group-exchange-sha1
-
-
 ```
 
 ## DNS [53]
@@ -255,12 +247,8 @@ crackmapexec ssh {IP ADDRESS} -u {USER.txt} -p {PASSWORD.txt}
 <br />
 
 ```bash
-# axfr
-# About: DNS zone transfer
-# Download: Pre-installed on Kali Linux
-
 # DNS Zone Transfer using dig
-dig axfr @{IP ADDRESS} {Domain Name}
+dig axfr @{RHOST} {DOMAIN}
 
 #DNSRecon
 dnsrecon -d {DOMAIN} -t axfr
@@ -270,8 +258,6 @@ dnsrecon -d {DOMAIN} -D ~/{BRUTE_LIST.txt} -t brt
 
 #DNSenum
 dnsenum {DOMAIN}
-
-
 ```
 
 ## TFTP [69]
