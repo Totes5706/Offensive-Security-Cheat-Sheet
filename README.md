@@ -145,29 +145,30 @@ sudo masscan -p80 {IP ADDRESS}/24 --rate=1000 -e tap0 --router-ip {GATEWAY IP}
 <br />
 
 ```bash
-# FTP
-# About: Connect to FTP server
-# Download: Pre-installed on Kali Linux
-
-# Usage
+# FTP connect
 ftp {IP ADDRESS}
-
-# FTP-Upload
-ftp-upload -h {RHOST} -u 'anonymous' --password '' -d '/' {file.exe}
-
-# Recursively download ftp directory
-wget -r ftp://{USERNAME}:{PASSWORD@{IP ADDRESS}/
-
-ncftp -u <user> -p <pass> <server>
-ncftp> mget directory
 
 # Note - If FTP is hung up on viewing directory, ex.: ftp>dir 229 Entering Extended Passive Mode (|||52924|)
 ftp> passive
 ftp> espv
 ftp> ls
 
+# Alternative Client
+ncftp -u {USER} -p {PASS} -P {RPORT} {RHOST}
+
+# FTP-Upload
+ftp-upload -h {RHOST} -u 'anonymous' --password '' -d '/' {file.exe}
+
+# Download entire FTP directory
+wget -r ftp://{USER}:{PASS}@{RHOST}/
+
+ncftp> mget directory
+
 # Brute force FTP
-medusa -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
+hydra -f -t 16 -l {user} -P {pass.txt} ftp://{RHOST}
+hydra -f -t 16 -L {user.txt} -P {pass.txt} ftp://{RHOST}
+
+medusa -h {RHOST} -u {user} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
 
 # Additional Information
 # Default Credentials: anonymous
