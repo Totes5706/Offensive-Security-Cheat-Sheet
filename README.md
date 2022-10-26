@@ -1536,6 +1536,95 @@ echo "temp:\$1\$ignite\$3eTbJm98O9Hz.k1NTdNxe1:0:0:root:/root:/bin/bash" >> /etc
 su temp
 pass pass123
 ```
+
+#### Service Exploits
+
+![image](https://user-images.githubusercontent.com/59018247/198109598-a222e9a4-65c2-4823-b582-7ea862228e3d.png)
+
+![image](https://user-images.githubusercontent.com/59018247/198109801-fda68e1f-f8f4-4804-b25c-bdf1cffbcf24.png)
+
+#### Weak File Permissions - Readable /etc/shadow 
+
+![image](https://user-images.githubusercontent.com/59018247/198111048-838763f3-44f1-4a35-9305-b16ada885fc1.png)
+
+#### Weak File Permissions - Writable /etc/shadow 
+
+![image](https://user-images.githubusercontent.com/59018247/198110841-b24933a0-5fbb-40a6-9702-b218b3a1f4cf.png)
+
+
+#### Weak File Permissions - Writable /etc/passwd 
+
+![image](https://user-images.githubusercontent.com/59018247/198111085-9626fce3-1a24-4356-ac79-9569b02b31de.png)
+![image](https://user-images.githubusercontent.com/59018247/198110841-b24933a0-5fbb-40a6-9702-b218b3a1f4cf.png)
+
+#### Sudo - Shell Escape Sequences 
+
+![image](https://user-images.githubusercontent.com/59018247/198111364-3120c35f-1091-49e8-a5fa-7b17fd33c78b.png)
+
+#### Sudo - Environment Variables 
+
+![image](https://user-images.githubusercontent.com/59018247/198111571-be17b4c5-8eb9-48e9-8deb-79081894f4d3.png)
+
+
+#### Cron Jobs - File Permissions 
+
+![image](https://user-images.githubusercontent.com/59018247/198111845-4835649c-4462-4793-b76d-bbc140a5b01a.png)
+
+![image](https://user-images.githubusercontent.com/59018247/198111878-71d937e6-e859-4e06-92df-6d961b68b591.png)
+
+![image](https://user-images.githubusercontent.com/59018247/198112246-c55f2208-124c-43db-bdd8-bda1d8c095fe.png)
+
+#### Cron Jobs - PATH Environment Variable 
+
+![image](https://user-images.githubusercontent.com/59018247/198111845-4835649c-4462-4793-b76d-bbc140a5b01a.png)
+
+![image](https://user-images.githubusercontent.com/59018247/198112436-035f7cde-1cd1-46fa-a9aa-275fafaedfb4.png)
+
+
+#### Cron Jobs - Wildcards 
+
+![image](https://user-images.githubusercontent.com/59018247/198112847-55b29e82-6eee-4ba2-a0dc-b2dc2b79395d.png)
+
+#### SUID / SGID Executables - Known Exploits
+
+![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
+
+####  SUID / SGID Executables - Shared Object Injection 
+
+![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
+
+#### SUID / SGID Executables - Environment Variables 
+
+![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
+
+#### SUID / SGID Executables - Abusing Shell Features (#1) 
+
+![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
+
+
+####  SUID / SGID Executables - Abusing Shell Features (#2) 
+
+![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
+
+####  Passwords & Keys - History Files 
+
+![image](https://user-images.githubusercontent.com/59018247/198114334-165f06e1-e0a4-40ac-8811-3af44a660724.png)
+
+
+
+####  Passwords & Keys - Config Files 
+
+####  Passwords & Keys - SSH Keys 
+
+####  NFS
+
+![image](https://user-images.githubusercontent.com/59018247/198115075-330fe95c-1c92-4961-af21-51a48359069e.png)
+
+#### Kernel Exploits
+
+![image](https://user-images.githubusercontent.com/59018247/198115326-5ded00eb-0475-4cbd-ae56-44ac1bcaed1f.png)
+
+
 <br />
 
 # Port Forwarding and Tunneling
