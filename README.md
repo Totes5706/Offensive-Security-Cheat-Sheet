@@ -671,11 +671,22 @@ download {FILE.exe}
 
 <br />
 
-#### MYSQL/MSSQL:
+#### MSSQL:
+[https://guide.offsecnewbie.com/5-sql#mssqli-exploitation](https://guide.offsecnewbie.com/5-sql#mssqli-exploitation)
 [https://perspectiverisk.com/mssql-practical-injection-cheat-sheet/](https://perspectiverisk.com/mssql-practical-injection-cheat-sheet/)
-[https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation](https://guide.offsecnewbie.com/5-sql#mssql-blind-exploitation)
+[https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/mssql-sql-injection-cheat-sheet)
 
-convert(int,@@version)
+
+#### MYSQL
+[https://guide.offsecnewbie.com/5-sql#identifying-sql-injection](https://guide.offsecnewbie.com/5-sql#identifying-sql-injection)
+[https://perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/](https://perspectiverisk.com/mysql-sql-injection-practical-cheat-sheet/)
+[https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/mysql-sql-injection-cheat-sheet)
+
+#### ORACLE
+[https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html](https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html)
+[https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet](https://pentestmonkey.net/cheat-sheet/sql-injection/oracle-sql-injection-cheat-sheet)
+
+<br />
 
 ```
 Auth Bypass
