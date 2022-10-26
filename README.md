@@ -1542,7 +1542,7 @@ pass pass123
 ![image](https://user-images.githubusercontent.com/59018247/198109598-a222e9a4-65c2-4823-b582-7ea862228e3d.png)
 ![image](https://user-images.githubusercontent.com/59018247/198109801-fda68e1f-f8f4-4804-b25c-bdf1cffbcf24.png)
 
-```bash
+```
 The MySQL service is running as root and the "root" user for the service does not have a password assigned. We can use a popular exploit that takes advantage of User Defined Functions (UDFs) to run system commands as root via the MySQL service.
 
 Change into the /home/user/tools/mysql-udf directory:
@@ -1580,7 +1580,7 @@ Exit out of the MySQL shell (type exit or \q and press Enter) and run the /tmp/r
 
 ![image](https://user-images.githubusercontent.com/59018247/198111048-838763f3-44f1-4a35-9305-b16ada885fc1.png)
 
-```bash
+```
 The /etc/shadow file contains user password hashes and is usually readable only by the root user.
 
 Note that the /etc/shadow file on the VM is world-readable:
@@ -1606,7 +1606,7 @@ su root
 
 ![image](https://user-images.githubusercontent.com/59018247/198110841-b24933a0-5fbb-40a6-9702-b218b3a1f4cf.png)
 
-```bash
+```
 The /etc/shadow file contains user password hashes and is usually readable only by the root user.
 
 Note that the /etc/shadow file on the VM is world-writable:
@@ -1630,7 +1630,7 @@ su root
 ![image](https://user-images.githubusercontent.com/59018247/198111085-9626fce3-1a24-4356-ac79-9569b02b31de.png)
 ![image](https://user-images.githubusercontent.com/59018247/198110841-b24933a0-5fbb-40a6-9702-b218b3a1f4cf.png)
 
-```bash
+```
 The /etc/passwd file contains information about user accounts. It is world-readable, but usually only writable by the root user. Historically, the /etc/passwd file contained user password hashes, and some versions of Linux will still allow password hashes to be stored there.
 
 Note that the /etc/passwd file is world-writable:
@@ -1657,7 +1657,7 @@ su newroot
 
 ![image](https://user-images.githubusercontent.com/59018247/198111364-3120c35f-1091-49e8-a5fa-7b17fd33c78b.png)
 
-```bash
+```
 List the programs which sudo allows your user to run:
 
 sudo -l
@@ -1669,7 +1669,7 @@ Visit GTFOBins (https://gtfobins.github.io) and search for some of the program n
 
 ![image](https://user-images.githubusercontent.com/59018247/198111571-be17b4c5-8eb9-48e9-8deb-79081894f4d3.png)
 
-```bash
+```
 Sudo can be configured to inherit certain environment variables from the user's environment.
 
 Check which environment variables are inherited (look for the env_keep options):
@@ -1709,7 +1709,7 @@ sudo LD_LIBRARY_PATH=/tmp apache2
 
 ![image](https://user-images.githubusercontent.com/59018247/198112246-c55f2208-124c-43db-bdd8-bda1d8c095fe.png)
 
-```bash
+```
 Cron jobs are programs or scripts which users can schedule to run at specific times or intervals. Cron table files (crontabs) store the configuration for cron jobs. The system-wide crontab is located at /etc/crontab.
 
 View the contents of the system-wide crontab:
@@ -1741,7 +1741,7 @@ nc -nvlp 4444
 
 ![image](https://user-images.githubusercontent.com/59018247/198112436-035f7cde-1cd1-46fa-a9aa-275fafaedfb4.png)
 
-```bash
+```
 View the contents of the system-wide crontab:
 
 cat /etc/crontab
@@ -1768,7 +1768,7 @@ Wait for the cron job to run (should not take longer than a minute). Run the /tm
 
 ![image](https://user-images.githubusercontent.com/59018247/198112847-55b29e82-6eee-4ba2-a0dc-b2dc2b79395d.png)
 
-```bash
+```
 View the contents of the other cron job script:
 
 cat /usr/local/bin/compress.sh
@@ -1801,7 +1801,7 @@ nc -nvlp 4444
 
 ![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
 
-```bash
+```
 Find all the SUID/SGID executables on the Debian VM:
 
 find / -type f -a \( -perm -u+s -o -perm -g+s \) -exec ls -l {} \; 2> /dev/null
@@ -1819,7 +1819,7 @@ Run the exploit script to gain a root shell:
 
 ![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
 
-```bash
+```
 The /usr/local/bin/suid-so SUID executable is vulnerable to shared object injection.
 
 First, execute the file and note that currently it displays a progress bar before exiting:
@@ -1849,7 +1849,7 @@ Execute the suid-so executable again, and note that this time, instead of a prog
 
 ![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
 
-```bash
+```
 The /usr/local/bin/suid-env executable can be exploited due to it inheriting the user's PATH environment variable and attempting to execute programs without specifying an absolute path.
 
 First, execute the file and note that it seems to be trying to start the apache2 webserver:
@@ -1876,7 +1876,7 @@ PATH=.:$PATH /usr/local/bin/suid-env
 
 ![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
 
-```bash
+```
 The /usr/local/bin/suid-env2 executable is identical to /usr/local/bin/suid-env except that it uses the absolute path of the service executable (/usr/sbin/service) to start the apache2 webserver.
 
 Verify this with strings:
@@ -1904,7 +1904,7 @@ Run the suid-env2 executable to gain a root shell:
 
 ![image](https://user-images.githubusercontent.com/59018247/198113504-ba9b6a40-e86c-495f-a92b-837a69d81266.png)
 
-```bash
+```
 Note: This will not work on Bash versions 4.4 and above.
 
 When in debugging mode, Bash uses the environment variable PS4 to display an extra prompt for debugging statements.
@@ -1921,7 +1921,7 @@ Run the /tmp/rootbash executable with -p to gain a shell running with root privi
 
 ![image](https://user-images.githubusercontent.com/59018247/198114334-165f06e1-e0a4-40ac-8811-3af44a660724.png)
 
-```bash
+```
 If a user accidentally types their password on the command line instead of into a password prompt, it may get recorded in a history file.
 
 View the contents of all the hidden history files in the user's home directory:
@@ -1938,7 +1938,7 @@ su root
 
 ####  Passwords & Keys - Config Files 
 
-```bash
+```
 Config files often contain passwords in plaintext or other reversible formats.
 
 List the contents of the user's home directory:
@@ -1956,7 +1956,7 @@ su root
 
 ####  Passwords & Keys - SSH Keys 
 
-```bash
+```
 Sometimes users make backups of important files but fail to secure them with the correct permissions.
 
 Look for hidden files & directories in the system root:
@@ -1976,7 +1976,7 @@ Copy the key over to your Kali box (it's easier to just view the contents of the
 
 ![image](https://user-images.githubusercontent.com/59018247/198115075-330fe95c-1c92-4961-af21-51a48359069e.png)
 
-```bash
+```
 Files created via NFS inherit the remote user's ID. If the user is root, and root squashing is enabled, the ID will instead be set to the "nobody" user.
 
 Check the NFS share configuration on the Debian VM:
@@ -2011,7 +2011,7 @@ Back on the Debian VM, as the low privileged user account, execute the file to g
 
 ![image](https://user-images.githubusercontent.com/59018247/198115326-5ded00eb-0475-4cbd-ae56-44ac1bcaed1f.png)
 
-```bash
+```
 Kernel exploits can leave the system in an unstable state, which is why you should only run them as a last resort.
 
 Run the Linux Exploit Suggester 2 tool to identify potential kernel exploits on the current system:
