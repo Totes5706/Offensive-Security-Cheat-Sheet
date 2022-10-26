@@ -1251,7 +1251,7 @@ net start {SERVICE}
 #### Unquoted Service Path
 
 ![image](https://user-images.githubusercontent.com/59018247/198094944-1b83a728-8b11-49de-b3fd-00e4597565ee.png)
-![image](https://user-images.githubusercontent.com/59018247/198095088-b72a4906-98e7-4f9b-b75e-b82add5eff1f.png)
+![image](https://user-images.githubusercontent.com/59018247/198102724-20e627cd-e4b5-4b5f-9559-54b2b6d61a25.png)
 
 ```ps1
 #########################################################################
@@ -1277,7 +1277,7 @@ net start {SERVICE}
 
 #### Weak Registry Permissions
 
-![image](https://user-images.githubusercontent.com/59018247/198095341-9b111099-af90-464d-bec7-fe4913f45695.png)
+![image](https://user-images.githubusercontent.com/59018247/198103053-e4ab83ac-a007-4385-bdbd-a340e67bf293.png)
 
 ```ps1
 #########################################################################
