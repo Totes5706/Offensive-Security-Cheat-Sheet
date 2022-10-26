@@ -194,7 +194,7 @@ medusa -h {RHOST} -u {user} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
 # VRFY Usage
 VRFY root
 
-# Check email
+# Send email
 HELO USER.com
 MAIL FROM: <SENDER@EMAIL.COM>
 RCPT TO: <TARGET@EMAIL.COM>
