@@ -146,7 +146,7 @@ sudo masscan -p80 {IP ADDRESS}/24 --rate=1000 -e tap0 --router-ip {GATEWAY IP}
 
 ```bash
 # FTP connect
-ftp {IP ADDRESS}
+ftp {RHOST}
 
 # Note - If FTP is hung up on viewing directory, ex.: ftp>dir 229 Entering Extended Passive Mode (|||52924|)
 ftp> passive
