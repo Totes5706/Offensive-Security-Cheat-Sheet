@@ -400,6 +400,7 @@ https://www.hackingarticles.in/active-directory-enumeration-rpcclient/
 # Enumerate RPC client 
 rpcclient -U "" -N {RHOST}
 rpcclient -U '{USER}'%'{PASS}' {RHOST}
+
 # Get information about objects such as groups or users
 enumdomusers
 enumdomains
