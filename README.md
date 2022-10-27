@@ -862,6 +862,7 @@ sudo neo4j console                          # LHOST
 
 # Bloodhound python remote access
 sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USER}' -p '{PASS}' -ns {RHOST} -d {DOMAIN} -c all
+sudo python3 /opt/BloodHound.py/bloodhound.py -u '{USER}' --hashes '{HASH:HASH}' -ns {RHOST} -d {DOMAIN} -c all
 
 # Powerview example
 powershell -ExecutionPolicy Bypass
