@@ -499,10 +499,10 @@ smbmap -H {RHOST}
 smbmap -u '' -p '' -H {RHOST}  
 
 # Recursively show all readable files and shares
-smbmap -R {SHARE} -H {RHOST} --depth 10
+smbmap --depth 10 -H {RHOST} -R {SHARE}
 
 # Download a file with smbmap
-smbmap -R {SHARE} -H {RHOST} -A {FILE} -q 
+smbmap -q -H {RHOST} -R {SHARE} -A {FILE}
 
 # List all SMB Shares
 smbclient -L {RHOST}
