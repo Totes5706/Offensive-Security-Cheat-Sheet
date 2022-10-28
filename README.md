@@ -1102,7 +1102,7 @@ netsh advfirewall set allprofiles state off
 service_exec(conn, r'cmd /c netsh advfirewall set allprofiles state off') 
 
 # OSCP Flag Proof
-type proof.txt && whoami && hostname && ipconfig
+type C:/Users/Administrator/Desktop/proof.txt && whoami && hostname && ipconfig
 ```
 
 #### Credential Access
@@ -1541,7 +1541,7 @@ su temp
 pass pass123
 
 # OSCP Flag Proof
-cat proof.txt && whoami && hostname && ip addr
+cat /root/proof.txt && whoami && hostname && ip addr
 ```
 
 #### Service Exploits
