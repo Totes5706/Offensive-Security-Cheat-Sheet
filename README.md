@@ -283,17 +283,17 @@ tftp {IP ADDRESS}
 ```bash
 # Directory Enumeration
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://{RHOST}
-ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u "http://{RHOST}/FUZZ"
+ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -c -u "http://{RHOST}/FUZZ"
 
 # Sub-Domain Enumeration
-ffuf -ic -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -u "http://{RHOST}" -H "Host:FUZZ.{RHOST}"
+ffuf -ic -w /usr/share/seclists/Discovery/DNS/subdomains-top1million-110000.txt -c -u "http://{RHOST}" -H "Host:FUZZ.{RHOST}"
 
 # Search File Extensions
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -x php,cgi,pl,sh -u http://{RHOST} 
-ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e '.html,.txt,.asp,.aspx' -u "http://{RHOST}/FUZZ"  
+ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -c -e '.html,.txt,.asp,.aspx' -u "http://{RHOST}/FUZZ"  
 
 # Blacklist Results by Page Size
-ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -e '.html,.txt,.asp,.aspx' -u "http://{RHOST}/FUZZ" -fs {200)  
+ffuf -ic -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -c -e '.html,.txt,.asp,.aspx' -u "http://{RHOST}/FUZZ" -fs {200)  
 
 # GOBUSTER SOCKS5 flag
 --proxy socks5://127.0.0.1:{PROXY PORT)
