@@ -283,7 +283,7 @@ tftp {IP ADDRESS}
 ```bash
 # Directory Enumeration
 gobuster dir -w /usr/share/wordlists/dirbuster/directory-list-2.3-medium.txt -u http://{RHOST}
-ffuf -ic -w /usr/share/seclists/Discovery/Web-Content/common.txt -c -e '.html' -u "http://collect.htb/FUZZ" 
+ffuf -ic -w /usr/share/seclists/Discovery/Web-Content/common.txt -c -u "http://{RHOST}/FUZZ" 
 ffuf -ic -w /usr/share/seclists/Discovery/Web-Content/directory-list-2.3-medium.txt -c -u "http://{RHOST}/FUZZ"
 
 # Sub-Domain Enumeration
