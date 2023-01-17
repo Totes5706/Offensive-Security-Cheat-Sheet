@@ -179,6 +179,38 @@ medusa -h {RHOST} -u {user} -P /usr/share/wordlists/rockyou.txt -M ftp -t 10
 
 <br />
 
+
+## SSH [22] 
+
+<br />
+
+```bash
+# SSH Connect
+ssh {USER}@{RHOST}
+
+# With Private Key
+ssh {USER}@{RHOST} -i {PKEY.ssh}
+
+# Remote file copy
+scp {USER}@{RHOST}:{file.ext} .
+scp {/path/to/source/file.ext} {USER}@{RHOST}:{/path/to/destination}
+
+# Directory
+scp -r {/path/to/source/dir} {USER}@{RHOST}:{/path/to/destination}
+
+# SSH Brute Force
+hydra -f -l {USER} -P {pass.txt} ssh://{RHOST}
+hydra -f -t 16 -L {user.txt} -P {pass.txt} ssh://{RHOST}
+
+crackmapexec ssh {RHOST} -u {user.txt} -p {pass.txt}
+
+# sign_and_send_pubkey: no mutual signature supported
+-oPubkeyAcceptedKeyTypes=+ssh-rsa
+-oKexAlgorithms=+diffie-hellman-group-exchange-sha1
+```
+
+<br />
+
 ## SMTP [25]
 
 
@@ -211,37 +243,6 @@ Quit
 
 <br />
 
-<br />
-
-## SSH [22] 
-
-<br />
-
-```bash
-# SSH Connect
-ssh {USER}@{RHOST}
-
-# With Private Key
-ssh {USER}@{RHOST} -i {PKEY.ssh}
-
-# Remote file copy
-scp {USER}@{RHOST}:{file.ext} .
-scp {/path/to/source/file.ext} {USER}@{RHOST}:{/path/to/destination}
-
-# Directory
-scp -r {/path/to/source/dir} {USER}@{RHOST}:{/path/to/destination}
-
-# SSH Brute Force
-hydra -f -l {USER} -P {pass.txt} ssh://{RHOST}
-hydra -f -t 16 -L {user.txt} -P {pass.txt} ssh://{RHOST}
-
-crackmapexec ssh {RHOST} -u {user.txt} -p {pass.txt}
-
-# sign_and_send_pubkey: no mutual signature supported
--oPubkeyAcceptedKeyTypes=+ssh-rsa
--oKexAlgorithms=+diffie-hellman-group-exchange-sha1
-```
-
 ## DNS [53]
 
 <br />
@@ -249,6 +250,9 @@ crackmapexec ssh {RHOST} -u {user.txt} -p {pass.txt}
 ```bash
 # DNS Zone Transfer using dig
 dig axfr @{RHOST} {DOMAIN}
+
+# Reverse DNS Lookup
+dig @{RHOST} -x {RHOST}
 
 #DNSRecon
 dnsrecon -d {DOMAIN} -t axfr
